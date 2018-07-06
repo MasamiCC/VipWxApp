@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/userCenter/tickets/tickets",
+    "pages/userCenter/index/index",
+    "pages/userCenter/bindMobile/bindMobile",
+    "pages/userCenter/myCollect/myCollect",
+    "pages/userCenter/myRoots/myRoots",
+    "pages/userCenter/myOrder/myOrder",
+    "pages/userCenter/myOrder/orderDetail",
+    "pages/userCenter/address/address",
+    "pages/userCenter/coupon/coupon",
+    "pages/userCenter/newaddress/newaddress",
+    "pages/logs/logs",
+    "pages/shop/shop",
+    "pages/search/search",
+    "pages/shop/shop-diandan/shop-diandan",
+    "pages/Components/search/search",
+    "pages/order/subOrder/subOrder",
+    "pages/order/orderDetail/orderDetail",
+    "pages/order/payment/payment",
+    "pages/shop/shop-list/shop-list",
+    "pages/404",
+    "pages/userCenter/allcomments/allcomments",
+    "pages/Components/comment-list/comment-list",
+    "pages/Components/comment-item/comment-item",
+    "pages/userCenter/bindMobile/binding/binding",
+    "pages/userCenter/bindMobile/bindUnbind/bindUnbind",
+    "pages/userCenter/bindMobile/bindPhone/bindPhone",
+    "pages/userCenter/bindMobile/unbindPhone/unbindPhone",
+    "pages/userCenter/myComments/myComments",
+    "pages/userCenter/comment/comment",
+    "pages/userCenter/commentDetails/commentDetails",
+    "pages/userCenter/notice/notice"
+  ],
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#ff9c00",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/statics/imgs/tabBar/ic_home.png",
+        "selectedIconPath": "/statics/imgs/tabBar/ic_home_h.png"
+      },
+      {
+        "pagePath": "pages/userCenter/myOrder/myOrder",
+        "text": "订单",
+        "iconPath": "/statics/imgs/tabBar/ic_order.png",
+        "selectedIconPath": "/statics/imgs/tabBar/ic_order_h.png"
+      },
+      {
+        "pagePath": "pages/userCenter/index/index",
+        "text": "我的",
+        "iconPath": "/statics/imgs/tabBar/ic_user.png",
+        "selectedIconPath": "/statics/imgs/tabBar/ic_user_h.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "轻奢点评",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  }
+}

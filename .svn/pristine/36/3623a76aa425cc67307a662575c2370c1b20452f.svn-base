@@ -1,0 +1,15 @@
+<view class='pagecon'>
+  <view class='rocketpiccon'>
+    <image class='rocketpic' src='/statics/imgs/rocket.png'></image>
+  </view>
+  <view class='backindexline'>
+    <navigator url="/pages/index/index"  open-type="switchTab" hover-class="other-navigator-hover">
+      <view class='backindex'>回到首页</view>
+    </navigator>
+  </view>
+  <view class='backprevioustline'>
+    <navigator url="/pages/index/index"  open-type="navigateBack" hover-class="other-navigator-hover">
+      <view class='backprevious'>返回上一页</view>
+    </navigator>
+  </view>
+</view>

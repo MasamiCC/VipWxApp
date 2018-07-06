@@ -1,0 +1,25 @@
+<view style='margin:auto 30rpx;'  >
+      <view class='shop-diandan-list-top'  bindtap='_catClick'>
+        <view class="{{active?'is_Checked':'shop-diandan-typename' }}" bindtap='type_click' wx:if="{{active||showCat==0}}">
+        {{cat.typename}}<text wx:if="{{count>0}}" class="count">{{count}}</text>
+        </view> 
+        <view wx:if="{{cat.prevType&&active}}" class='cat_next'><text class="ups">上一个分类：{{cat.prevType}}</text></view>
+    
+      </view>
+      <view class='shop-diandan-list-middle {{active?"listShow":""}}'>
+        <scroll-view scroll-y="true"style="height:650rpx;padding-right:10rpx">
+          <view wx:for="{{cat.goods}}" wx:key="goods{{item.id}}" class='diandan'>
+            <shop-diandan-item  item="{{item}}" bind:cartChange="_cartChange"></shop-diandan-item>
+          </view>
+          
+        </scroll-view>
+        
+      </view>
+    
+      <view class='shop-diandan-list-bottom'>
+        <view wx:if="{{cat.nextType&&active}}" class='cat_prev downs'>下一个分类：{{cat.nextType}} </view>
+      </view>
+      
+</view>
+
+

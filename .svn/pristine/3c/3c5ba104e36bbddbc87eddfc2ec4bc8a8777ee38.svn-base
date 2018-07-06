@@ -1,0 +1,12 @@
+<!-- <view wx:for="{{lists}}" wx:key="list">
+  {{item.shopid}}--{{item.shop_name}}
+</view> -->
+
+<scroll-view scroll-y style="height:100%;" bindscrolltolower='_getShops' bindscroll="scroll"> 
+  <block>
+    <view wx:for="{{lists}}" wx:key="list">
+      <!-- 用item遍历数组，mode套用模板 -->
+      <shop-item item="{{item}}" mode="shoplist"></shop-item>
+    </view>
+  </block>
+</scroll-view>

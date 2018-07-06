@@ -1,0 +1,13 @@
+<view class='main'>
+  <view wx:if="{{list==''}}" style='text-align:center;font-size:0.875rem;padding-bottom:20px;line-height:3;padding-top:80px;'>
+  暂无数据
+  </view>
+  <view wx:else="" >
+    <view style='background:#f4f4f4; margin:10px 0'>
+      <comment-item wx:for="{{list}}" item="{{item}}" wx:key="{{index}}"  mode="{{mode}}" commentStatus="{{commentStatus}}"></comment-item>
+      <view style='text-align:center;font-size:0.875rem;padding-bottom:20px;line-height:1.5;color:#666'>没有更多数据了...</view>
+    </view>  
+  </view>
+   
+</view>
+

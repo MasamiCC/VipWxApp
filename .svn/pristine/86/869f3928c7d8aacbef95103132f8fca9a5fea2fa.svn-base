@@ -1,0 +1,13 @@
+<!--pages/index/index-tuijian/index-tuijian.wxml-->
+<view class="swiper-container">
+<swiper class="swip" previous-margin="25rpx" next-margin="25rpx" circular='true' indicator-dots="{{indicatorDots}}"
+  autoplay="true" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange"> 
+    <block wx:for="{{items}}" wx:key="unique">
+    <swiper-item class="{{index==swiperCurrent?'actives':''}} ">
+      <view class="img" bindtap='_goShop' data-shopid="{{item.shopid}}">
+        <image wx:if="{{item.img}}" src="{{imgUrls}}{{item.img}}" class="slide-image" mode='widthFix'/>
+      </view>   
+    </swiper-item>
+  </block>   
+</swiper>
+</view>

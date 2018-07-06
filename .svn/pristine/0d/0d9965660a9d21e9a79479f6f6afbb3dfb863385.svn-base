@@ -1,0 +1,132 @@
+/* pages/Components/coupon-item/coupon-item.wxss */
+
+page{
+  background-color: #f4f4f4;
+}
+.tab-h{
+  height: 80rpx;width: 100%; box-sizing: border-box;overflow: hidden;line-height: 80rpx;background-color: #fff!important; font-size: 16px; white-space: nowrap;position: fixed;top: 0; left: 0; z-index: 99;}
+.tab-item{margin:0 55rpx;display: inline-block;}
+.tab-item.active{color: #dab875;position: relative;}
+.tab-item.active:after{ content: "";display: block;height: 5rpx;width: 90rpx;background: #dab875;position: absolute; bottom: 0;left: 5rpx;border-radius: 16rpx;}
+.item-ans{ width: 100%;display: flex;padding:20rpx 30rpx 20rpx 30rpx;box-sizing: border-box; }
+.avatar{width: 25%;padding-right: 30rpx;text-align: center;color:#ccc;  display: flex;
+  justify-content: center;
+  align-items: center;}
+.firstline{
+  font-size: 50rpx;
+  width:60px;
+ 
+}
+.firstline>view{
+  font-size:12px;
+}
+.avatar .img{width: 100%;height: 100%;}
+.avatar .doyen{width: 40rpx;height: 40rpx;position: absolute;bottom: -2px;right: 20rpx;}
+.expertInfo{font-size: 12px;width:170px;
+line-height: 1.5em;color:#ccc;}
+.expertInfo .name{font-size: 16px;margin-bottom: 8px;}
+.expertInfo .name span{
+  vertical-align: center;
+}
+.askBtn{ width: 120rpx;height: 60rpx;line-height: 60rpx;text-align: center;font-size: 14px; border-radius: 60rpx;border: 1px solid #dab875; color:#4675F9;
+}
+.name view{
+  display: inline-block;
+}
+.tab-content{margin-top: 80rpx;}
+.scoll-h{height: 100%;}
+.icontype{
+  display: inline-block;
+  width: 20%;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #ccc;
+  color: #fff;
+  font-size: 0.625rem;
+  line-height: 20px;
+  text-align: center;
+  margin-right: 5px;
+}
+.coupon_bottom{
+  font-size:0.625rem; 
+  color: #ccc;
+  padding:20rpx 30rpx;
+  background-color: #fff;
+  border-radius:10px;
+  border-top: 1px dashed #ddd;
+  margin-left: 20px;
+  /* line-height: 1.5; */
+}
+.couponall{
+  background-color: #fff;
+  margin:10px;
+  position: relative;
+  border-radius: 10px;
+}
+.font{
+ font-size: 26rpx;
+}
+.middleimg{
+  width: 100%;
+  height: 100%;
+}
+.coupon_middle{
+  height: 14px;
+}
+.shop_name{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  width:99%;
+  vertical-align: middle;
+}
+.imgbg{
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  z-index: 5; 
+}
+.fourthimgs{
+  width: 60px;
+  height: 60px;
+}
+.icon1{
+  background: #fc7875;
+}
+.icon2{
+  background: #70c38e;
+}
+.colorfont{
+  color: #d91a1a;
+}
+.zhefont{
+  display: inline-block;
+  font-size: 12px；
+}
+.button_con{
+  flex: 1;
+   align-items:flex-start; 
+  display: flex;
+   justify-content: flex-end;
+  align-content: flex-start; 
+  /* min-width: 50px; */
+}
+.button{
+  display: inline-block;
+  /* padding: 0 5px; */
+  font-size: 0.625rem;
+  color: #d14a39;
+  background: #f7f7e1;
+  width: 50px;
+  text-align: center;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 3px;
+}
+
+.fredfont{
+  color: #ce3a26;
+}
+.blackshopname{
+  color: #333;
+}

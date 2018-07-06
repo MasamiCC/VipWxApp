@@ -1,0 +1,26 @@
+<view class='adress_all' >
+    <view class='address_item' wx:for="{{datalist}}" wx:key="this">
+    <view class='first'>
+      <view class='name' >{{item.reciver}}</view>
+      <view class='tel'>{{item.mobile}}</view>
+    </view>
+    <view class='second'>
+      {{item.address}}
+    </view>
+    <view class='first'>
+      <view class=''>
+          <checkbox-group bindchange="checkboxChange" data-addressid="{{item.id}}" data-flag="{{item.flag}}">
+          <label>
+              <checkbox value=""   checked="{{item.flag== 0}}">默认地址</checkbox>
+          </label>   
+        </checkbox-group>   
+      </view>
+      <view class='right'>
+        <span class='modify' bindtap="navigateTo" data-addressid="{{item.id}}" ><image src='../../../statics/imgs/modify.png'></image>编辑</span>
+        <span class='clear' bindtap='deleteitem' data-addressid="{{item.id}}" ><image src='../../../statics/imgs/clear.png'></image>删除</span>
+      </view>
+    </view>
+  </view>
+  <view><button   bindtap="navigateTo" class='addnew'>添加新地址</button></view>     
+</view>
+ 

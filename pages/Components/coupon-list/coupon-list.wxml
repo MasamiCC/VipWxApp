@@ -1,0 +1,10 @@
+<view wx:if="{{list==''}}" class='notips'>
+  暂无优惠券
+</view>
+<view wx:else="" style='background:#eee'>
+     <!-- <view class='gsfont'>
+         您有<span class='rednum'></span>张优惠券即将到期 
+    </view>  -->
+  <coupon-item wx:for="{{list}}" item="{{item}}" wx:key="{{index}}"  mode="{{mode}}">
+  </coupon-item>
+</view>

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "order-item": "../../Components/order-item/order-item"
+  }
+}

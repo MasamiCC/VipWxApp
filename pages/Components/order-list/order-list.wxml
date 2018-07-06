@@ -1,0 +1,6 @@
+<view wx:if="{{list==''}}" class='orderlistfont'>
+  暂无数据
+</view>
+<view wx:else="" style='background:#eee'>
+  <order-item wx:for="{{list}}" item="{{item}}" wx:key="{{index}}"></order-item>
+</view>

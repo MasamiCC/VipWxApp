@@ -1,0 +1,2 @@
+/* pages/Components/shop-list/shop-list.wxss */
+.empty{text-align: center;line-height: 5}

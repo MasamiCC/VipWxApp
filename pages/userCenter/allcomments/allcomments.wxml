@@ -1,0 +1,2 @@
+<swipe-tab class="swipe-tab" currentTab='{{currentTab}}' tabs="{{tabs}}" mode="comment"  shopid='{{shopid}}'>
+</swipe-tab> 

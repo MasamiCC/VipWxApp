@@ -1,0 +1,6 @@
+/* pages/Components/comment-list/comment-list.wxss */
+.main{
+  height: 100%;
+  width: 100%;
+  background:#f4f4f4;
+}

@@ -1,0 +1,7 @@
+
+<view class='star_container' style='justify-content:{{alignFlg}}'>
+  <view wx:for="{{arr}}" wx:key="star" class='star_item' >
+    <image src="/statics/imgs/yellowstar.png" bindtap='_starClick' data-index="{{index}}" class='star_img' wx:if="{{index<scores}}" style="width:{{size}}rpx;height:{{size}}rpx" ></image>
+    <image src="/statics/imgs/graystar.png" class='star_img' wx:else bindtap='_starClick' data-index="{{index}}"  style="width:{{size}}rpx;height:{{size}}rpx"></image>
+  </view>
+</view>

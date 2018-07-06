@@ -1,0 +1,3 @@
+
+<swipe-tab class="swipe-tab" currentTab='{{currentTab}}' tabs="{{tabs}}" mode="coupon" >
+</swipe-tab> 

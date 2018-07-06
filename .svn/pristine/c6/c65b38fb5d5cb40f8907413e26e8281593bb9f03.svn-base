@@ -1,0 +1,5 @@
+<view>
+  <view wx:if="{{title.show}}" class='{{title.contentClass}}' style='{{title.contentStyle}}'>{{title.content}}</view>
+
+   
+</view>

@@ -1,0 +1,90 @@
+/* pages/Components/shop-diandan-item/shop-diandan-item.wxss */
+.shop-hot{
+    display: flex;
+    flex-direction: row; 
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+.shop-edge{
+  display: flex;
+  flex-direction: row; 
+  width: 100%;
+  height: 110rpx;
+  padding: 28rpx 0;
+}
+.shop-photo>image{
+  width: 110rpx;
+  height: 110rpx;
+}
+.shop-des{
+  height: 55rpx;
+  line-height: 55rpx;
+  width: 350rpx;
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 600;
+}
+.shop-mark{
+   height: 55rpx;
+  line-height: 55rpx;
+}
+.shop-price{
+  font-size: 32rpx;
+  color:#ce3a26;
+}
+.shop-unit{
+   padding-left: 15rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+/* 右侧加减 */
+.shop-num{
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+.shop-num>image{
+  padding-top: 32rpx;
+  width: 45rpx;
+  height: 45rpx;
+}
+.shop-num>text{
+  height:110rpx;
+  line-height:110rpx;
+  padding: 0 20rpx;
+  color: #333;
+  font-size: 32rpx;
+}
+/* 右侧按钮 */
+.shop-num-list{
+  display: flex;
+  text-align: right;
+  justify-content: flex-end;
+  flex: 1;
+}
+.shop-num-list>view{
+  width: 124rpx;
+  padding-top: 32rpx;
+}
+.shop-num-btn{
+    width: 124rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  background: #ff7800;
+  color: #fff;
+  font-size: 24rpx;
+}
+button::after{
+border: none;
+}
+.attr-view{
+  position: fixed;background: rgba(0, 0, 0, .2);top: 0;bottom: 0;left: 0;right: 0;display: flex;align-items: center;width: 100%;height: 100%
+}
+.attr-view-c{background: #fff;border-radius: 30rpx;margin: 0 30rpx;flex: 1;padding: 20rpx}
+.attr-item{border: 1px solid #ccc;padding: 10rpx 20rpx;border-radius: 30rpx;margin-right: 10rpx;color: #666;font-size: 26rpx}
+.attr_title{color: #999;font-size: 32rpx;line-height: 1;}
+.attr_goodsname{text-align: center;line-height: 1.5}
+.attr-item.active{border-color:#e9d5ab;background: #fff9eb;color: #d4ac57}

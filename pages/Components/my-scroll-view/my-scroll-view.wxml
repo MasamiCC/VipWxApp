@@ -1,0 +1,8 @@
+<!--pages/Components/my-scroll-view/my-scroll-view.wxml-->
+<scroll-view scroll-y='true' style="height: 100%; " bindscrolltoupper="_pullUp" bindscrolltolower="_pullDown">
+    <shop-list  list="{{list}}"   wx:if="{{mode=='shop'}}"  >  </shop-list> 
+    <order-list  list="{{list}}"   wx:elif="{{mode=='order'}}"  >  </order-list>
+    <shop-list  list="{{list}}"   wx:elif="{{mode=='root'}}"  >  </shop-list>
+    <comment-list  list="{{list}}"   wx:elif="{{mode=='comment'}}"  commentStatus="{{commentStatus}}">  </comment-list>  
+    <coupon-list  list="{{list}}"   wx:else  mode="{{mode}}">   </coupon-list>
+</scroll-view>

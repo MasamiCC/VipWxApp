@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "my-scroll-view": "../my-scroll-view/my-scroll-view",
+    "lists": "../lists/lists"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "shop-diandan-item":"../shop-diandan-item/shop-diandan-item"
+  }
+}

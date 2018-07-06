@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+      "map_poi": "../../Components/map-poi/map-poi"
+    }
+}

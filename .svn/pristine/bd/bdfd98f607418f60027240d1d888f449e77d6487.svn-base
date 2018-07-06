@@ -1,0 +1,34 @@
+.index-header{text-align: center;background-color: #000;height: 300rpx;position: relative}
+.index-pic-bg{width: 750rpx;height: 300rpx}
+.index-pic-bg image{height: 300rpx;width: 750rpx}
+.index-pic-box{position: absolute;top: 70rpx;width: 100%}
+.index-pic{width: 120rpx;height: 120rpx;border-radius: 120rpx}
+.index-pickname{text-align: center;color: #fff;position: absolute;bottom: 45rpx;width: 100%;font-weight: 500;font-size: 35rpx}
+.indexitems{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center
+}
+.indexitem{
+      text-align: center;
+      border-bottom: 2rpx solid #e6e6e6;
+      width: 250rpx;
+      height: 250rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center
+}
+.indexitem:nth-child(3n+2){
+      border-left: 2rpx solid #e6e6e6;
+      border-right: 2rpx solid #e6e6e6;
+      width: 244rpx;
+}
+
+.iconfont{
+      font-size:26px;
+}
+.indexfont{
+      font-size: 0.875rem;
+}
+.menu-image{width: 70rpx;height: 70rpx;margin-bottom: 15rpx}

@@ -1,0 +1,26 @@
+/* pages/index/index-hot-cat/index-hot-cat.wxss */
+ .hot-list{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  flex-direction: column;
+  width: 710rpx;
+  height: 450rpx;
+  padding:0 20rpx;
+}
+.hot-list>view:nth-child(1)>image{
+   width: 364rpx;
+   height: 200rpx; 
+}
+.hot-list>view:nth-child(2)>image{
+  width: 364rpx;
+  height: 200rpx; 
+}
+.hot-list>view:nth-child(3)>image{
+  width: 298rpx;
+  height: 425rpx;
+} 
+.hot-list>view{
+  line-height: 0; 
+}
+.hot-list>view>image{ padding: 12rpx;}

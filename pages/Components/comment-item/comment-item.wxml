@@ -1,0 +1,46 @@
+<view class=''>
+      <view class='commentbg'>
+
+              <view>
+
+                <view class='comment_item'>
+                  <view class='head'><image class='headimage' src='{{imageUrl}}{{item.headpic}}'></image></view>
+
+                  <view class='head_right'>
+                  <view class='item'>
+                    <view class='pick_name'>{{item.pick_name||'匿名'}}</view>
+                    <view class='comment_time'>{{item.createTime}}</view>
+                  </view>
+                
+                  <view class='yellowstarconcon'>
+                    <shop-star scores="{{item.score}}"></shop-star>
+                  </view>
+                  
+                  <view class='contentline'>
+                    <view>{{item.content}}</view>
+                  </view>
+
+                   <view class='comment_imgs' wx:if="{{item.img0}}">
+
+                    <view class='comment_imgcon'>
+                      <image  class='comment_img' wx:if="{{item.img0}}" src="{{imageUrl}}{{item.img0}}"  lazy-load='true'></image>
+                    </view>
+                      
+                    <view class='comment_imgcon'>
+                      <image  class='comment_img' wx:if="{{item.img1}}" src="{{imageUrl}}{{item.img1}}"  lazy-load='true'></image>
+                    </view>
+
+                    <view class='comment_imgcon'>
+                      <image class='comment_img' wx:if="{{item.img2}}" src="{{imageUrl}}{{item.img2}}"  lazy-load='true'></image>
+                    </view> 
+                    
+                  </view> 
+
+                </view>
+              </view>
+
+           </view>
+            
+    </view>  
+
+  </view>  

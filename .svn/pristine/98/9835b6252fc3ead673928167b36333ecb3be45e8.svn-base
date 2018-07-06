@@ -1,0 +1,75 @@
+const App = getApp();
+var network = require("../../../utils/network.js")
+const contant = require("../../../utils/contant.js")
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    tabs: [// 1:全部；2：待付款；3：待确认；4：待评价 ;5:退款售后
+      { title: '全部', value: '1', dataUrl: 'order/getorderlist' },
+      { title: '待付款', value: '2', dataUrl: 'order/getorderlist' },
+      { title: '待确认', value: '3', dataUrl: 'order/getorderlist' },
+      { title: '待评价', value: '4', dataUrl: 'order/getorderlist' },
+      { title: '待退款', value: '5', dataUrl: 'order/getorderlist' },
+    ],
+    currentTab: '1',
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+console.log(this.data.order)
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

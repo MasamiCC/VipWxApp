@@ -1,0 +1,77 @@
+/* pages/Components/shop-diandan-list/shop-diandan-list.wxss */
+/* .shop_diandan{
+  position: absolute;top: 0;
+  left: 0;right: 0;bottom:99rpx;overflow: auto;
+  padding-bottom: 75rpx
+}  */
+.is_Checked{
+  float: left;  
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 36rpx;
+  overflow: hidden;
+  font-weight: 500;
+  display: flex;align-items:center;
+
+}
+.ups{
+ float: right; 
+background-color: #333;
+color: #f1f1f1;
+font-size: 28rpx;
+height: 60rpx;
+line-height: 60rpx;
+ padding: 0 16rpx; 
+overflow: hidden;
+}
+.downs{
+background-color: #333;
+color: #fff;
+font-size: 28rpx;
+height: 60rpx;
+line-height: 60rpx;
+padding: 0 16rpx;
+display: inline-block;
+} 
+ /* pages/Components/shop-diandan-list/shop-diandan-list.wxss  */
+.shop-diandan-list-top{display: flex;justify-content: space-between;padding: 20rpx }  
+.shop-diandan-list-top view{flex:1} 
+.shop-diandan-typename{
+  display:flex;
+  align-content:center;
+  align-items:center;
+  justify-content:center;
+
+}   
+.cat_prev{
+background: #333333;color:#fff;
+} 
+.shop-diandan-list-middle{background: #fff;padding: 15rpx;display: none }  
+.shop-diandan-list-middle.listShow{display: block}
+.diandan{position: relative}
+.diandan::after{
+  content: '';
+  height: 1px;
+  position: absolute;
+  left: 0;right: 0;
+  bottom: 0;
+  background: #ddd
+}
+.diandan:last-child::after{
+  height: 0
+}
+.count{
+  background:red;
+  color:#fff;
+  border-radius:50rpx;
+  display:inline-block;
+  width:30rpx;
+  height:30rpx;
+  font-size:25rpx;
+  line-height:1.2;
+  vertical-align:top;
+  text-align:center;
+  padding:5rpx;
+  margin:5rpx 10rpx;
+
+}

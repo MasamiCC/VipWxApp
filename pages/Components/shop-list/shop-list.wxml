@@ -1,0 +1,8 @@
+
+<view wx:if="{{list==''}}" class='empty'>
+  暂无数据
+</view>
+<view wx:else="" style='background:#eee'>
+   <shop-item wx:for="{{list}}" item="{{item}}" wx:key="{{index}}"></shop-item> 
+</view>
+

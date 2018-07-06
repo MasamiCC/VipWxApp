@@ -1,0 +1,6 @@
+/* pages/Components/lists/lists.wxss */
+.list-end{text-align: center;color: #bbb;position: relative;padding: 20rpx 0}
+.list-end:after{height: 1px;content: '';position: absolute;width: 80%;background: #bbb;left: 0;right: 0;margin: 0 auto;top: 50%;z-index: 9}
+.list-end text{
+  background: #f4f4f4;position: relative;z-index: 10;padding: 0 30rpx;font-size: 24rpx
+}

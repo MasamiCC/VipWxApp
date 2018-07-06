@@ -1,0 +1,15 @@
+<view class="shop-wifi">
+  <view class='wifi-logo'>
+    <image src="/statics/imgs/ic_wifi.png"></image>
+  </view>
+  <view class='wifi-name'>
+    <view class='wifi-title'>网络名:</view>
+    <view class='wifiName'>QSDP-1002</view>
+  </view>
+  <view class='wifi-copy'>
+    <button bindtap='_copyWifi' class='coppy_btn' data-password="12345678">复制密码</button>
+  </view>
+  <view class='wifi-close'>
+    <icon type='cancel' color='#f8a120' size='40' bindtap='_toggleWifi'></icon>
+  </view>
+</view>

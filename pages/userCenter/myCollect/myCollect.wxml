@@ -1,0 +1,22 @@
+<!--pages/leftSlide/leftSlide.wxml-->
+<view class="item-wrapper" wx:if="{{itemData}}">
+    <view class="item-list" wx:for="{{itemData}}" wx:for-item="item" wx:for-index="index" wx:key="that" >
+        <view class="item-info" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE"   style="left:{{item.left + 'rpx'}}">
+            <view class='info-img' >
+                <image   src="{{imageUrl}}{{item.shop_img1}}" mode='aspectFit' bindtap='goshop' data-shopId="{{item.shopid}}"></image>
+            </view>
+            <view class="info-wrapper">
+                <view class="info-desc">
+                    <view class="name" bindtap='goshop' data-shopId="{{item.shopid}}">{{item.shop_name}}</view>
+                   
+                </view>
+                <view class="info-content">{{item.resume}}</view>
+                 <view class="info-scores">评分：{{item.scores}}</view>
+            </view>
+        </view>
+        <view class="item-oper">
+            <view class="oper-delete" bindtap="itemDelete" data-index="{{index}}" data-shopId="{{item.shopid}}">取消收藏</view>
+        </view>
+    </view>
+</view>
+<view wx:else > 没有数据  </view>

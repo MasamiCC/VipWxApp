@@ -1,0 +1,40 @@
+<form bindsubmit="submitdata" bindreset="formReset">
+  <view class='edit_all'>
+    <view class='edit_address'>
+      <view class='edit_line'>
+        <view class='edit_line_left'>收货人</view>
+        <view class='edit_line_right'><input  placeholder="" type='text' name="reciver" value='{{reciver}}'/></view>
+      </view>
+      <view class='edit_line'>
+        <view class='edit_line_left'>联系电话</view>
+        <view class='edit_line_right'>
+        <input bindblur="checkTel"  placeholder="" name="mobile" type='number' maxlength="11" value='{{mobile}}' />
+        </view>
+      </view>
+
+       <view class='edit_line'>
+        <view class='edit_line_left'>地区</view>
+        <view class='edit_line_right'><input  bindtap="getlocation" name="address" placeholder="" type='text'  value='{{address}}'/></view>
+      </view> 
+      
+      <view class='edit_line noborder'>
+        <view class='edit_line_left'>详细地址</view>
+        <view class='edit_line_right'><input  name="address_detail" placeholder="" type='text'  value='{{address_detail}}'/></view>
+      </view>
+    </view>
+    <view class='edit_line marginline noborder'>
+        <view class='edit_line_left'>设为默认地址</view>
+        <view class='edit_line_right body-view'>
+          <switch checked='{{flag==0}}' bindchange="switchChange"  value='{{flag}}'></switch>
+        </view>
+    </view> 
+      <view>
+        <button formType="submit" wx:if="{{addressid}}" class='addnew'>保存</button>
+        <button formType="submit" wx:else class='addnew'>添加新地址</button>
+      </view>
+   </view> 
+</form>  
+<view wx:if="{{mapFlg}}" class='map-poi'>
+  <map_poi bind:mapToggle="getlocation"></map_poi>
+</view>
+

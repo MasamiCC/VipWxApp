@@ -1,0 +1,17 @@
+
+<view class='notice-item'>
+  <view class='notice-msg'>
+    <view class='notice-icon'>
+      <image src="/statics/imgs/{{message_logo[item.type]}}" class='notice-img'></image>
+    </view>
+    <view class='notice-list'>
+      <view class='notice-type'>{{message_type[item.type]}} <text class='notice-time'>{{item.send_time}}</text></view>
+      <view class='notice-title'>{{item.title}}</view>
+      <view class='notice-content' wx:if="{{item.content}}">{{item.content}}</view>
+    </view>
+  </view>
+  <view class='notice-link' wx:if="{{item.goPage}}">
+    <navigator url="../../redirect/redirect/redirect?title=redirect" open-type="redirect">{{item.content}}</navigator>
+  </view>
+</view>
+<!-- {{item.id}}---{{item.title}}---{{item.content}}---{{item.type}}---{{item.type_owner_id}}---{{item.creator}}---{{item.message_type}}---{{item.send_time}} -->

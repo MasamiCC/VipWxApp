@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "my-item": "../item/item",
+    "notice-item": "../notice-item/notice-item",
+    "order-item": "../order-item/order-item"
+  }
+}

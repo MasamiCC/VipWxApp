@@ -1,0 +1,84 @@
+/* pages/userCenter/bindMobile/binding.wxss */
+
+/* 顶部提示 */
+.bing_ts{
+  /* border:1px solid gray; */
+  width: 50%;
+  margin: 0 auto;
+  height: 96rpx;
+  vertical-align: middle;
+  overflow: hidden;
+  line-height: 48rpx;
+  margin-top: 10%;
+
+}
+.bing_ts_img{
+  width: 96rpx;
+  height: 96rpx;
+  float: left;
+  margin-right: 30rpx;
+  /* border: 1px solid blue; */
+}
+.bing_ts_txt{
+  font-size: 30rpx;
+  /* border: 1px solid red; */
+}
+
+/* 绑定信息 */
+.bing_form{
+  display: flex;
+  flex-direction:column;
+  margin-top: 10%;
+  overflow: hidden;
+}
+.bing_form>view{
+  width: 100%;
+  height: 120rpx;
+  border-top: 1rpx solid #f7f7f7;
+  line-height: 120rpx;
+  font-size: 30rpx;
+  padding: 0rpx 30rpx;
+}
+.region,.phoneNum{
+  float: left;
+  /* border: 1px solid blue;   */
+}
+.region_msg{
+  float: left;
+  margin-left: 450rpx;
+  /* border: 1px solid red; */
+}
+.phoneMsg{
+  float: left;
+  margin-left: 100rpx;
+  /* border: 1px solid red; */
+  display: inline;
+  width: 500rpx;
+  height: 120rpx;
+  font-size: 40rpx;
+}
+.codeMsg{
+  width:300rpx;
+  float: left;
+  margin-left:0rpx;
+  display: inline;
+  height: 120rpx;
+}
+
+/* 提交按钮 */
+.submitBtn{
+  width: 90%;
+  background-color: rgb(248, 161, 32);
+  color: white;
+  padding: 10rpx;
+  font-size: 32rpx;
+  border-radius: 999rpx;
+  letter-spacing:5rpx;
+}
+
+/* 获取验证码 */
+  .codeBtn{
+    width:204rpx;
+      overflow: inherit; 
+     margin-left:170rpx
+  }

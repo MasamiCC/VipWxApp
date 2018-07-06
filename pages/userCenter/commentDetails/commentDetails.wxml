@@ -1,0 +1,29 @@
+<!--pages/userCenter/commentDetails/commentDetails.wxml-->
+<view class='allComments'>
+  <view class='comment'>
+    <view class='comment_top'>
+      <image class='img' src="{{item.headpic}}" ></image>
+      <view class='txt_box'>
+        <text class='name'>{{userPhone}}</text>
+        <text class='time'>{{item.createtime}}</text>
+      </view>
+      <view class='star'>
+        <shop-star class='star' style="pointer-events: none;" alignFlg="center" scores="{{starNum}}" size="35" total="5" edit="true"></shop-star>
+      </view>
+    </view>
+    <view class='comment_txt'>
+      <text>{{item.comment}}</text>
+    </view>
+    <view class='comment_img'>
+      <image wx:if="{{item.image}}" src='{{item.image}}'></image>
+      <image wx:if="{{item.image1}}" src='{{item.image1}}'></image>
+      <image wx:if="{{item.image2}}" src='{{item.image2}}'></image>
+      <image wx:if="{{item.image3}}" src='{{item.image3}}'></image>
+    </view>
+    <view class='shop_Bottom'>
+      <image class='shop_Img' src='item.shopimage'></image>
+      <text class='shop_Name'>{{item.shop_name}}</text>
+      <text class='shop_Goods' wx:for="{{item.goods_name}}" wx:key="key">{{item[0]}} <text wx:if="{{item.goods_name.length>1}}">等4件商品</text></text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-scroll-view":"../../Components/my-scroll-view/my-scroll-view",
+    "shop-item": "../../Components/shop-item/shop-item"
+    
+  }
+}

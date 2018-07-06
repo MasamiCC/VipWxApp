@@ -1,0 +1,7 @@
+<!--pages/index/index-hot-cat/index-hot-cat.wxml-->
+<view class="hot-list">
+  <view wx:for="{{items}}" wx:key="item" bindtap='_goType' data-typeid="{{item.typeid}}">
+      <image src="{{imgUrls}}{{item.img}}"></image>
+  </view>
+</view>
+

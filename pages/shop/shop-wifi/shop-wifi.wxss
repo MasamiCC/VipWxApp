@@ -1,0 +1,14 @@
+/* pages/shop/shop-wifi/shop-wifi.wxss */
+/*wifi  */
+.shop-wifi{position: fixed;top: 0;left: 0;bottom: 0;right: 0;
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 223, 135, 0.9)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 223, 135, 0.9)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 223, 135, 0.9)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 223, 135, 0.9)); /* 标准的语法 */
+  text-align: center
+ }
+ .wifi-logo image{width: 281rpx;height: 281rpx;margin: 80rpx auto}
+ .wifi-title{color: #86817a;font-size: 36rpx;line-height: 1.2}
+ .wifiName{color: #000;font-size: 48rpx;line-height: 2}
+ .coppy_btn{color: #fff;background: #f8a120;width: 380rpx;border-radius: 99rpx;border: none;margin: 80rpx auto;height: 99rpx;margin-top: 50rpx}
+ .wifi-close{margin-top: 180rpx}

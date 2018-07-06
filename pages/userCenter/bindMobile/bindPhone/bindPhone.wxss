@@ -1,0 +1,38 @@
+/* pages/userCenter/bindMobile/bindPhone.wxss */
+.bg{
+  width: 307rpx;
+  height: 281rpx;
+  margin:0 auto;
+  margin-top: 20%;
+  text-align: center;
+}
+.bgImg{
+  width: 307rpx;
+  height: 281rpx;
+  margin: 0 auto;
+}
+
+.txt1{
+  color: #999;
+  font-size: 24rpx;
+  letter-spacing:2rpx;
+  margin-top: 30rpx;
+}
+.txt2{
+  font-size: 28rpx;
+  letter-spacing:3rpx;
+  
+}
+
+.btn{
+  width: 90%;
+  background-color:white;
+  color:rgb(248, 161, 32);
+  padding: 10rpx;
+  font-size: 32rpx;
+  border-radius: 999rpx;
+  letter-spacing:5rpx;
+  border:1rpx solid  rgb(248, 161, 32);
+  margin: 0 auto;
+  margin-top: 80%;
+}

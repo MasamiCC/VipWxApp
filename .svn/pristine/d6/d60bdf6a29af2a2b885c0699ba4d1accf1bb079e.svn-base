@@ -1,0 +1,96 @@
+<view class='indexmiancon'>
+      <view class='index-header'>
+            <view class='index-pic-bg'><image  mode="aspectFill" src="/statics/imgs/my_bg@3x.png"  ></image></view>
+            <view class='index-pic-box'>
+             <image  mode="aspectFill" src="{{user.headpic_wx}}" class='index-pic' wx:if="{{user.headpic_wx}}"></image>
+             <image  mode="aspectFill" src="{{imageUrl}}{{user.headpic}}" class='index-pic' wx:elif="{{user.headpic}}"></image>
+            </view>
+            <view class='index-pickname' wx:if="{{user.pickName}}">{{user.pickName}}</view>
+            <view class='index-pickname' wx:else>{{user.mobile}}</view>
+      </view>
+
+      <view class='indexcon'>
+            
+
+            <view class='indexitems'>
+                  
+                  <view class='indexitem'>
+                        <navigator url="/pages/userCenter/notice/notice" open-type="navigate" hover-class="other-navigator-hover">
+                              <view><image src='/statics/imgs/my_msg@3x.png'  mode="aspectFill" class='menu-image' ></image></view>
+                              <view class='indexfont'>系统消息</view>
+                        </navigator> 
+                  </view>  
+
+                  <view class='indexitem'>
+                        <view  bindtap='_mobileClick'>
+                              <view><image src='/statics/imgs/my_mobile@3x.png'  mode="aspectFill" class='menu-image' ></image></view>
+                              <view class='indexfont'>手机</view>
+                        </view> 
+                  </view> 
+
+                  <view class='indexitem'>
+                        <navigator url="/pages/userCenter/address/address" open-type="navigate" hover-class="other-navigator-hover">
+                              <view><image src='/statics/imgs/my_address@3x.png'  mode="aspectFill" class='menu-image' ></image></view>
+                              <view class='indexfont'>设置地址</view>
+                        </navigator> 
+                  </view>
+
+                  <view class='indexitem'>
+                        <navigator url="/pages/userCenter/coupon/coupon" open-type="navigate" hover-class="other-navigator-hover">
+                              <view><image src='/statics/imgs/my_tickets@3x.png'  mode="aspectFill" class='menu-image' ></image></view>
+                              <view class='indexfont'>优惠券</view>
+                        </navigator> 
+                  </view>
+
+                  <!-- <view class='indexitem'>
+                        <navigator url="/pages/userCenter/myComments/myComments" open-type="navigate" hover-class="other-navigator-hover">
+                              <view><image src='/statics/imgs/my_shop@3x.png'  mode="aspectFill" class='menu-image' ></image></view>
+                              <view class='indexfont'>爱心币商城</view>
+                        </navigator> 
+                  </view> -->
+
+                  <view class='indexitem'>
+                        <navigator url="/pages/userCenter/myComments/myComments" open-type="navigate" hover-class="other-navigator-hover">
+                              <view><image src='/statics/imgs/my_comments@3x.png'  mode="aspectFill" class='menu-image' ></image></view>
+                              <view class='indexfont'>我的评价</view>
+                        </navigator> 
+                  </view>
+ 
+
+            </view>
+
+            <!-- <view class='indexitems'>
+            
+
+                  <view class='indexitem'>
+                  <navigator url="/pages/userCenter/myRoots/myRoots" open-type="navigate" hover-class="other-navigator-hover">
+                  <view>
+                        <view><span class='iconfont icon-zuji'></span></view>
+                        <view class='indexfont'>足迹</view>
+                  </view>
+                  </navigator> 
+                  </view>
+
+                  <view class='indexitem'>
+                  <navigator url="/pages/userCenter/myOrder/myOrder?orderStatus=1" open-type="switchTab" hover-class="other-navigator-hover">
+                  <view>
+                        <view><span class='iconfont icon-quanbudingdan1'></span></view>
+                        <view class='indexfont'>订单</view>
+                  </view>
+                  </navigator> 
+                  </view>
+
+                  <view class='indexitem'>
+                  <navigator url="/pages/userCenter/myCollect/myCollect" open-type="navigate" hover-class="other-navigator-hover">
+                  <view>
+                        <view><span class='iconfont icon-shoucang'></span></view>
+                        <view class='indexfont'>收藏</view>
+                  </view>
+                  </navigator> 
+                  </view>  
+
+            </view> -->
+
+
+        </view>
+</view>

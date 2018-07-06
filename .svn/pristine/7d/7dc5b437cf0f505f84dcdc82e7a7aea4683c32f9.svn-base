@@ -1,0 +1,95 @@
+
+.hearder{
+  height: 100%;
+  width: 692rpx;
+  margin: 0 auto;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+}
+.title{width:692rpx; height: 72rpx;}
+.search-img{
+  height: 72rpx;
+  line-height: 72rpx;
+  float: left;
+ font-size: 50rpx;
+ font-weight: bold;
+}
+.search-img>image{float: left;}
+.search-img>view{
+  float: left;
+  height: 72rpx;
+  line-height: 72rpx;
+  padding-left: 18rpx;
+}
+.wxSearch-button{
+  height: 72rpx;
+  line-height: 85rpx;
+  float: right;
+  color:#67c0f7;
+  font-size:32rpx; 
+  border: 0;
+}
+.wxSearch-pancel{
+  position: relative;
+  margin-top: 25rpx;
+  width: 100%;
+  height: 75rpx;
+  background-color: #f4f4f4;
+}
+.wxSearch-pancel>text{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  color: #ccc;
+}
+.wxSearch-input{
+  width: 600rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  caret-color: #3f5aff;
+}
+.hot{
+  margin-top: 42rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+}
+.hot-list{  overflow: hidden;margin-left:-8rpx; }
+.hot-list>text {
+  float:left;
+  font-size: 26rpx;
+  padding: 17rpx;
+  background-color: #f4f4f4;
+  color:#828282;
+  margin: 7rpx;
+}
+.history{
+  margin-top: 35rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+}
+.history-text{float: left;}
+.del{
+  float: right
+}
+.del>image{
+padding-top: 18rpx;
+  }
+.empty{
+  margin-left: 8rpx;
+  font-size: 24rpx;
+  float: right;
+  color: #a0a0a0;
+}
+.history-list{overflow: hidden;margin-left:-8rpx;}
+.history-list>text{
+  float:left;
+  font-size: 24rpx;
+  padding: 17rpx;
+  background-color: #f4f4f4;
+  color:#828282;
+  margin: 7rpx;
+}

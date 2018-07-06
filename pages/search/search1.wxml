@@ -1,0 +1,46 @@
+ <!-- <view class="hearder">
+  <view class="title">
+  <view class="search-img">
+  <image style='width:72rpx;height:72rpx;' src="/statics/imgs/ic_search.png"></image>
+   <view>搜索</view>
+  </view>
+  <view class="wxSearch-button" bindtap="wxSearchFn" size="mini" plain="true">搜索</view>   
+  </view>
+
+<view class="wxSearch-pancel">  
+<form>     
+<input name="keywords" class="wxSearch-input" placeholder="请输入商户名" confirm-type='search' /> 
+</form> 
+<text class='iconfont icon-guanbi1'></text>   
+</view> 
+<view>
+<view class="hot">热门搜索</view>
+  <view class="hot-list">
+    <text>江南</text>
+    <text>拌个月亮</text>
+    <text>濠河时光</text>
+    <text>吾玺黑鸦</text>
+    <text>面战</text>
+    <text>马来榴莲甜品</text>
+    <text>富港茶餐厅</text>
+    <text>七欣天品蟹杆</text> 
+  </view>
+<view class="history">
+  <view class="history-text">历史搜索</view>
+  <view class="del">
+    <image style='height:33rpx;width:35rpx;' src='/statics/imgs/clear.png'></image> 
+    <view class="empty">清空</view>
+  </view>
+</view>
+<view class="history-list">
+  <text>面战</text>
+  <text>轻奢沙龙</text>
+  <text>MOMO甜品</text>
+</view>
+
+</view>
+</view>
+</view> -->
+<search >
+</search>
+

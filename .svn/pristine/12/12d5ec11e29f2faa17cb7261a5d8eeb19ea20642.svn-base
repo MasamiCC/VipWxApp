@@ -1,0 +1,18 @@
+/* pages/Components/coupon-list/coupon-list.wxss */
+page{
+  background-color: #fff;
+}
+.notips{
+  text-align: center;
+  margin-top: 40%;
+  font-size: 0.875rem;
+}
+.gsfont{
+  line-height: 2;
+  font-size: 0.625rem;
+  color: #999;
+ padding: 8px 15px 0px 15px;
+}
+.rednum{
+  color: #ce3a26
+}

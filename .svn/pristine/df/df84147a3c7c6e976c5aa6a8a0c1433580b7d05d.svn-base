@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "shop-list": "../shop-list/shop-list",
+    "order-list": "../order-list/order-list",
+    "coupon-list": "../coupon-list/coupon-list",
+    "comment-list": "../comment-list/comment-list"
+  }
+}

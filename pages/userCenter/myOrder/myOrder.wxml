@@ -1,0 +1,4 @@
+ <swipe-tab class="swipe-tab" currentTab='{{currentTab}}' tabs="{{tabs}}" mode="order" >
+</swipe-tab> 
+
+

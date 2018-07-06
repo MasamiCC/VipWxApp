@@ -1,0 +1,100 @@
+.textright{
+  text-align: right;
+}
+.teltitle{
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top:15%;
+} 
+.inptel{
+  font-size: 0.875rem;
+  color: #999;
+  width: 60%;  
+  margin: 0 auto;
+  padding-top: 12%;
+}
+.input_tel,.input_code{
+  text-align: left;
+  padding-bottom:0.625rem;
+  border-bottom: 1px solid #999;
+}
+.input_tel:hover,.input_code:hover{
+  border-bottom: 1px solid #333;
+}
+.inpcode{
+  width: 35%; 
+  padding-top: 8%;
+  margin-left: 20%;
+}
+.inputs>view{
+  display: inline-block;
+}
+.inputs{
+  margin: 0 auto;
+}
+.send_code{
+  vertical-align: bottom;
+}
+
+.get_code{
+  font-size: 0.75rem;
+  border: 1px solid #999;
+  width: 105px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px; 
+  color: #999;
+  background: #fff;
+}
+.get_code.active{
+  border: 1px solid #f8a120;
+  color: #f8a120;
+}
+.bind_imd{
+  display: inline-block;
+  font-size:0.875rem;
+  color: white; 
+  background: #fff;
+  padding:14px 2px; 
+  border-radius: 25px;
+  border: 1px solid #999;
+}
+.bind_bottom{
+  text-align: center; 
+}
+.bind_imd{
+  margin: 120px auto 40px auto;
+}
+.bind_title{
+  font-size: 0.75rem;
+}
+.close{
+  margin: 3.5% 3.5% 0px 0px;
+}
+.question{
+  margin-right: 5px;
+}
+.bind_title span{
+  vertical-align: middle;
+}
+.bind_con{
+  background: #999;
+  padding:12px 25px; 
+  border-radius: 25px;
+}
+.bind_all{
+  position: relative;
+}
+.diamon{
+  position: absolute;
+  top: 0;
+  left:0;
+  z-index: 10
+}
+.diamonbottom{
+  position: absolute;
+  bottom: 6%;
+  right:0;
+  z-index: 10 
+}

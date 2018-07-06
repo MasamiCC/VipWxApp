@@ -1,0 +1,50 @@
+<view class="shop-diandan">
+  <view class='diandan-logo'>
+    <image src="/statics/imgs/ic_diancan_p.png"></image>
+  </view>
+  <view class='diandan-name'>
+    <view class='diandan-title'>当前桌号:</view>
+    <view class='diandanName'>一楼包厢B01(房间)</view>
+  </view>
+  <view class="user_lists">
+    <block wx:for="{{[0,1,2,3,4,5,6,7,8,9]}}" wx:key="user" >
+      <view class='user {{index==0?"user_originator":""}}' wx:if="{{index<users.length}}">
+        <view class='user_img'>
+        
+          <image wx:if="{{users[index].foodUser.pic}}" src='{{users[index].foodUser.pic}}'></image>
+        </view>
+        <view class='user_name'>
+         {{users[index].foodUser.name}}
+        </view>
+      </view> 
+      <view class='user user_add' wx:elif="{{index==users.length}}" bindtap='_inviate'>
+        <view class='user_img'>
+          <button  open-type='share' class='share-btn'>
+          <image src='/statics/imgs/invitation.png'></image>
+          </button>
+          
+
+        </view>
+        <view class='user_name'>
+        </view>
+      </view>
+      <view class='user ' wx:else>
+        <view class='user_img'>
+        </view>
+        <view class='user_name'>
+        </view>
+      </view>
+    </block>
+    
+    
+     
+    
+  </view>
+  
+  <view class='wifi-copy'>
+    <button bindtap='_diancai' class='coppy_btn' data-password="12345678">开始点菜</button>
+  </view>
+  <view class='wifi-close'>
+    <icon type='cancel' color='#f8a120' size='40' bindtap='_diandan'></icon>
+  </view>
+</view>

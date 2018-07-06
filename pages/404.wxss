@@ -1,0 +1,29 @@
+.rocketpiccon{
+  text-align: center;
+  margin-top: 40px;
+}
+.rocketpic{
+  width: 60%;
+  height: 622rpx;
+}
+.backindexline,.backprevioustline{
+  text-align: center;
+}
+.backindex,.backprevious{
+  display: inline-block;
+  width: 219rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #f8a120;
+  text-align: center;
+  border-radius: 6px;
+}
+.backprevious{
+  background: #e7e7e7;
+  color: #999999;
+}
+.backprevioustline,.backindexline{
+  margin-top: 58rpx;
+}

@@ -1,0 +1,11 @@
+/* pages/Components/notice-item/notice-item.wxss */
+.notice-item{background-color: #fff;margin: 15rpx auto;padding-top:15rpx  }
+.notice-msg{display: flex;display: -webkit-flex;align-items: flex-start;color: #999;font-size: 22rpx;line-height: 1.5;width: 100%;padding-bottom: 15rpx}
+.notice-icon{flex: 0 0 140rpx;text-align: center}
+.notice-img{width: 100rpx;height: 100rpx;margin: 0 auto}
+.notice-list{width: 590rpx}
+.notice-type{color: #999;}
+.notice-title{color: #333;font-size: 26rpx;padding: 5rpx 0;word-break: break-all;overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;font-weight: 500}
+.notice-link{border-top: 1px solid #eee;padding: 10rpx 10rpx 10rpx 140rpx;font-size: 22rpx;color: #3da0f1}

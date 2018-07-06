@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "swipe-tab": "../../Components/swipe-tab/swipe-tab"
+  }
+}

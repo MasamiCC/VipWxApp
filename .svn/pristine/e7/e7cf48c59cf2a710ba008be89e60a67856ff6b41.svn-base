@@ -1,0 +1,6 @@
+<list 
+  url="{{messagelist}}"
+  mode="notice"
+  currentPage="1"
+  class="notice-list"
+></list>

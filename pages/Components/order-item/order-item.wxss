@@ -1,0 +1,64 @@
+.order-item{margin-bottom: 20rpx ;background: #fff;}
+.order-shop{display: flex;justify-content: space-between;margin: 0 30rpx;padding: 15rpx 0; }
+.order-shop-mark{display: flex;justify-content: flex-start;align-items: center}
+.shop-logo{width: 80rpx;height: 80rpx;border-radius: 50%;margin-right: 15rpx;}
+.order_status{
+  color:#333;font-size: 28rpx;
+  line-height:1.8;
+  /* display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; */
+}
+.order-shopName:after{
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #3a3a3a;
+  border-left: 0;
+  border-bottom: 0;
+  transform:rotate(45deg);
+  right: -5px; 
+  top: 12px; 
+}
+.order-shopName{
+  position:relative;
+  font-weight: 500;
+  font-size: 32rpx;
+  line-height:1.8;
+  /* width:150px;
+  text-overflow:ellipsis;
+	white-space: nowrap; 
+  overflow: hidden; */
+}
+.order-createTime{font-size: 22rpx;color: #999;}
+.order-goods{padding:50rpx;color: 666;font-size: 28rpx;text-indent: 80rpx;}
+/* .order-tongji{text-align: right;margin:0 30rpx;font-size: 32rpx; padding: 30rpx 0;} */
+.order-btns{
+  border-top: 1rpx solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  padding: 30rpx 0;
+  margin:0 30rpx 0 30rpx;
+}
+.order-btns>button{
+ margin:0;
+ font-size:28rpx;
+ line-height:1.8;
+ border-radius:0;
+ padding:0 16rpx;
+ border-color:#ccc;
+}
+.topay{
+  margin-right:20rpx; 
+  font-size: 28rpx;
+  padding:0 16rpx;
+  line-height:1.8;
+}
+.order-none{
+  background-color: #f0eff4;
+  font-size: 28rpx;
+  text-align: center;
+  padding-top: 20rpx;
+  color: #999;
+}

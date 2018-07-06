@@ -1,0 +1,102 @@
+// pages/shop/diandan/diandan.js
+const app = getApp()
+var util = require("../../../utils/util.js")
+var WxNotificationCenter = require("../../../utils/WxNotificationCenter.js");
+var wxSocket = require("../../../utils/wxSocket.js")
+var socketOpen = false, socketMsgQueue = [];
+Component({
+      /**
+       * 组件的属性列表
+       */
+      properties: {
+            shopid: {
+                  type: String,
+                  value: ''
+            }
+      },
+
+      /**
+       * 组件的初始数据
+       */
+      data: {
+            users: []
+      },
+
+      /**
+       * 组件的方法列表
+       */
+      methods: {
+            // 关闭点单
+            _diandan: function () {
+                  this.triggerEvent('diandan');
+                  wxSocket.socketClose()
+            },
+            // 创建socket
+            _socket: function () {
+                  var that = this;
+                  var user = {
+                        foodid: that.data.shopid + ':' + wx.getStorageSync('user').id + ':1',
+                        userid: wx.getStorageSync('user').id,
+                        pic: app.globalData.imageUrl + wx.getStorageSync('user').headpic || wx.getStorageSync('user').headpic_wx,
+                        name: wx.getStorageSync('user').pickName
+                  }
+                  wxSocket.socketConnect(user, that,that.socketMessage)
+            },
+            _inviate: function () {
+                  this.triggerEvent('inviate')
+            },
+            _diancai: function () {
+                  wx.navigateTo({
+                        url: '/pages/shop/shop-diandan/shop-diandan?shopid=' + this.data.shopid,
+                  })
+            },
+            
+            // 接受消息处理函数
+            socketMessage: function (event,data) {
+                  console.log(data)
+                  var that = event;
+                  var users = that.data.users;
+                  var result = JSON.parse(data.data, true);
+                  var response = result.response;
+                  if (result.command == "0") {
+                        console.log('command')
+                        WxNotificationCenter.postNotificationName("shopCart", { response: result.response });
+                  } else if (result.command == "3") {
+
+                        for (var i in response) {
+                              var flg = false;
+                              for (var i in users) {
+                                    if (users[i]['foodUser']['id'] == response[i].foodUser.id) {
+                                          flg = true;
+                                          break;
+                                    }
+                              }
+                              if (!flg) {
+                                    users.push(response[i])
+                              }
+                        }
+                  } else if (result.command == 4) {
+                        console.log(response)
+                        var flg = false;
+                        for (var i in users) {
+                              if (users[i]['foodUser']['id'] == response.foodUser.id) {
+                                    flg = true;
+                                    break;
+                              }
+                        }
+                        if (!flg) {
+                              users.push(response)
+                        }
+                  }
+                  that.setData({
+                        users: users
+                  })
+
+            }
+
+      },
+      ready: function () {
+            this._socket();
+      }
+
+})

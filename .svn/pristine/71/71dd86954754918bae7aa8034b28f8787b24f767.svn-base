@@ -1,0 +1,143 @@
+// pages/shop/shop-attr/shop-attr.js
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    attrData:{
+      type:Object,
+      value:{}
+    },
+    attrShow:{
+      type: Boolean,
+      value: false
+    },
+    
+    attrsid:{
+      type:Number,
+      value:''
+    },
+    attrs2id:{
+      type: Number,
+      value: ''
+    }
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+    attrsid: '',
+    attrs2: [],
+    attrs2id: '',
+    attrShow:false,
+    goodsName:'',
+    attrDatas:[],
+    num:0,
+    attr:'',
+    attrid:'',
+    price:''
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    // 初始加载规格
+    _loadAttrData:function(data){
+      var datas={
+        attrDatas:data,
+        attrsid: data[0]['id'],
+        attrShow: true,
+      }
+      if (data[0].specs.length>0){
+        datas.attrs2 = data[0].specs;
+        datas.attrs2id= data[0]['specs'][0]['id'];
+        datas.attr = data[0]['name'] + "," + data[0]['specs'][0]['name'];
+        datas.attrid = data[0]['specs'][0]['id'];
+        datas.price = data[0]['specs'][0]['price'];
+      }else{
+        datas.attr = data[0]['name'] ;
+        datas.attrid = data[0]['id'];
+        datas.price = data[0]['price'];
+      }
+      console.log()
+      this.setData(datas)
+    },
+    _toggleAttrShow:function(){
+      this.setData({
+        attrShow: !this.data.attrShow,
+      })
+    },
+    attrTap: function (e) {
+      var dataset = e.target.dataset;
+      console.log(e)
+      var that = this;
+      if (dataset.flg>0){
+        that.setData({
+          attrs2id: dataset.id,
+          attr: dataset.name,
+          price: dataset.price,
+        })
+      }else{
+        if (dataset.attr.length>0){
+          that.setData({
+            attrs2: dataset.attr,
+            attrsid: dataset.id,
+            attrs2id: dataset.attr[0].id,
+            attr: dataset.name,
+            attrid: dataset.attr[0].id,
+            price: dataset.price,
+          })
+        }else{
+          that.setData({
+            attrsid: dataset.id,
+            attr: dataset.name,
+            price: dataset.price,
+          })
+        }
+      }
+    },
+    _cartChange: function (event){
+      var flg = event.target.dataset.type;
+      var num = this.data.num;
+      var numn = num;
+
+      if (flg == 'plus') {
+        numn = num + 1;
+      } else {
+        if (num > 0) {
+          numn = num - 1;
+        }
+      }
+      this.setData({
+        num: numn
+      })
+      
+    },
+    addCart:function(){
+      var obj={};
+      var socketMsg = { command: (this.data.num == 0) ? '1' : '0' };
+      socketMsg.cartgoods = {
+        "id": this.data.goodsid,
+        "name": this.data.goodsName,
+        "price": this.data.price,
+        "num": this.data.num,
+        "attr": this.data.attr, //规格中文名称
+        "attr_id": this.data.attr_id  //规格id
+      }
+      obj.socketMsg = socketMsg;
+
+      this.triggerEvent('cartChange', obj)
+      
+    }
+  },
+  ready:function(){
+    console.log(this.data)
+    this._loadAttrData(this.data.attrData.attrData);
+    this.setData({
+      goodsName: this.data.attrData.goodsName,
+      goodsid: this.data.attrData.goodsid
+    })
+  }
+})

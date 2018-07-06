@@ -1,0 +1,71 @@
+
+.comment_top{
+  height: 110rpx;
+  display:flex;/*Flex布局*/
+  display: -webkit-flex; /* Safari */
+  align-items:center;/*指定垂直居中*/
+}
+.img{
+   width: 80rpx; 
+   height: 80rpx;
+   border-radius: 99rpx;
+   margin:0rpx 20rpx;
+   /* border: 1rpx solid tomato; */
+}
+
+.name{
+  font-size: 30rpx;
+  display: block;
+}
+.time{
+  font-size: 20rpx;
+  color: gray; 
+  display: block;
+}
+.star{
+  position: absolute;
+  right:20rpx;
+   top: 15rpx; 
+}
+.comment_txt{
+  padding: 0 40rpx 0 120rpx;
+  /* border: 1rpx solid skyblue; */
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+}
+.comment_img{
+   padding: 0 40rpx 0 120rpx;
+   justify-content: flex-start;
+   display: flex;
+   margin-top: 20rpx;
+}
+.comment_img > image{
+  width: 130rpx;
+  height: 130rpx;
+  border: 1rpx solid gray;
+  border-radius: 5rpx;
+  margin-right: 15rpx;
+}
+.shop_Img{
+  width: 40rpx;
+  height: 40rpx;
+  /* border:1rpx solid greenyellow; */
+}
+.shop_Name{
+  font-size: 25rpx;
+  margin-left: 15rpx;
+}
+.shop_Goods{
+  font-size: 23rpx;
+  color: gray;
+  position: absolute;
+  right: 40rpx;
+}
+.shop_Bottom{
+  display:flex;/*Flex布局*/
+  display: -webkit-flex; /* Safari */
+  align-items:center;/*指定垂直居中*/
+  padding: 0 40rpx 0 120rpx;
+  margin-top: 30rpx;
+  letter-spacing: 1rpx;
+}

@@ -1,0 +1,12 @@
+<!--pages/userCenter/bindMobile/unbindPhone.wxml-->
+
+<view class='bg' >
+  <image class='bgImg' src='../../../../statics/imgs/binding/phone@3x.png'></image>
+  <view class='txt1'>{{title}}</view>
+  <view class='txt2'>{{phone}}</view>
+</view>
+<view >
+  <navigator url='/pages/userCenter/bindMobile/bindChangebind/bindChangebind' hover-class="other-navigator-hover">
+    <button class='btn'>{{btn}}</button>  
+  </navigator>
+</view>

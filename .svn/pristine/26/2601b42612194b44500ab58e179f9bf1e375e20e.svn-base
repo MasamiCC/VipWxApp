@@ -1,0 +1,46 @@
+page{
+  background-color: #f4f4f4;
+}
+.tab-h{
+  height: 80rpx;width: 100%; box-sizing: border-box;overflow: hidden;line-height: 80rpx;background: #fff; font-size: 16px; white-space: nowrap;position: fixed;top: 0; left: 0; z-index: 99;}
+.tab-item{margin:0 55rpx;display: inline-block;}
+.tab-item.active{color: #dab875;position: relative;}
+.tab-item.active:after{ content: "";display: block;height: 5rpx;width: 90rpx;background: #dab875;position: absolute; bottom: 0;left: 5rpx;border-radius: 16rpx;}
+.item-ans{ width: 100%;display: flex; flex-grow: row no-wrap;justify-content: space-between; padding: 30rpx;box-sizing: border-box;align-items: center; }
+.avatar{width: 25%;height: 100rpx;padding-right: 30rpx;text-align: center;}
+.avatar .img{width: 100%;height: 100%;}
+.avatar .doyen{width: 40rpx;height: 40rpx;position: absolute;bottom: -2px;right: 20rpx;}
+.expertInfo{font-size: 12px;flex-grow: 2;color: #B0B0B0;line-height: 1.5em;}
+.expertInfo .name{font-size: 16px;color:#000;margin-bottom: 6px;}
+.askBtn{ width: 120rpx;height: 60rpx;line-height: 60rpx;text-align: center;font-size: 14px; border-radius: 60rpx;border: 1px solid #dab875; color:#4675F9;}
+.tab-content{margin-top: 80rpx;}
+.scoll-h{height: 100%;}
+.icontype{
+  display: inline-block;
+  width: 42px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #ccc;
+  color: #fff;
+  font-size: 0.625rem;
+  line-height: 20px;
+  text-align: center;
+}
+.coupon_bottom{
+  font-size:0.625rem; 
+  color: #999;
+  /* padding:20rpx 30rpx; */
+  background-color: #fff;
+  /* line-height: 1; */
+}
+.couponall{
+  background-color: #fff;
+  margin:10px;
+}
+.font{
+ font-size: 26rpx;
+}
+.middleimg{
+  width: 100%;
+ height: 12px;
+}

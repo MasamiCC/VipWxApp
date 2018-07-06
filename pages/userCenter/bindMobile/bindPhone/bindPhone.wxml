@@ -1,0 +1,12 @@
+<!--pages/userCenter/bindMobile/bindPhone.wxml-->
+<view class='bg' >
+  <image class='bgImg' src=' /statics/imgs/binding/phone@3x.png'></image>
+  <view class='txt1'>你还没有绑定您的手机号</view>
+  <view class='txt2'>快去绑定手机号</view>
+</view>
+<view >
+
+  <button class='btn' bindtap='toBinding'>立即绑定</button>
+
+
+</view>

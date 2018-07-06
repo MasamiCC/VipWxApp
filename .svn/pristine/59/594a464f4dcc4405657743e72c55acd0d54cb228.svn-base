@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "shop-wifi": "shop-wifi/shop-wifi",
+    "shop-star": "../Components/shop-star/shop-star",
+    "diandan": "diandan/diandan"
+    
+  }
+}

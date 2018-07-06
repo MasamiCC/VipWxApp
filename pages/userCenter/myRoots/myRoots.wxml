@@ -1,0 +1,5 @@
+<scroll-view >
+  <view wx:for="{{datalist}}" wx:key="list" >
+    <shop-item mode="root" item="{{item}}"></shop-item>
+  </view>
+</scroll-view>

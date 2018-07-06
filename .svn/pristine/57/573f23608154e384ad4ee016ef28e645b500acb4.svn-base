@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "shop-cart": "../shop-cart/shop-cart",
+    "shop-attr": "../shop-attr/shop-attr",
+    "shop-diandan-item":"../../Components/shop-diandan-item/shop-diandan-item"
+  }
+}

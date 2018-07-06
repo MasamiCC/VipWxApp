@@ -1,0 +1,24 @@
+<view class='bind_all'>
+  <view class='diamon'><image style="width: 90px;height: 130px;" src="../../../statics/imgs/diamondtop.png"></image></view>
+  <view class="textright"><span class="close iconfont icon-guanbi" bindtap="closewindow"></span></view>
+  <view class="teltitle">绑定手机号</view>
+
+  <view class='inptel'>
+      <input class='input_tel' id="mobile" type='number' placeholder="请输入手机号码" maxlength='11'   value="{{mobile.length>0?mobile:''}}" bindinput="bindKeyInput"/>
+  </view>
+
+  <view class='inputs'>
+    <view class='inptel inpcode'><input class='input_code' id='yzm' type='number' bindblur="bindBlur" placeholder="验证码" maxlength='6'/></view>
+    <view class='send_code'>
+      <button class="get_code {{mobileFlg?'active':''}}" bindtap='sendYzm'>{{btnMsg}}</button>
+    </view>
+  </view>
+  <view class='bind_bottom'>
+    <view class='bind_imd' bindtap='registerTap'><span class='bind_con'>立即绑定</span></view>
+    <view class='bind_title'><span class="iconfont question icon-yiwen"></span>
+    <span class='tel_tickert'>请绑定手机号码，便于下次快速登录</span></view>
+  </view>
+  <view class='diamonbottom'><image style="width: 70px;height: 100px;" src="../../../statics/imgs/diamondbottom.png"></image></view>
+</view>
+
+

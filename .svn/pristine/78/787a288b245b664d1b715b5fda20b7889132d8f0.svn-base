@@ -1,0 +1,18 @@
+<view style='height:100%;background:#fff'>
+    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        <view wx:for="{{tabs}}" wx:key="{{item.value}}" class="tab-item {{currentTab==item.value?'active':''}}" data-current="{{item.value}}" bindtap="_swichNav">{{item.title}} </view>
+        
+    </scroll-view>
+    <swiper class="tab-content" current="{{currentTab-1}}" duration="300" bindchange="_switchTab"
+     style="height:auto">
+        <swiper-item wx:for="{{tabs}}" wx:key="{{item.value}}">
+          
+          <my-scroll-view wx:if="{{mode=='coupon'}}" mode="{{item.mode}}"   currentPage='1' cityid="{{cityid}}"></my-scroll-view>
+          <my-scroll-view wx:elif="{{mode=='comment'}}" mode="{{mode}}" commentStatus="{{item.value}}"  currentPage='1' shopid="{{shopid}}"></my-scroll-view>
+          <lists wx:elif="{{mode=='mycomment'}}" currentPage='1'  mode='{{item.mode}}' url="{{item.url}}" ></lists>
+          <lists wx:elif="{{mode=='order'}}" currentPage='1'   mode='order' url="{{item.dataUrl}}?orderStatus={{item.value}}" ></lists>
+          <my-scroll-view wx:else  mode="{{mode}}" status="{{item.value}}" currentPage='1'></my-scroll-view> 
+        
+        </swiper-item>
+    </swiper>
+</view>

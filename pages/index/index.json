@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "shop-item": "../Components/shop-item/shop-item",
+    "shop-star": "../Components/shop-star/shop-star",
+    "index-hot-cat":"./index-hot-cat/index-hot-cat",
+    "index-tuijian": "./index-tuijian/index-tuijian"
+  }
+}

@@ -1,0 +1,34 @@
+<!--  -->
+<!-- <view>商品id：{{item.id}}</view>
+<view>商品名称：{{item.goodsName}}</view>
+<view>商品价格：{{item.price}}/{{item.unit}}</view> -->
+<view class="shop-hot">
+   <view class="shop-edge">
+   <view class="shop-photo">
+      <image lazy-load='true' wx:if="{{item.img}}" src='{{imageUrl}}{{item.img}}' ></image>
+   </view>
+   <!-- wx:for 渲染购物车列表 -->
+   <view style='padding-left:10rpx;'>
+       <view class="shop-des">{{item.goodsName}}</view>
+       <view class="shop-mark">
+         <text class="shop-price">￥{{item.price}}</text>
+         <text class="shop-unit">/{{item.unit}}</text>
+       </view>
+   </view>
+   <view class="shop-num-list" wx:if="{{item.spec_cnt>0}}" >
+      <view>
+        <button class="shop-num-btn" bindtap='_chooseAttr' data-item="{{item}}">选规格</button>
+      </view>
+   </view>
+   <view class="shop-num" wx:else >
+       <!-- 减号 -->
+       <image bindtap='{{num>0?"_cartChange":""}}' src='/statics/imgs/shopCart-jian.png' data-type="mins" data-item="{{item}}"></image>
+       <!-- 数值 -->
+       <text>{{num}}</text>
+       <!-- 加号 -->
+       <image bindtap='_cartChange' src='/statics/imgs/shopCart-jia.png' data-type="plus" data-item="{{item}}"></image>
+   </view>
+   </view>
+</view>
+
+

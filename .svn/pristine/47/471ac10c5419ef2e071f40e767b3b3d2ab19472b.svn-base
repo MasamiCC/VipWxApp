@@ -1,0 +1,17 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+:root {
+  --text-color: green;
+
+}
+ @import "statics/css/iconfont.wxss"; 
+ @import "statics/css/common.wxss"; /*引入公共样式*/
+

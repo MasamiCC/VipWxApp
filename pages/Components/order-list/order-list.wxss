@@ -1,0 +1,6 @@
+/* pages/Components/order-list/order-list.wxss */
+.orderlistfont{
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 50px 0;
+}

@@ -1,0 +1,17 @@
+/* pages/index/index-tuijian/index-tuijian.wxss */
+.img{
+  padding: 0 10rpx;
+  overflow: hidden;
+  margin-top: 25rpx;
+  width: 685rpx;
+  height: 250rpx; 
+}
+.slide-image{width: 100%;}
+.actives view{
+-ms-transform:scale(1,1.1); /* IE 9 */
+-webkit-transform: scale(1,1.1); /* Safari */
+transform: scale(1,1.1); /* 标准语法 */
+}
+ .swip{
+  height: 300rpx;  
+} 

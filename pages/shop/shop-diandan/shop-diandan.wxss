@@ -1,0 +1,259 @@
+/* pages/shop/shop-diandan/shop-diandan.wxss */
+.shop_diandan{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  overflow: auto;
+  z-index: 2
+}
+.shop-diandan-header{
+  padding: 40rpx 0;
+  text-align: center;
+  margin: auto 15px;
+}
+.shop-diandan-header>view{display: inline-block;vertical-align: middle}
+.shop-diandan-header>view:first-child{width: 100%}
+.shop-diandan-header-img{
+  width: 82rpx;
+  height: 82rpx;
+  border-radius: 50%;
+}
+.shop-diandan-header-text{
+   height: 82rpx;
+   line-height: 82rpx;
+   padding-left: 28rpx;
+   font-size: 40rpx;
+   font-weight: 600;
+}
+.is_Checked{text-align: left;padding: 25rpx 0;}
+.shop-diandan-header.is_Checked>view:first-child{
+  width: 82rpx;
+}
+.shop-diandan-list{
+  height: 100rpx;
+  font-size: 36rpx;
+  line-height: 100rpx;
+}
+.shop-diandan-right-btn{
+  width: 105rpx;
+  height: 84rpx;
+  border-radius: 42rpx 0 0 42rpx;
+   background-color: #858585;  
+}
+.shop-diandan-btn{
+  position: relative;
+  width: 70rpx;
+  height: 70rpx;  
+  border-radius: 35rpx; 
+  margin-top: 8rpx;
+  margin-left: 8rpx;
+  background-color: #858585;  
+}
+ button[class="shop-diandan-btn"]::after {
+  border: 0;
+}  
+
+ .shop-diandan-btn>image{
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+} 
+/*菜单控制器  */
+.menu_controler{position: absolute;bottom: 150rpx;right: 0;z-index: 3}
+/*背景  */
+.diandan_bg{position: fixed;left: 0;right: 0;top: 0;bottom: 0;overflow: hidden;background: #fff;z-index: 1}
+.diandna-bg{position: absolute;}
+.diandna-bg:first-child{top:180rpx;left: -190rpx}
+.diandna-bg:last-child{bottom:250rpx;right:-190rpx}
+.diandna-bg image{
+  border-radius:  380rpx;opacity: .5;width:380rpx;height: 380rpx
+}
+
+
+
+/* 底部 */
+.shopDiandan-banner{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 99rpx;
+  background: #333;
+}
+.shopDiandan-location{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.shopDiandan-banner-head{
+  position: absolute;
+  height: 136rpx;
+  width: 136rpx;
+  border-radius: 50%;
+  left: 15rpx;
+  bottom:13rpx;
+  background: #333;
+}
+.shopDiandan-banner-head-img{
+  z-index: 1;
+  width: 124rpx;
+  height: 124rpx;
+  border-radius: 50%;
+  left: 8rpx;
+  bottom: 8rpx;
+  position: absolute;
+}
+.shopDiandan-banner-head-pop{
+  z-index: 3;
+  width: 111rpx;
+  height: 36rpx;
+  position: absolute;
+  bottom: 9rpx;
+  left: 14rpx;
+}
+.shopDiandan-banner-head-pop>image{
+  position: absolute;
+  bottom: -1rpx;
+  left: 0;
+  width: 111rpx;
+  height: 36rpx;
+  z-index: -1;
+}
+.shopDiandan-banner-head-pop{
+  z-index: 100;
+  font-size: 20rpx;
+  color: #fff;
+  width: 111rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+}
+.shopDiandan-red{
+  width: 36rpx;
+  height: 36rpx;
+  background: #f53319;
+  position: absolute;
+  right: 7rpx;
+  top: -3rpx;
+  border-radius: 50%;
+  z-index: 110;
+  line-height: 36rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+}
+.shopDiandan-location-flex{
+  display: flex;
+  flex-direction: flex-end;
+}
+.shopDiandan-location-total{
+  height: 99rpx;
+  width: 412rpx;
+  padding-left: 169rpx;
+  line-height: 99rpx;
+  font-size: 40rpx;
+  color: #fff;
+}
+.shopDiandan-location-submit{
+  width: 210rpx;
+  height: 99rpx;
+  color: #fff;
+  text-align: center;
+  display: flex;
+   flex-direction: column; 
+  justify-content: center;
+   background: -webkit-linear-gradient(left, #fec513 ,#f8a120); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #fec513, #f8a120); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,#fec513, #f8a120); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #fec513 , #f8a120); /* 标准的语法（必须放在最后） */
+}
+.shopDiandan-location-submit>view:nth-child(1){
+  width: 210rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.shopDiandan-location-submit>view:nth-child(2){
+  width: 210rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+
+.shop-cart{position: fixed; bottom: 0;left: 0;right: 0;overflow: visible;z-index: 5;height: 99rpx}
+
+/*  */
+.shop-diandan-list-top .is_Checked{
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 36rpx;
+  overflow: hidden;
+  font-weight: 500;
+  display: flex;align-items:center;
+  padding: 0
+
+}
+.ups{
+ float: right; 
+background-color: #333;
+color: #f1f1f1;
+font-size: 28rpx;
+height: 60rpx;
+line-height: 60rpx;
+ padding: 0 16rpx; 
+overflow: hidden;
+}
+.downs{
+background-color: #333;
+color: #fff;
+font-size: 28rpx;
+height: 60rpx;
+line-height: 60rpx;
+padding: 0 16rpx;
+display: inline-block;
+} 
+ /* pages/Components/shop-diandan-list/shop-diandan-list.wxss  */
+.shop-diandan-list-top{display: flex;justify-content: space-between;}  
+.shop-diandan-list-top.padding{padding: 20rpx 0}
+.shop-diandan-list-top.listShow{padding:0}
+  .shop-diandan-list-top view{flex:1} 
+   .shop-diandan-typename{
+      display:flex;
+      align-content:center;
+      align-items:center;
+      justify-content:center;
+
+   }   
+ .cat_prev{
+  background: #333333;color:#fff;
+} 
+.shop-diandan-list-middle{background: #fff;padding: 15rpx;display: none }  
+.shop-diandan-list-middle.listShow{display: block}
+.diandan{position: relative}
+.diandan::after{
+  content: '';
+  height: 1px;
+  position: absolute;
+  left: 0;right: 0;
+  bottom: 0;
+  background: #ddd
+}
+.diandan:last-child::after{
+  height: 0
+}
+.count{
+  background:red;
+  color:#fff;
+  border-radius:50rpx;
+  display:inline-block;
+  width:30rpx;
+  height:30rpx;
+  font-size:25rpx;
+  line-height:1.2;
+  vertical-align:top;
+  text-align:center;
+  padding:5rpx;
+  margin:5rpx 10rpx;
+
+}
