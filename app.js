@@ -107,8 +107,8 @@ App({
 
     globalData: {
         userInfo: null,
-        // remoteUrl: 'https://www.592vip.com/api/', //正式接口
-        remoteUrl:'https://www.592vip.com/testapi/',
+        remoteUrl: 'https://www.592vip.com/api/', //正式接口
+        // remoteUrl:'https://www.592vip.com/testapi/',
         appid: 'wxf3f662cb05f349e1',
         secret: 'e99532876173f46f7c67200779032962',
         session_user: null,

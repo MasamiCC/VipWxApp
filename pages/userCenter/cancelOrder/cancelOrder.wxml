@@ -1,0 +1,20 @@
+<!--pages/userCenter/cancelOrder/cancelOrder.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="section">
+    <!-- 标题 -->
+    <view class="section_title">选择取消的原因</view>
+    <!-- 遍历取消订单原因 -->
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="radio_line" wx:for="{{cancelReason}}" wx:key="label">
+        <text>{{item.unique}}</text>
+        <radio value="{{item.label}}" checked="{{item.checked}}"/>
+      </view>
+    </radio-group>
+    <textarea placeholder="输入其他原因" placeholder-style="color:#e2e2e2;"  maxlength="100" class="cancel_text" name="resonContent">
+    </textarea>
+  </view>
+  <!-- 确定按钮 -->
+   <view class="btn-area">
+    <button formType="submit">确定取消</button>
+  </view>
+</form>
