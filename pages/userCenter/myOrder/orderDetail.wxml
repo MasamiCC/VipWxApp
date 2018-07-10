@@ -8,7 +8,7 @@
           <block wx:if='{{"a"==order.flag}}'>
             <view class="order_status_info">
                 <view class="order_status_info_text1">订单已取消</view>
-                <view class="order_status_info_text2">超时未支付，订单已自动取消</view>
+                <!-- <view class="order_status_info_text2">超时未支付，订单已自动取消</view> -->
             </view>
             <view class="order_status_btn">
                 <button plain='true' class='onemore'>再来一单</button>

@@ -28,7 +28,7 @@ Page({
             })
         }
         console.log(this.data.orderid)
-        network.request("comment/getshopcomments", { orderid: this.data.orderid }, res => {
+        network.requestInLogin("order/getordercomment", { order_no: '11531190565113237851' }, res => {
             var that = this;
             that.setData({
                 item: res.result
