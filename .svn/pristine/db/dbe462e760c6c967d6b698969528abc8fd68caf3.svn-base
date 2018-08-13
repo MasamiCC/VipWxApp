@@ -1,0 +1,70 @@
+<view class='order-item' >
+  <!--商家信息  -->
+  <view class='order-shop' bindtap='_orderDetail' data-orderno="{{item.order_no}}">
+    <view class='order-shop-mark'>
+      <image src="{{imageUrl}}{{item.shop_logo}}" class='shop-logo' mode='aspectFill'></image>
+      <view class='order-msg'>
+        <view class='order-shopName'>{{item.shop_name}}</view>
+         <view class='order-createTime'>
+         <!-- {{item.order_create_time}} -->
+         {{ndate}}
+         </view> 
+      </view>
+    </view>
+    <view class='order_status_con'>
+       <!-- <text>{{orderStatus[item.order_status]}}</text>  -->
+       <view class='order_status' wx:if="{{item.order_status=='0'}}" >
+          <!-- {{orderMsg}}    -->
+          {{orderstatusitem}}
+       </view> 
+       <view class='order_status' wx:else>
+        
+         {{orderstatusitem}}  
+       </view> 
+    </view>
+  </view>
+  <!--商品组  -->
+  <view class='order-goods' bindtap='_orderDetail' data-orderno="{{item.order_no}}">
+    <!--商品列表  -->
+    <view class='linebackground' wx:if="{{item.goods_name_list.length>0}}">
+       <!-- <text style='margin-right:5px' wx:for="{{item.goods_name_list}}" wx:for-item="goods" wx:key="goods">{{goods}}</text>  -->
+      <text style='margin-right:5px'>{{item.goods_name_list[0]}}</text>
+      <text wx:if="{{item.goods_name_list.length==1}}">{{item.goods_name_list.length}}件商品</text>
+       <text wx:if="{{item.goods_name_list.length>1}}">等{{item.goods_name_list.length}}件商品</text>
+       <text style='float:right'>￥{{item.pay_money}}</text>
+    </view>
+
+    <!--线下买单  -->
+    <view wx:else>
+       <text>线下买单</text>
+       <text style='float:right'>￥{{item.pay_money}}</text>
+    </view>
+
+  </view>
+  <!--统计组  -->
+  <view class='order-tongji'>
+    
+    
+  </view>
+  <!--按钮组  -->
+  <block>
+    <view class='order-btns' wx:if="{{item.order_status=='0'}}"> 
+      <view wx:if="{{!overtime}}" class='topay' style='color:{{color}};border:{{border}}' bindtap='toPay'>{{topaymsg}}</view>   
+        <!-- <button plain='ture' style='margin-right:20rpx;'>再来一单</button>   -->
+        <!-- <button plain='ture' style='margin-right:20rpx;'>取消订单</button> -->
+       <button plain='ture' style='' bindtap='deleteOrder'>删除订单</button>  
+    </view>
+    <view class='order-btns' wx:if="{{item.order_status=='d'||item.order_status=='a'}}">
+       <!-- <button plain='ture' style='margin-right:20rpx;'>再来一单</button>  -->
+       <button plain='ture' bindtap='deleteOrder'>删除订单</button>   
+    </view>
+    <view class='order-btns' wx:if="{{item.order_status=='7'||item.order_status=='8'}}">
+       <!-- <button plain='ture' style='margin-right:20rpx;'>再来一单</button>  -->
+      <button plain='ture' style='margin-right:20rpx;'>评价</button>
+      <button plain='ture'>申请售后</button>  
+    </view>
+  </block>  
+</view>
+
+
+

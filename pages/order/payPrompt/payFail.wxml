@@ -1,0 +1,8 @@
+<!--pages/order/payPrompt/payFail.wxml-->
+<view class='box'>
+    <image src='/statics/imgs/payFail.png'></image>
+    <view class='txt1'>支付失败</view>
+    <view class='txt2'>您的订单未完成支付，请尝试再次支付</view>
+    <button bindtap='again'>再次支付</button>
+    <button bindtap='index'>返回首页</button>
+</view>

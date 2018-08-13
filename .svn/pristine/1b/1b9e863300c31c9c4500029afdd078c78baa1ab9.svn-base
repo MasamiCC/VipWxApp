@@ -1,0 +1,203 @@
+<!--pages/userCenter/myOrder/orderDetail.wxml-->
+<!-- 订单状况 -->
+<view  >
+    <view style='margin: 30rpx;background:#fff;padding: 30rpx 0 46rpx 0;'>
+
+      <view class="order_status">
+          <view><image  wx:if="{{order.shop_img}}" src='{{imageUrl}}{{order.shop_img}}'></image></view> 
+          <block wx:if='{{"a"==order.flag}}'>
+            <view class="order_status_info">
+                <view class="order_status_info_text1">订单已取消</view>
+                <view class="order_status_info_text2">超时未支付，订单已自动取消</view>
+            </view>
+            <view class="order_status_btn">
+                <!-- <button plain='true' class='onemore'>再来一单</button> -->
+            </view>
+          </block>
+          <block wx:if='{{"8"==order.flag}}'>
+            <view class="order_status_info">
+                <view class="order_status_info_text1">订单已完成</view>
+                <view class="order_status_info_text2">感谢您使用轻奢点评，欢迎下次光临</view>
+            </view>
+            <view class="order_status_btn">
+                <!-- <button plain='true' class='onemore'>再来一单</button> -->
+                <button plain='true' class='onemore orangebtn'>取消订单</button>
+            </view>
+          </block>
+          <block wx:if='{{"0"==order.flag}}'>
+            <view class="order_status_info">
+                <view class="order_status_info_text1">等待支付</view>
+                <view class="order_status_info_text2">{{topaymsg}}</view>
+            </view>
+            <view class="order_status_btn">
+                <button plain='true' class='onemore' bindtap="go_pay">去支付</button>
+                <button plain='true' class='onemore orangebtn' bindtap="cancel_order">取消订单</button>
+            </view>
+          </block>
+      </view>
+
+      
+    </view>
+   <!-- 订单详情 -->
+   <view class='mian_con'>
+      <view class="order_details_title">
+          <image  wx:if="{{order.shop_img}}" src='{{imageUrl}}{{order.shop_img}}'></image>
+          <text class='shopname'>{{order.shop_name}}</text>
+      </view>
+      <view class='order_con'>
+          <view class="order_details" wx:for="{{order.goodlist}}" wx:for-item="good" wx:key="good">
+          <!-- -￥{{good.dis_member}} -->
+              <view  wx:if="{{order.goodlist.length>0}}">      
+                <view class="order_details_content" >
+                  <view class="order_details_content_left" >
+                    <view class='linecon'>
+                      <view class='goodfontcon'>
+                        <view>{{good.goods_name}}</view>
+                      </view>
+                    </view>
+                    <view class='seconline'
+                      style='display:flex;justify-content:space-between;align-items:flex-start;'>
+                      <view class='greyfont'>×{{good.goods_num}}</view> 
+                      <view style='color:#333;font-size:28rpx;width:80px;text-align:right;'>￥{{good.goods_price}}</view>
+                    </view>
+                      </view>
+                  </view>
+                </view>   
+          </view>
+      </view>
+    <!-- <view class="order_details_coupons">
+          <text>优惠券</text>
+          <text class='greyfont'>
+            <view wx:if="{{list==''}}">
+              暂无数据
+            </view>
+            <view wx:else="" style='background:#eee'>
+              <coupon-item wx:for="{{list}}" item="{{item}}" wx:key="{{index}}"  mode="{{mode}}"></coupon-item>
+            </view>
+          </text>
+        </view> -->
+        <view class="order_details_activity">
+            <text>平台折扣</text>
+            <text style="color:#ce3a26;">-￥{{discount}}</text>
+        </view>
+        <view class="order_details_reduce">
+            <!-- <text class="order_details_reduce_1 greyfont"><text style='margin-right:10rpx;'>优惠</text><text>-￥{{good.dis_member}}</text></text> -->
+            <text style='margin-left: 20rpx;font-size:28rpx;'><text style='margin-right:10rpx;'>实付</text><text style='color:#ce3a26;'>￥{{order.total}}</text></text>
+        </view> 
+     <view class="order_details_contact">
+            <view class="order_details_contact_btn">
+              <image src='/statics/imgs/orderDetail_tel.png'></image>
+              <text>联系商户</text>
+            </view>
+        </view> 
+</view>
+<view class='order_msg'>
+   <!-- 堂食信息 -->
+
+    <!-- <view class="order_details_message">
+       <view class="order_details_canteen location">
+        <text>堂食信息</text> 
+        <text></text> 
+      </view> -->
+      <view class="order_details_message_title location">
+        <text>订单信息</text> 
+        <text></text>
+      </view>
+      <view class="order_details_message_num location">
+        <text>桌位号</text> 
+
+        <text>{{order.deskNo}}</text>
+      </view>
+   <!-- </view>  -->
+   <!-- 备注 -->
+   <view class="order_details_remarks location">
+     <text>备注</text> 
+     <text wx:if='{{order.flag_change_remark}}'>{{order.flag_change_remark}}</text>
+     <text wx:else>无</text>
+   </view>
+   <!-- 发票 -->
+   <view class="order_details_receipt location">
+     <text>发票</text>
+      <text class='boxafter1' style='display:{{angleright}};' bindtap='changeangle1'></text> 
+      <text class='boxafter2' style='display:{{displayshow}};' bindtap='changeangle2'></text> 
+   </view>
+   <view class='tickets' style='display:{{displayshow}};'>
+    <view class="order_details_receipt location">
+      <text>发票类型</text>
+      <text></text>
+    </view>
+    <view class="order_details_receipt location">
+      <text>姓名</text>
+      <text>{{order.contacts_name}}</text>
+    </view>
+    <view class="order_details_receipt location">
+      <text>手机号码</text>
+      <text>{{order.contacts_phone}}</text>
+    </view>
+   </view>
+</view>
+
+
+
+   <!-- 联系人信息 -->
+   <!-- <view class="order_details_way">
+     <view class="location order_details_fig">
+        <text>联系人</text>
+        <text> {{order.contacts_name}}</text>
+     </view>
+     <view class="location order_details_fig">
+        <text>联系人手机号</text>
+        <text>{{order.contacts_phone}}</text>  
+     </view>
+     <view class="location order_details_time">
+         <text>备注</text>
+         <text>{{order.flag_change_remark}}</text>
+     </view>     
+   </view> -->
+      <!-- 发票信息 -->
+   <!-- <view class="order_details_way">
+     <view class="location order_details_fig">
+        <text>公司名称</text>
+        <text> {{orderInvoice.company}}</text>
+     </view>
+     <view class="location order_details_fig">
+        <text>税号</text>
+        <text>{{orderInvoice.dutyParagraph}}</text>  
+     </view>
+     <view class="location order_details_time">
+         <text>开户行</text>
+         <text>{{orderInvoice.bank}}</text>
+     </view> 
+      <view class="location order_details_time">
+         <text>开户账号</text>
+         <text>{{orderInvoice.bankAccount}}</text>
+     </view>
+        <view class="location order_details_time">
+         <text>公司地址</text>
+         <text>{{orderInvoice.companyAddress}}</text>
+     </view>  
+      <view class="location order_details_time">
+         <text>公司电话</text>
+         <text>{{orderInvoice.companyPhone}}</text>
+     </view>     
+   </view> -->
+   <!-- 支付方式 -->
+   <view class='order_msg'>
+      <view class="order_details_way">
+        <view class="location order_details_fig order_details_message_title">
+            <text>支付方式</text>
+            <text> {{orderType[order.payType]}}</text>
+        </view>
+        <view class="location order_details_fig">
+            <text>订单号码</text>
+            <text>{{order.orderNo}}</text>  
+        </view>
+        <view class="location order_details_time">
+            <text>订单时间</text>
+            <text>{{order.createTime}}</text>
+        </view>     
+      </view>
+    </view>
+</view>
+
+

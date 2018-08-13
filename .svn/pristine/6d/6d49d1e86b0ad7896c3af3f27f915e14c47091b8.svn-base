@@ -1,0 +1,93 @@
+// const order_status={
+//   "0":"待付款",
+//   "1": "支付成功" ,//（商家端点击接单变成2）
+//   "2":"商家接单", //（师傅拿到车用app点击取车变成3）
+//   "3":"师傅已取车" ,//（经过洗车服务后将车归还用户，师傅用app点击换车变成5）
+//   "5":"师傅已归还车辆", //（用户点击确认收到车变成7）
+//   "7": "用户确认了",//（待评价） //（用户评价完成）
+//   "8":"订单完成",
+//   "a":"订单取消",
+//   "b":"订单退款",
+//   "c":"退款完成",
+//   "d":"商家取消",
+// }
+const order_status = {
+  "0": "等待支付",
+  "1": "已付款",//（商家端点击接单变成2）
+  "2": "商家已接单", //（师傅拿到车用app点击取车变成3）
+  "3": "配送中",//（经过洗车服务后将车归还用户，师傅用app点击换车变成5）
+  "4": "待上菜",
+  "5": "商家配送完成", //（用户点击确认收到车变成7）
+  "6": "用户确认",
+  "7": "待评价",//（待评价） //（用户评价完成）
+  "8": "订单已完成",
+  "9": "等待商户扫码（抽奖礼物发放给用户）",
+  "a": "订单取消",
+  "b": "订单退款",
+  "c": "退款完成",
+  "d": "商家取消",
+  "e": "设备绑定",
+  "f": "车辆到店",
+  "g": "车辆洗护",
+  "h": "洗护结束",
+  "i": "车辆返程中",
+  "j": "等待电话预约",
+}
+
+const order_type={
+  "7":'线下买单'
+}
+const data_url={
+  order: 'order/getorderlist', //订单列表
+  notActivate: 'coupon/getNotActivateCouponList',
+  notUsed:'coupon/getNotUsedCouponList',
+  expired:'coupon/getExpiredCouponList',
+  used: 'coupon/getUsedCouponList',
+  comment:'comment/getshopcomments',
+  createOrder: 'order/submitOrder',//美食提交订单接口
+  shopCartAccount:'order/shopCartAccount',//购物车提交结算
+  mycomments: 'comment/getmycomments',//用户获取我的点评接口
+  orderlistUnComments:'order/getorderlist?orderStatus=4',
+  submitOrder: 'order/submitOrder',//美食提交订单接口
+  wxAppPay: 'wxsmallpayment/paysign', //微信小程序支付接口
+  messagelist: 'message/messagelist',//获取消息列表接口
+}
+const message_type= ['系统通知', '活动消息', '黑卡消息', '订单通知']
+
+const pay_type={
+  0: '在线支付',
+  1: '支付宝' ,
+  2: '微信app' ,
+  3: '网银' ,
+  4: '现金支付（针对商户下单）',
+  5: '微信公众号' ,
+  6: '黑卡支付',
+  7: '微信扫码',
+  8: '支付宝扫码'
+}
+
+//取消原因
+const cancelReason = [
+  { label: 0, unique: '我想重新点' },
+  { label: 1, unique: '我不想买了' },
+  { label: 2, unique: '我临时有事 ' },
+  { label: 3, unique: '其他原因' },
+]
+
+//订单生成的3种方式
+const orderMehod = [
+  { label: 0, mehod: '堂食', checked: 'true'},
+  // { label: 1, mehod: '预定'},
+  // { label: 2, mehod: '外卖' },
+]
+
+
+module.exports = {
+  order_status: order_status,
+  order_type:order_type,
+  data_url: data_url,
+  pay_type: pay_type,
+  message_type: message_type,
+  cancelReason: cancelReason,
+  orderMehod: orderMehod,
+}

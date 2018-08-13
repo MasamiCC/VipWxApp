@@ -1,0 +1,32 @@
+/* pages/order/payPrompt/payFail.wxss */
+image{
+    width: 142rpx;
+    height: 142rpx;
+    margin-top: 180rpx;
+}
+.box{
+    text-align: center;
+}
+.txt1{
+    font-size: 35rpx;
+    margin: 50rpx 0 30rpx 0;
+}
+.txt2{
+    font-size: 30rpx;
+    color: #666666;
+    margin-bottom: 70rpx;    
+}
+button{
+    width: 450rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    border: 0rpx;
+    background-color: #f4f4f4;
+    border-radius: 999rpx;
+    margin-top: 20rpx;
+    font-size: 32rpx;
+}
+
+button::after{
+border: none;
+}

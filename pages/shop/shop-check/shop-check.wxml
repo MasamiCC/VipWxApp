@@ -1,0 +1,61 @@
+<!--pages/shop/shop-check/shop-check.wxml-->
+
+<!-- 付款 -->
+<view class='shop_check_nav'>
+  <!-- 商家信息  -->
+  <view class='shop_info'>
+    <image wx:if="{{shop.img}}" class='logoimg' lazy-load='true' src='{{imgUrl}}{{shop.img}}'></image>
+    <text>{{shop.shopName}}</text>
+  </view>
+  <!-- 消费 -->
+  <view class='consume_area'>
+    <input class='input' bindinput= "consume_money" type='text' focus='true' placeholder="输入消费总额"></input>
+    <span class="qd iconfont icon-erweima1688" bindtap='scanCode'></span>
+    <!-- 提示 -->
+    <view class='consume_prompt'>
+      点击扫描商户二维码，可获取消费订单及金额
+    </view>
+    <!-- 是否参与 -->
+    <view class="is_participate">
+      <switch bindchange="switchChange"/>
+      <text>不参与优惠金额</text>
+    </view>
+    <view wx:if = "{{isParticipate}}" class='participate_area'>
+       <input bindinput= "participate_money" class='input' type='text' placeholder="输入不参与优惠的金额"></input>
+    </view>
+  </view>
+</view>
+
+<!-- 优惠 -->
+<view class='discount_nav'>
+  <!-- 商家折扣券 -->
+  <view class='discount_area'>
+    <text>商家折扣券</text>
+    <!-- 无可用 -->
+    <view class='discount_content'>
+      <text>无可用</text>
+      <image src='/statics/imgs/iconright.png'></image>
+    </view>
+  </view>
+
+  <!-- 活动优惠 -->
+  <view class='discount_area'>
+    <text>活动优惠</text>
+    <!-- 无可用 -->
+    <view class='discount_content'>
+      <text style='margin-right: 48rpx;'>暂无优惠</text>
+    </view>
+  </view>
+</view>
+
+<!-- 付款 -->
+<!-- 合计付款 -->
+<view class="subOrder-end">
+  <view class="subOrder-end-flex">
+    <view class="subOrder-end-txt">
+      <text style='font-size:40rpx;'>￥{{price}}</text>
+      <text style='font-size:24rpx;'>优惠 ￥{{discount}}</text>
+    </view>
+    <view class="subOrder-end-btn" bindtap='_orderSubmit'>确认买单</view>
+  </view>
+</view>

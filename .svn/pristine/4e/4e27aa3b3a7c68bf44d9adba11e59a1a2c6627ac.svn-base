@@ -1,0 +1,3 @@
+/* pages/Components/shop-star/shop-star.wxss */
+.star_container{display: flex;align-items: center;}
+.star_img{width: 20rpx;height: 20rpx;margin: 0 10rpx;}

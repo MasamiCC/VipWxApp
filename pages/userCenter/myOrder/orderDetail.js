@@ -18,11 +18,18 @@ Page({
     displayshow:'none',
     topaymsg: '',
     orderMsg: '',
+    orderId: '',
+    shopPhone: '',
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options.shop_phone){
+      this.setData({
+        shopPhone: options.shop_phone
+      })
+    }
     this.getData(options.order_no);
   },
   getData: function (order_no) {
@@ -30,16 +37,27 @@ Page({
     network.requestInLogin("order/getorderdetail?order_no=" + order_no, null, res => {
       console.info(res)
       res.result.createTime = util.formatTime(new Date(res.result.createTime))
-      that.setData({
-        order:res.result,
-        orderInvoice: res.result.orderInvoice,
-        goodlists: res.result.goodlist,
-      })
+      //进行判断用户是直接优惠买单的还是点餐的
+      if (res.result.goodlist){
+        that.setData({
+          order: res.result,
+          orderInvoice: res.result.orderInvoice,
+          goodlists: res.result.goodlist,
+          orderId: res.result.id,
+        })
+      }else{
+        that.setData({
+          order: res.result,
+          orderInvoice: res.result.orderInvoice,
+          orderId: res.result.id,
+        })
+      }
       that.now_price();
     }, res => {
 
     }, "加载中")
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -116,6 +134,53 @@ Page({
     wx.navigateTo({
       url: "../cancelOrder/cancelOrder?order_no=" + order_no
     }) //跳转到取消订单页面
+  },
+  //去支付
+  go_pay: function(){
+    //跳转到支付页面
+    const order_no = this.options.order_no;
+    wx.navigateTo({
+      url: '/pages/order/order-pay/order-pay?order_no=' + order_no,
+    }) //跳转到取消订单页面
+  },
+  //评价订单
+  go_comment: function(){
+    const order_no = this.options.order_no;
+    wx.navigateTo({
+      url: "/pages/userCenter/comment/comment?order_no=" + order_no,
+    }) //跳转到评价订单页面
+  },
+  //用户确认订单
+  go_confirm: function(){
+    var that = this;
+    network.requestInLogin("order/userConfirmGetGoods", { id: that.data.orderId},res => {
+      if (res.success){
+        wx.showModal({
+          title: '提示',
+          content: '您已经成功确认订单',
+          showCancel: false,
+          duration: 1500,
+          success: function (res) {
+            if (res.confirm) {
+              //重新加载页面
+              wx.reLaunch({
+                url: '/pages/userCenter/myOrder/myOrder',
+              })
+            }
+          }
+        })
+      }else{
+        util.showError('确认订单失败!');
+      } 
+    }, res => {
+
+    }, "加载中")
+  },
+  //联系商家
+  call_business: function(){
+    wx.makePhoneCall({
+      phoneNumber: this.data.shopPhone 
+    })
   },
   /**
    * 组件的方法列表

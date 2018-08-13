@@ -1,0 +1,36 @@
+
+<!-- 剩余支付时间 -->
+<view class='pay_time'>
+  <view class='title'>
+    剩余支付时间
+  </view>
+  <view class='time'>
+    {{topaymsg}}
+  </view>
+</view>
+
+<!--商户信息-->
+<view class='shop_info_nav'>
+  <image wx:if="{{order.shop_img}}" class='logoimg' lazy-load='true' src='{{imgUrl}}{{order.shop_img}}'></image>
+  <!-- 商家订单编号 -->
+  <view class='shop_info'>
+    <view class='name'>{{order.shop_name}}</view>
+    <view class='order_no'>{{order.orderNo}}</view>
+  </view>
+  <text class='money'>
+    ￥{{order.total}}
+  </text>
+</view>
+
+
+<!-- 付款 -->
+<!-- 合计付款 -->
+<view class="subOrder-end">
+  <view class="subOrder-end-flex">
+    <view class="subOrder-end-txt">
+      <text style='font-size:40rpx;'>实付￥{{order.total}}</text>
+    </view>
+    <view class="subOrder-end-btn" bindtap='go_pay'>去支付</view>
+  </view>
+</view>
+

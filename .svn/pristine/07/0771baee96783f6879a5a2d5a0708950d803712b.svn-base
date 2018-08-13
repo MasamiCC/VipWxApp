@@ -1,0 +1,67 @@
+<view >
+    <view class="shop_diandan">
+      <!--头  -->
+      <view class="shop-diandan-header {{showCat>0?'is_Checked':''}}">
+        <view><image wx:if="{{shop.img}}" class="shop-diandan-header-img" src="{{imgUrl}}{{shop.img}}"></image></view>
+        <view class="shop-diandan-header-text">{{shop.shopName}}</view>
+      </view>
+      <!--菜单部分  -->
+      <view>
+        
+        <view style='margin:auto 30rpx;'  wx:for="{{goods}}" wx:key="index"  >
+          <!-- 顶部 -->
+          <view class='shop-diandan-list-top {{item.typeid==showCat?"listShow":""}} {{showCat==0?"padding":""}}'  bindtap='catClick' data-catid="{{item.typeid}}" data-index = "{{index}}">
+            <view class="{{item.typeid==showCat?'is_Checked':'shop-diandan-typename' }}"  wx:if="{{item.typeid==showCat||showCat==0}}">
+            {{item.typename}}<text wx:if="{{item.cartNum>0}}" class="count">{{item.cartNum}}</text>
+            </view> 
+            <view wx:if="{{item.prevType&&item.typeid==showCat}}" class='cat_next' catchtap='prev' data-index = "{{index}}">
+              <text class="ups">上一个分类：{{item.prevType}}</text>
+            </view>
+          </view>
+          <!--中部  -->
+          <view class='shop-diandan-list-middle {{item.typeid==showCat?"listShow":""}}' >
+            <scroll-view scroll-y="true"style="height:650rpx;padding-right:10rpx">
+              <view wx:for="{{item.goods}}" wx:key="goods{{item.id}}" wx:for-item="itemName" class='diandan'>
+                <shop-diandan-item  item="{{itemName}}" bind:cartChange="_cartChange" bind:chooseAttr="_chooseAttr"></shop-diandan-item>
+              </view>
+              
+            </scroll-view>
+            
+          </view>
+          <!--底部  -->
+          <view class='shop-diandan-list-bottom {{item.typeid==showCat?"listShow":""}}'>
+            <view wx:if="{{item.nextType&&item.typeid==showCat}}" class='cat_prev downs' catchtap='next' data-index = "{{index}}">下一个分类：{{item.nextType}} </view>
+          </view>
+          
+    </view>
+      </view>
+    </view>
+</view>
+<!--按钮  -->
+<view style=' display: flex; justify-content: flex-end;' class='menu_controler'>
+  <view  class="shop-diandan-right-btn">
+        <button class="shop-diandan-btn" hover-class="none" bindtap='menuDefault'>
+          <image src='/statics/imgs/btn_circle.png'></image>
+        </button>
+  </view>
+</view>
+<!--背景  -->
+<view class='diandan_bg'>
+  <view class='diandna-bg'>
+    <image wx:if="{{shop.img}}" src="{{imgUrl}}{{shop.img}}"></image>
+  </view>
+  <view class='diandna-bg'>
+    <image wx:if="{{shop.img}}" src="{{imgUrl}}{{shop.img}}"></image>
+  </view>
+</view>
+<!--购物车  -->
+<view class='shop-cart'>
+  <shop-cart shopCart="{{shopCart}}" carCount="{{carCount}}" cartTotal="{{cartTotal}}"  shopId ="{{shopid}}"  user="{{user}}" bind:cartRefresh="_sendMsg" bind:cartChange="_cartChange" bind:invite="invite"></shop-cart>
+</view>
+<!--多规格  -->
+<block wx:if="{{showAttr}}" >
+  <shop-attr attrData="{{attrData}}" attrShow="{{showAttr}}" bind:cartChange="_cartChange"  ></shop-attr>
+</block>
+
+
+

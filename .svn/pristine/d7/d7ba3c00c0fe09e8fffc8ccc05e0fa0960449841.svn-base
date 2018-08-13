@@ -1,0 +1,31 @@
+/* pages/rank/rank.wxss */
+.continer{
+  padding: 20rpx;
+}
+
+/*标题*/
+.title{
+
+}
+
+/*加载中,没有数据*/
+.prompt{
+  margin-top: 20rpx;
+  font-size: 24rpx; 
+  color: #c7c7c7;
+  text-align: center;
+  display: flex;
+  height: 30rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.prompt .line{
+  height: 1px;
+  background-color: #c7c7c7;
+  flex-grow: 2;
+}
+
+.prompt text{
+  margin: 0 20rpx;
+}

@@ -1,0 +1,34 @@
+<!--pages/shop/shop-discount/shop-discount.wxml-->
+<view class='shop_msg'>
+    <image class='shop_img' src='{{imgUrl}}{{shop.img}}'></image>
+    <view class='shop_name'>{{shop.shopName}}</view>
+    <view class='box'>
+        <input type='digit'  bindblur='bindmoney' placeholder='输入消费总额' placeholder-class></input>
+    </view>
+    <!-- <checkbox color='green'>不参与优惠的金额</checkbox> -->
+</view>
+
+<view class='pay'>
+    <text class='txt'>支付方式</text>
+    <picker mode="selector" range="{{pay}}" value="{{index}}" bindchange="listenerPickerSelected">
+    <text class='type'>{{pay[index]}} <text class="arrowUp" style='margin-left:20rpx;'></text></text>
+</picker>
+</view>
+<view class='discount'>
+    <text class='txt'>商户折扣券</text>
+    <text class='type'>无可用</text>
+</view>
+<view class='activity'>
+    <text class='txt'>活动优惠</text>
+    <text class='type'>暂无优惠券</text>
+</view>
+<view class='pay_nav'>
+    <view class='pay_num'>
+        <view class='pay_r'>￥ <text>{{money}}</text> </view>
+        <view class='pay_g'>优惠￥<text>{{disMoney}}</text> </view>
+    </view>
+
+    <view class='sure'>
+        确认买单
+    </view>
+</view>

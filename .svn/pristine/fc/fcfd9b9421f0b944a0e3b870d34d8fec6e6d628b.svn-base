@@ -1,0 +1,130 @@
+<!--pages/shop/shop-cart/shop-cart.wxml-->
+<view style="background:#f4f4f4" class='shopCartBox {{show?"show":""}}'>
+  <view class='shop_cart '>
+    <!-- 头部  -->
+    <view class="index-header">
+      <!-- 标题+刷新 -->
+      <view class='index-header-item '>
+        <view class="index-header-title">
+          <text>购物车</text>
+        </view>
+        <view class="index-header-refurbish">
+          <image src='/statics/imgs/shopCart-refurbish.png' bindtap='cartRefresh'></image>
+        </view>
+      </view>
+      <!-- 我的内容 -->
+      <block wx:for="{{shopCart}}" wx:key="my">
+        <view class="index-content" wx:if="{{item.foodUser.id==userid}}">
+          <view class="index-content-left">
+            <image wx:if="{{item.foodUser.pic}}" class="ic" src='{{item.foodUser.pic}}'></image>
+          </view>
+          <view class="index-content-right">
+            <view class="index-content-right-header">
+              <view class="index-content-text">
+                <view wx:if="{{item.foodUser.name != 'null'}}" class='index-content-name'>{{item.foodUser.name}}</view>
+                <view class="index-content-me">我</view>
+              </view>
+              <view class="index-content-btn" bindtap='empty_cart'>
+                <text>清空我的</text>
+              </view>
+            </view>
+
+            <view wx:for="{{item.cartgoods}}" wx:for-item="item1" wx:key="goods-item" class="index-content-right-list">
+              <view class="index-content-right-list-name">
+                <view>{{item1.name}}</view>
+                <view wx:if="{{item1.attr}}">{{item1.attr}}</view>
+              </view>
+              <view class="index-content-right-list-money">￥{{item1.price}}</view>
+              <view class="index-content-right-list-number">
+                <!-- 减号 -->
+                <image src='/statics/imgs/shopCart-jian.png' bindtap='{{item1.num>0?"_cartChange":""}}' data-type="mins" data-item="{{item1}}"></image>
+                <text>{{item1.num}}</text>
+                <!-- 加号 -->
+                <image src='/statics/imgs/shopCart-jia.png' bindtap='_cartChange' data-type="plus" data-item="{{item1}}"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+
+    </view>
+
+    <!-- 参与人员 -->
+    <view class="join-people">
+      <view class='join-header-item '>
+        <view class="join-header-title">
+          <text>参与人员</text>
+        </view>
+        <button class="join-header-refurbish" bindtap='inviteFriend' open-type='share'>
+          <image src='/statics/imgs/shopCart-goodfriend.png'></image>
+        </button>
+      </view>
+
+      <!-- 其他人的点餐信息 -->
+      <block wx:for="{{shopCart}}" wx:key="others" wx:if="{{item.foodUser.id!=userid}}">
+        <view class='shop_nav'>
+          <!-- 标题用户信息 -->
+          <view class='shop_title'>
+            <image src='{{item.foodUser.pic}}'></image>
+            <view class='user_info'>
+              <text class='name' wx:if="{{item.foodUser.name != 'null'}}">{{item.foodUser.name}}</text>
+              <text class='status'>参与者</text>
+            </view>
+          </view>
+
+          <!-- 用户购买的商品 -->
+          <view class='shop_goods_nav'>
+            <!-- 商品列表 -->
+            <view class='goods_area' wx:for="{{item.cartgoods}}" wx:for-item="cell" wx:for-index="cellindex" wx:key="index">
+              <view class='name'>
+                {{cell.name}}
+              </view>
+              <view class='num'>
+                ×{{cell.num}}
+              </view>
+              <view class='price'>
+                ￥ {{cell.price}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+
+    </view>
+  </view>
+
+
+</view>
+<!-- 底部 -->
+<view class="shopCart-banner">
+  <view class="shopCart-location">
+
+    <view class="shopCart-banner-head" bindtap='_toggleShopCart'>
+
+      <!-- 红色圆 -->
+      <view class="shopCart-red" wx:if="{{carCount>0}}">{{carCount}}</view>
+      <view>
+        <image class="shopCart-banner-head-img" src='{{imgUrl}}{{user.headpic}}'></image>
+        <view class="shopCart-banner-head-pop">
+          {{shopCart.length}}人
+          <image src='/statics/imgs/shopCart-banyuan.png'></image>
+        </view>
+        <view class="shopCart-banner-head-new"></view>
+      </view>
+    </view>
+
+    <!-- 合计 -->
+    <view class="shopCart-location-flex">
+      <view class="shopCart-location-total">合计：￥{{cartTotal}}</view>
+      <!-- 提交 -->
+      <view class="shopCart-location-submit" wx:if="{{creatUser == userid}}" bindtap='_selectOk'>
+        <view style='font-size:36rpx;'>点好了</view>
+      </view>
+      <view class="shopCart-location-submit" wxelse bindtap='_cartSubmit'>
+        <view style='font-size:36rpx;'>提交订单</view>
+        <!-- <view style='font-size:24rpx;'>（3人未选完）</view> -->
+      </view>
+    </view>
+    <!--合计结束  -->
+  </view>
+</view>

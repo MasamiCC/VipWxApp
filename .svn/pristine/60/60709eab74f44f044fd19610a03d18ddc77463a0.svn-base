@@ -1,0 +1,152 @@
+/* pages/shop/shop-check/shop-check.wxss */
+
+page{
+  height: 100%;
+  background-color: #fafafa;
+  font-size: 28rpx;
+  border-top: 1px solid #e3e3e3;
+}
+
+.shop_check_nav{
+  padding: 0 20rpx;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+/*商家信息*/
+.shop_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx 0;
+}
+
+.shop_info > image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.shop_info > text{
+  font-weight: bold;
+  margin-top: 20rpx;
+  font-size: 34rpx;
+}
+
+/*输入消费额*/
+.consume_area{
+  padding: 20rpx 0;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: #fafafa;
+  font-size: 26rpx;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  border-radius: 5rpx;
+}
+
+/*扫描的二维码*/
+.consume_area .qd{
+  font-size: 24px;
+  position: absolute;
+  top: 35rpx;
+  right: 20rpx;
+  z-index: 9;
+}
+
+/*提示*/
+.consume_prompt{
+  color: #646464;
+  margin-top: 20rpx;
+  font-size: 26rpx;
+}
+
+/*参与优惠买单*/
+.is_participate{
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 10rpx;
+}
+
+.is_participate switch{
+  position: relative;
+  top: -2px;
+  margin-right: 10rpx;
+}
+
+.wx-switch-input{width:42px !important;height:20px !important;}
+.wx-switch-input::before{width:41px !important;height: 20px !important;}
+.wx-switch-input::after{width: 18px !important;height: 18px !important;}
+
+/*优惠功能*/
+.discount_nav{
+  background-color: #ffffff;
+  margin-top: 20rpx;
+}
+
+.discount_area {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 20rpx;
+}
+
+.discount_area:first-child{
+  border-bottom: 1px solid #e3e3e3;
+}
+
+
+.discount_area > text:first-child{
+  float: left;
+}
+
+.discount_area > .discount_content{
+  float: right;
+}
+
+.discount_area > .discount_content image{
+  width: 20rpx;
+  height: 25rpx; 
+  margin-left: 30rpx;
+  position: relative;
+  top: 1px;
+}
+
+/* 合计付款 */
+.subOrder-end{
+  position: fixed;
+  bottom:0; 
+}
+.subOrder-end-flex{
+  display: flex;
+  flex: 1;
+  height: 98rpx;
+}
+.subOrder-end-txt{
+  display: flex;
+  flex-direction: column;
+  padding-left: 50rpx;
+  background: #333;
+  width: 540rpx;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.subOrder-end-btn{
+  flex: 1;
+  width:211rpx;
+  height:98rpx; 
+  line-height: 98rpx;
+  color: #fff;
+  text-align: center; 
+  background: -webkit-linear-gradient(left,#fec513, #f8a120); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(left,#fec513, #f8a120); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(left,#fec513, #f8a120); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right,#fec513, #f8a120); /* 标准的语法 */
+}

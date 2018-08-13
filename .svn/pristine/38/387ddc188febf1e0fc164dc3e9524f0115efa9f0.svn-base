@@ -1,0 +1,27 @@
+<scroll-view scroll-y='true' bindscrolltoupper="_pullUp" bindscrolltolower="_pullDown" style="height: 100%;background:#f4f4f4 "  >
+  <view class='main'>
+    <view wx:if="{{list==''}}" style='text-align:center;font-size:0.875rem;padding-bottom:20px;line-height:3;padding-top:80px;'>
+    暂无数据
+    </view>
+    <view wx:else="" >
+      <view style='background:#f4f4f4; margin:10px 0'>
+        <block wx:if="{{mode=='notice'}}">
+          <notice-item  wx:for="{{list_item}}" item="{{item}}" wx:key="{{index}}"   ></notice-item>
+        </block >
+        <block wx:if="{{mode=='order'}}">
+          <order-item  wx:for="{{list_item}}" item="{{item}}" wx:key="{{index}}"   ></order-item>
+        </block >
+        <block wx:else>
+          <my-item  wx:for="{{list}}" item="{{item}}" wx:key="{{index}}"  mode="{{mode}}"   ></my-item>
+        </block >
+        
+        <!-- <view style='text-align:center;font-size:0.875rem;padding-bottom:20px;line-height:1.5;color:#666'>没有更多数据了...</view> -->
+      </view>  
+    </view>
+    <view wx:if="{{endFlg}}" class='list-end'>
+      <text>没有更多啦</text>
+    </view>
+    
+  </view>
+</scroll-view>
+

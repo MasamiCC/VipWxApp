@@ -1,0 +1,21 @@
+<!--pages/rank/rank.wxml-->
+<view class='continer'>
+  <!-- 遍历排名数据 -->
+  <view class='title'>好评榜排名</view>
+  <view wx:for="{{rankData}}" wx:key="index" wx:for-item="item">
+    <shop-item item="{{item}}" mode="search"></shop-item>
+  </view>
+  <!-- 加载中样式 -->
+  <view wx:if="{{isLoading}}" class='prompt'> 
+    <view class='line'></view>
+    <text>加载中</text>
+    <view class='line'></view>
+  </view>
+
+  <!-- 没有数据样式 -->
+  <view wx:if="{{!hasData}}" class='prompt'>
+    <view class='line'></view>
+    <text>没有数据了</text>
+    <view class='line'></view>
+  </view>
+</view>

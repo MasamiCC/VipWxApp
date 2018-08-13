@@ -1,0 +1,130 @@
+<!--pages/order/subOrder/subOrder.wxml-->
+<view>
+  <view class="subOder">
+    <!-- 提交订单 -->
+    <view class="subOrder-head">
+      <view class="subOrder-head-title">提交订单</view>
+      <view class="subOrder-head-content">
+        <view class="subOrder-head-id">一楼大厅-B01桌</view>
+        <view class="subOrder-head-input">
+          <input type="text" name="search" placeholder-style="color:#e5e5e5;" placeholder="输入用餐人数"></input>
+          <view style='padding-left:10rpx;'>人</view>
+        </view>
+      </view>
+    </view>
+    <!-- 参与好友 -->
+    <view class="subOrder-attend">
+      <view class="subOrder-attend-title">参与好友</view>
+      <view class="subOrder-attend-img">
+        <view class="subOrder-attend-img1" wx:for="{{users}}" wx:key="key">
+          <image style='border-radius:999px' src="{{item.pic}}"></image>
+        </view>
+        <view class="subOrder-attend-img2">
+          <image wx:if="{{ users.length > 6 }}" src='/statics/imgs/subOrder_arrow.png'></image>
+        </view>
+      </view>
+    </view>
+    <!-- 店铺推荐 -->
+    <view class="subOrder-recom">
+      <!-- <view style='padding:28rpx'>
+        <view class="subOrder-recom-title">店铺推荐</view>
+      </view> -->
+      <!-- 判断订单是否生成过 -->
+      <!-- 订单生成过 -->
+      <view wx:if="{{isCreate}}" style='padding:20rpx 0;background: #f9f9f9;'>
+        <view wx:for="{{goodlist}}" wx:for-item="item" wx:key="item2" class="subOrder-recom-list">
+          <view class="subOrder-recom-list-title">
+            <view>{{item.goods_name}}</view>
+            <view>{{item.attr}}</view>
+          </view>
+          <view class="subOrder-recom-list-unit">×{{item.goods_num}} {{item.unit?item.unit:"份"}}</view>
+          <view class="subOrder-recom-list-price">￥{{item.goods_total_price}}</view>
+        </view>
+      </view>
+
+      <!-- 订单未生成过 -->
+      <view wx:else style='padding:20rpx 0;background: #f9f9f9;'>
+        <view wx:for="{{goodlist}}" wx:for-item="item" wx:key="item2" class="subOrder-recom-list">
+          <view class="subOrder-recom-list-title">
+            <view>{{item.name}}</view>
+            <view>{{item.attr}}</view>
+          </view>
+          <view class="subOrder-recom-list-unit">×{{item.num}} {{item.unit?item.unit:"份"}}</view>
+          <view class="subOrder-recom-list-price">￥{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 优惠活动 -->
+
+    <view class="subOrder-discount">
+      <view style='padding:20rpx 0;background:white; '>
+        <view class="subOrder-discount-list" style='background:white ;vertical-align: middle;'>
+          <view class="subOrder-discount-list-title">
+            <view style='color:black;font-size:28rpx'>优惠券</view>
+          </view>
+          <view class="subOrder-discount-list-price" style='color:#999;'>
+            <span class="priceSpan">暂无
+              <image class='imgrightimg' src='/statics/imgs/iconright.png'></image>
+            </span>
+          </view>
+        </view>
+        <view class="subOrder-discount-list" style='background:white; vertical-align: middle;'>
+          <view class="subOrder-discount-list-title">
+            <view style='color:black;font-size:28rpx'>活动优惠</view>
+          </view>
+          <view class="subOrder-discount-list-price" style='color:#999;'>
+            <span class="priceSpan">暂无
+              <image class='imgrightimg' src='/statics/imgs/iconright.png'></image>
+            </span>
+          </view>
+        </view>
+      </view>
+
+      <canvas style="width: 90%; height:2px;" canvas-id="canvasLine"></canvas>
+
+      <view class="subOrder-money">
+        <view style='padding:20rpx 0;background: white;'>
+          <view class="subOrder-money-list" style='background: white;'>
+            <view class="subOrder-money-list-title" style='width:250rpx'>
+            </view>
+            <span class="subOrder-money-list-price">
+              <span style='color:#999'>已优惠</span>
+              <span style='color:#ce3a26;font-size:28rpx;margin-left:10rpx;font-weight:500'>￥0</span>
+              <span style='color:black;font-size:40rpx;margin-left:60rpx;'>实付</span>
+              <span wx:if="{{isCreate}}" style='color:#ce3a26;font-size:40rpx;margin-left:10rpx;font-weight:500'>￥{{total}}</span>
+              <span wx:else style='color:#ce3a26;font-size:40rpx;margin-left:10rpx;font-weight:500'>￥{{total}}</span>
+            </span>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='subOrder-invoice'>
+      <view style='padding:20rpx 0;background:white;'>
+        <view class="subOrder-invoice-list" style='background:white'>
+          <view class="subOrder-invoice-list-title">
+            <view style='color:black;font-size:28rpx'>备注发票</view>
+          </view>
+          <input type="text" style='font-size:28rpx' name="search" placeholder-style="color:#e5e5e5;" placeholder="请填写订单备注,发票"></input>
+        </view>
+      </view>
+    </view>
+
+
+
+  </view>
+  <!-- 合计付款 -->
+  <view class="subOrder-end">
+    <view class="subOrder-end-flex">
+      <view class="subOrder-end-txt">
+        <text style='font-size:32rpx;'>合计：</text>
+        <text style='font-size:40rpx;'>￥{{total}}</text>
+        <text style='font-size:24rpx;'>（共{{goodsCount}}件商品）</text>
+      </view>
+      <view class="subOrder-end-btn" bindtap='_orderSubmit'>付款</view>
+    </view>
+  </view>
+</view>

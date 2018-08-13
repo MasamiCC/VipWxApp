@@ -1,0 +1,90 @@
+<!--pages/order/payment/payment.wxml-->
+
+<!-- 支付页面 -->
+<!-- <view class="payment-pay">
+  <view class="payment-pay-icon">
+    <icon type='success' size='36'></icon>
+  </view>
+  <view class="payment-pay-list">
+    <view class="payment-pay-list-state">支付成功</view>
+    <view class="payment-pay-list-orderNum">订单号：{{orderNo}}</view>
+    <view class="payment-pay-list-money">￥{{pay}}</view>
+  </view>
+  <view class="payment-pay-btn">
+    <view bindtap="checkOrder">查看订单</view>
+  </view>
+</view> -->
+
+<!-- 支付成功提示 -->
+<view class='payment_area'>
+  <view class="payment-pay-icon">
+    <icon type='success' size='50'></icon>
+  </view>
+  <view class='payment'>订单支付成功</view>
+  <view class='info'>
+    <text>订单号：{{orderNo}}</text>
+    <text>共计：￥{{pay}}</text>
+  </view>
+</view>
+
+<!-- 按钮区域 -->
+<view class='btn_area'>
+  <button type="primary" plain="{{plain}}" bindtap="checkOrder">查看订单</button>
+  <button type="default" plain="{{plain}}" bindtap="returnIndex">返回首页</button>
+</view>
+
+<!-- 先被注释掉的功能 -->
+<!-- <view style='line-height:0;margin-top:-1px'>
+  <image style='height:13rpx; width:100%;' src='/statics/imgs/payment-waves.png'></image>
+</view>
+<view class="payment-activity">
+  <view class="payment-activity-banner">优惠活动</view>
+  <view style='display:flex; justify-content:space-between;padding:0 30rpx;'>
+    <view class="payment-youhui">
+      <image src='/statics/imgs/payment-redpacket.png'></image>
+      <view class="payment-youhui-smoke">抽取优惠</view>
+      <view class="payment-youhui-most">最多可获店铺免单券</view>
+      <view class="payment-youhui-btn">试试手气</view>
+    </view>
+    <view class="payment-fanli">
+      <image src='/statics/imgs/payment-return.png'></image>
+      <view class="payment-fanli-smoke">分享返利</view>
+      <view class="payment-fanli-most">最多可获店铺免单券</view>
+      <view class="payment-fanli-btn">去赚钱</view>
+    </view>
+  </view>
+</view>
+<view class="payment-info">
+  <view class='payment-info-banner'>你还可以</view>
+  <view class="payment-info-list">
+    <view class="payment-info-list-loveMoney">
+      <image src='/statics/imgs/payment-affection.png'></image>
+      <view style='display:flex;flex-direction:column;justify-content:center;width:440rpx;'>
+        <view class="payment-info-list-title">评价得爱心币</view>
+        <view class="payment-info-list-usage">
+          <text>36</text>个
+          <text>可用于爱心捐赠，红会背书</text>
+        </view>
+      </view>
+      <view style='display:flex;flex-direction:column;justify-content:center;'>
+        <view class="payment-info-list-btn">去评价</view>
+      </view>
+    </view>
+    <view>
+      <view class="payment-info-vip">
+        <image src='/statics/imgs/payment-vip.png'></image>
+        <view style='display:flex;flex-direction:column;justify-content:center;width:440rpx;'>
+          <view class="payment-info-vip-title">会员积分</view>
+          <view class="payment-info-vip-usage">
+            <text>36</text>分
+            <text>已有3500分</text>
+          </view>
+        </view>
+        <view style='display:flex;flex-direction:column;justify-content:center;'>
+          <view class="payment-info-vip-btn">查看</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view> -->

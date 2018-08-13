@@ -1,0 +1,148 @@
+// pages/Components/shop-item/shop-item.js
+const App = getApp();
+const contant = require("../../../utils/contant.js")
+const util = require("../../../utils/util.js")
+const network = require("../../../utils/network.js")
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    item: {
+      type: Object,
+      value: {}
+    },
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+    imageUrl: App.globalData.imageUrl,
+    orderStatus: App.globalData.contant.order_status,
+    // orderMsg: '',
+    min: '',
+    sec: '',
+    clickFlg: false,
+    orderstatusitem: '',
+    topaymsg:'',
+    color:'',
+    border:'',
+    ndate:'',
+    order_no:'',
+    overtime: false,
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    _orderDetail(event) {
+      var order_no = event.currentTarget.dataset.orderno;
+      console.log(event)
+      wx.navigateTo({
+        url: '/pages/userCenter/myOrder/orderDetail?order_no=' + order_no,
+        success: function (res) {
+          console.log(res)
+        },
+        fail: function (res) {
+          console.log(res)
+        }
+      })
+    },
+    countDown: function () {
+      var timer;
+      clearInterval(timer);
+      var that = this;
+      var item = that.data.item;
+      var timepass = that.data.item.timepass;
+      var count = 900 - timepass;
+      timer = setInterval(function () {
+        //超过支付时间
+        if (count <= 0) {
+          clearInterval(timer)
+          that.setData({
+            orderstatusitem: '订单取消',
+            clickFlg: false,
+            overtime: true,//超过时间
+          })
+        }else{
+          var min = Math.floor(count / 60);
+          var sec = Math.floor(count % 60);
+          if (min < 10) {
+            min = "0" + min;
+          }
+          if (sec < 10) {
+            sec = "0" + sec;
+          }
+          count--;
+          that.setData({
+            topaymsg: '去支付（还剩' + min + '分' + sec + '秒）',
+            color:'#f8a120',
+            border: '1px solid #f8a120',
+          })
+        } 
+      }, 1000);
+    },
+    deleteOrder:function(){
+      var order_no = this.data.order_no;
+      wx.showModal({
+        title: '提示',
+        content: '确定要删除吗？',
+        success: function (sm) {
+          if (sm.confirm) {
+            network.requestInLogin("order/userDeleteOrder?order_no=" + order_no, null, res => {
+              console.log(res)
+              if (res.success) {
+                console.log(1)
+
+                wx.reLaunch({
+                  url: '/pages/userCenter/myOrder/myOrder'
+                })
+              } else {
+                wx.showToast({
+                  title: '请求失败',
+                  duration: 2000
+                })
+              }
+            }, res => {
+
+            }, "加载中")
+          } else if (sm.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    },
+    //去支付
+    toPay: function(){
+      var order_no = this.data.order_no;
+      wx.navigateTo({
+        url: '/pages/order/subOrder/subOrder?order_no=' + order_no,
+      })
+    }
+  },
+  ready(){
+    var that = this;
+    var item = that.data.item;
+    var timepass = this.data.item.timepass;
+    this.setData({
+      count: timepass,
+    }) 
+    // console.log(timepass);
+    // console.log(time);
+    // item['order_create_time'] = util.formatTime(new Date(item.order_create_time));
+    var ndate = util.formatTime(new Date(item.order_create_time))
+    var orderStatus = this.data.orderStatus;
+    var order_no = item.order_no;
+    console.log(order_no);
+    this.setData({
+      item:item,
+      orderstatusitem: orderStatus[item.order_status],
+      ndate: ndate,
+      order_no: order_no,
+    }) 
+    that.countDown();
+    console.log(item);
+  }, 
+})

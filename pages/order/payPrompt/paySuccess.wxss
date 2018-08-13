@@ -1,0 +1,208 @@
+/* pages/order/payment/payment.wxss */
+page{background: #f4f4f4;}
+/* 支付页面 */
+.payment-pay{
+  display: flex;
+  padding: 35rpx 30rpx 30rpx 30rpx; 
+  background: #fff;
+}
+.payment-pay-icon{
+  width: 88rpx;
+  padding-top: 15rpx;
+}
+.payment-pay-list{
+  width: 445rpx;
+}
+.payment-pay-list-state{
+  color: #333;
+  font-size:40rpx; 
+  font-weight: bold;
+}
+.payment-pay-list-orderNum{
+  color: #999;
+  font-size:26rpx; 
+  padding: 10rpx 0 25rpx 0;
+}
+.payment-pay-list-money{
+  color: #333;
+  font-size: 75rpx;
+  font-weight: bold;
+}
+.payment-pay-btn{padding-top: 20rpx;}
+.payment-pay-btn>view{
+  width: 148rpx;
+  height: 55rpx;
+  border: 1rpx solid #3399ff;
+  border-radius: 28rpx;
+  line-height: 55rpx;
+  font-size: 24rpx;
+  color: #3399ff;
+  text-align: center;
+}
+/* 优惠活动 */
+.payment-activity-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+}
+.payment-activity-banner{
+  color: #333;
+  font-size:32rpx; 
+  font-weight: bold;
+  padding: 35rpx 0 30rpx 30rpx;
+}
+.payment-youhui>image,.payment-fanli>image{
+  padding-top: 60rpx;
+  width: 75rpx;
+  height: 75rpx;
+  padding-bottom: 25rpx;
+}
+.payment-youhui,.payment-fanli{
+text-align: center;
+border: 1rpx solid #eee;
+height: 392rpx;
+width: 328rpx;
+background: #fff;
+}
+.payment-youhui-smoke,.payment-fanli-smoke{
+font-weight: bold;
+color: #333;
+font-size: 30rpx;
+}
+.payment-youhui-most,.payment-fanli-most{
+  color: #999;
+  font-size: 24rpx;
+  padding: 10rpx 0 40rpx 0;
+}
+.payment-youhui-btn,.payment-fanli-btn{
+  color: #fff;
+  font-size: 24rpx;
+  width: 180rpx;
+  height: 55rpx;
+  background: #f8a120;
+  border-radius: 28rpx;
+  line-height: 55rpx;
+  margin-left: 74rpx;
+}
+/* 你还可以 */
+.payment-info{
+  padding: 40rpx 30rpx 0 30rpx;
+}
+.payment-info-banner{
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding-bottom: 30rpx;
+}
+.payment-info-list-loveMoney,.payment-info-vip{
+  display: flex;
+  background: #fff;
+  height: 132rpx;
+  flex: 1;
+  justify-content:flex-start;
+}
+.payment-info-list-loveMoney>image,.payment-info-vip>image{
+  width: 79rpx;
+  height: 79rpx;
+  padding: 28rpx 18rpx;
+}
+.payment-info-list-title,.payment-info-vip-title{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  height: 48rpx;
+  line-height: 48rpx;
+}
+.payment-info-list-usage,.payment-info-vip-usage{
+  color: #ff0000;
+  font-size: 30rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  }
+.payment-info-list-usage>text:first-child,.payment-info-vip-usage>text:first-child{
+  color: #ff0000;
+  font-size: 30rpx;
+  font-weight: bold;
+  }
+  .payment-info-list-usage>text:last-child, .payment-info-vip-usage>text:last-child{
+  padding-left: 15rpx;
+  color: #999;
+  font-size: 24rpx;
+  }
+  .payment-info-list-btn{
+    width: 110rpx;
+    height: 50rpx;
+    font-size: 24rpx;
+    color: #fff;
+    background: #3399ff;
+    line-height: 50rpx;
+    text-align: center;
+    border-radius:7rpx; 
+    margin-right: 25rpx;
+  }
+  .payment-info-vip-btn{
+     width: 106rpx;
+    height: 46rpx;
+    font-size: 24rpx;
+    color: #3399ff;
+    border: 1rpx solid #3399ff;
+    line-height: 50rpx;
+    text-align: center;
+    border-radius:7rpx; 
+    margin-right: 25rpx;
+  }
+  .payment-info-list{
+     border: 1rpx solid #eee;
+  }
+  .payment-info-list-loveMoney{border-bottom: 1rpx solid #eee;}
+
+
+/*新版支付成功*/
+
+/*顶部*/
+.payment_area{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 40rpx 0;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.payment_area .payment{
+  margin: 30rpx 0;
+  font-size: 32rpx;
+}
+
+.payment_area .info{
+  font-size: 30rpx;
+}
+
+.payment_area .info > text{
+  padding: 0 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  display: inline-block;
+}
+
+.payment_area .info > text:first-child{
+  border-right: 1px solid #c7c7c7;
+}
+
+/*按钮区域*/
+.btn_area{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50rpx;
+}
+
+.btn_area button{
+  height: 75rpx;
+  line-height: 75rpx;
+  font-size: 28rpx;
+  width: 45%;
+}
+

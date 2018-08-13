@@ -1,0 +1,239 @@
+/* pages/order/subOrder/subOrder.wxss */
+.subOder{
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 99rpx;
+  padding-bottom: 25rpx;
+}
+.subOrder-head,.subOrder-attend{
+  padding-left:30rpx;
+  padding-right: 30rpx; 
+}
+/* 提交订单 */
+page{background: #f4f4f4;}
+.subOrder-head{
+  background: #fff;
+  margin-bottom: 25rpx;
+}
+.subOrder-head-title{
+  font-size: 40rpx;
+  color: #000;
+  font-weight: bold;
+  padding:50rpx 0 20rpx 0; 
+}
+.subOrder-head-content{
+  display: flex;
+  justify-content: space-between;
+  height: 52rpx;
+  line-height: 52rpx;
+   padding:15rpx 0 40rpx 0; 
+}
+.subOrder-head-id{
+  color: 696969;
+  font-size: 30rpx;
+}
+.subOrder-head-input{
+  display: flex;
+  font-size: 30rpx;
+  width: 222rpx;
+}
+.subOrder-head-input input{text-align: right}
+ /* 参与好友 */
+ .subOrder-attend{background: #fff;margin-bottom: 25rpx;}
+.subOrder-attend-title{
+  font-size: 28rpx;
+  color: #333;
+  padding: 26rpx 0 13rpx 0;
+}
+.subOrder-attend-img{
+  display: flex;
+  padding: 13rpx 0 28rpx; 
+  justify-content: space-between;
+}
+.subOrder-attend-img1{padding-right: 20rpx;}
+.subOrder-attend-img1>image{
+  width: 70rpx;
+  height: 70rpx;
+  padding-right: 19rpx;
+}
+.subOrder-attend-img1>image:last-child{
+  padding-right: 0;
+}
+.subOrder-attend-img2>image{
+  width: 70rpx;
+  height: 70rpx;
+}
+/* 店铺推荐 */
+.subOrder-recom{  background: #fff;}
+.subOrder-foods{background: #fff;padding-bottom: 28rpx;}
+.subOrder-recom-title,.subOrder-discount-title{
+  color: #f8a120;
+  font-size: 28rpx;
+  border: 1rpx solid #f8a120;
+  border-radius: 10rpx;
+  width: 140rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  text-align: center;
+}
+.subOrder-foods-title{
+  color: #f8a120;
+  font-size: 28rpx;
+  border: 1rpx solid #f8a120;
+  border-radius: 10rpx;
+  width: 90rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  text-align: center;
+}
+.subOrder-recom-list,.subOrder-foods-list,.subOrder-money-list,.subOrder-discount-list,.subOrder-invoice-list{
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 0;
+  background: #F9F9F9;
+  margin-left:30rpx;
+  margin-right: 30rpx; 
+  }
+.subOrder-recom-list>view,.subOrder-foods-list>view,.subOrder-discount-list>view,.subOrder-money-list>view,.subOrder-invoice-list>view{
+  display: flex;
+  flex-direction: column;
+   justify-content: center; 
+}
+
+.subOrder-recom-list-title,.subOrder-foods-list-title,.subOrder-money-list-title,.subOrder-discount-list-title,.subOrder-invoice-list-title{
+  width: 400rpx;
+}
+.subOrder-recom-list-title>view:first-child,.subOrder-foods-list-title>view:first-child,
+.subOrder-discount-list-title>view:first-child,
+.subOrder-invoice-list-title>view:first-child{
+color: #333;
+font-size: 28rpx;
+padding: 8rpx 0;
+}
+.subOrder-recom-list-title>view:last-child,.subOrder-foods-list-title>view:last-child,.subOrder-discount-list-title>view:last-child,
+.subOrder-invoice-list-title>view:last-child{
+  color: #999;
+  font-size: 24rpx;
+  padding:6rpx 0;
+}
+.subOrder-recom-list-unit,.subOrder-foods-list-unit,.subOrder-money-list-unit,.subOrder-discount-list-unit{
+ color: #999;
+ font-size: 24rpx;
+ text-align: right;
+ /* border:1px solid black; */
+ width: 100rpx;
+}
+.subOrder-recom-list-price,.subOrder-foods-list-price,.subOrder-discount-list-price,.subOrder-money-list-price{
+color: #ce3a26;
+font-size: 30rpx;
+}
+
+/* 合计付款 */
+.subOrder-end{
+  position: fixed;
+  bottom:0; 
+}
+.subOrder-end-flex{
+  display: flex;
+  flex: 1;
+  height: 98rpx;
+}
+.subOrder-end-txt{
+  display: flex;
+  padding-left: 50rpx;
+  background: #333;
+  width: 540rpx;
+  color: #fff;
+  box-sizing: border-box;
+}
+.subOrder-end-txt>text{
+ height:98rpx; 
+ line-height: 98rpx;
+}
+.subOrder-end-btn{
+  flex: 1;
+  width:211rpx;
+  height:98rpx; 
+  line-height: 98rpx;
+  color: #fff;
+  text-align: center; 
+  background: -webkit-linear-gradient(left,#fec513, #f8a120); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(left,#fec513, #f8a120); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(left,#fec513, #f8a120); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right,#fec513, #f8a120); /* 标准的语法 */
+}
+
+/* 优惠活动 */
+
+.voucher , .event{
+height: 80rpx;
+line-height: 80rpx;
+ /* border:1px solid black;  */
+width:400rpx;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+
+.imgrightimg{
+  width: 14rpx;
+  height: 23rpx; 
+  margin-left: 10px;
+}
+
+
+/* 优惠实付 */
+.subOrder-invoice{
+  margin-top: 30rpx;
+}
+
+/*订单方式*/
+.order_method{
+  background-color: #ffffff;
+  padding: 20rpx;
+}
+
+.method{
+  padding-bottom: 15rpx;
+  border-bottom: 1rpx solid #e3e3e3;
+}
+
+.method .radio radio{
+  transform:scale(0.8);
+}
+
+.method .radio text{
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+
+/*订单选择方式区域*/
+.method_area{
+  padding: 20rpx 0;
+  position: relative;
+}
+
+
+/*绑定位置*/
+.loaction_input{
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: #fafafa;
+  font-size: 26rpx;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  border-radius: 20rpx;
+}
+
+/*扫描的二维码*/
+.method_area .qd{
+  font-size: 22px;
+  position: absolute;
+  top: 35rpx;
+  right: 20rpx;
+  z-index: 9;
+}

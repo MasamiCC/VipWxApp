@@ -1,0 +1,108 @@
+/* pages/shop/shop-pay/shop-pay.wxss */
+
+page{
+  height: 100%;
+  font-size: 28rpx;
+  border-top: 1px solid #e3e3e3;
+  margin: 0;
+  padding: 0;
+}
+
+/*剩余时间*/
+.pay_time{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #e3e3e3;
+  padding: 20rpx 0;
+}
+
+
+.pay_time > .time{
+  color: #333333;
+  font-weight: bold;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+/*商家信息*/
+.shop_info_nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30rpx; 
+}
+
+.shop_info_nav > image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.shop_info{
+  flex-grow: 1;
+  margin: 0 40rpx;
+}
+
+.shop_info > view{
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-bottom: 5rpx;
+}
+
+.shop_info > view.name{
+  color: #333333;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.shop_info > view.order_no{
+  color: #666666;
+  font-size: 26rpx;
+}
+
+.shop_info_nav > .money{
+  color: #ea0d0d;
+}
+
+
+/* 付款 */
+.subOrder-end{
+  position: fixed;
+  bottom:0; 
+}
+.subOrder-end-flex{
+  display: flex;
+  flex: 1;
+  height: 98rpx;
+}
+.subOrder-end-txt{
+  display: flex;
+  flex-direction: column;
+  padding-left: 50rpx;
+  background: #333;
+  width: 540rpx;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.subOrder-end-txt > text{
+  height: 98rpx;
+  line-height: 98rpx;
+}
+
+.subOrder-end-btn{
+  flex: 1;
+  width:211rpx;
+  height:98rpx; 
+  line-height: 98rpx;
+  color: #fff;
+  text-align: center; 
+  background: -webkit-linear-gradient(left,#fec513, #f8a120); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(left,#fec513, #f8a120); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(left,#fec513, #f8a120); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right,#fec513, #f8a120); /* 标准的语法 */
+}

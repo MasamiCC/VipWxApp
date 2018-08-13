@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "shop-item": "../Components/shop-item/shop-item"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "好评榜排名"
+}

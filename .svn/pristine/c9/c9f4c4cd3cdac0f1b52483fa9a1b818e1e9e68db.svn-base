@@ -1,0 +1,19 @@
+const util = require('../../../../utils/util.js')
+
+// pages/userCenter/bindMobile/bindPhone.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+  
+  },
+  //绑定用户微信信息跳转绑定手机页面
+  bindGetUserInfo: function (e) {
+    wx.setStorageSync('userWx', e.detail.userInfo);
+    wx.redirectTo({
+      url: '../binding/binding'
+    })
+  }
+})

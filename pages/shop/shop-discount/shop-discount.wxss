@@ -1,0 +1,105 @@
+/* pages/shop/shop-discount/shop-discount.wxss */
+page{
+    background-color: #f4f4f4;
+}
+.shop_img{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 999rpx;
+    margin: 20rpx 0;
+}
+.shop_name{
+    text-align: center;
+    font-weight: 600;
+}
+.shop_msg{
+    text-align: center;
+    padding-bottom: 40rpx;
+    background-color: white;
+}
+.input-placeholder{
+    font-size: 30rpx;
+    width: 94%;
+    background-color: #f4f4f4;
+    text-align: left;
+}
+.box{
+    margin: 0 auto;
+    width: 94%;
+    background-color: #f4f4f4;
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    justify-content:flex-start; 
+    align-items:Center;
+    margin-top: 50rpx;
+    text-align: left;
+    padding-left: 25rpx;
+}
+checkbox{
+    font-size: 30rpx;
+    position: relative;
+    margin: 30rpx 0 0 25rpx;
+    display:flex;
+}
+.pay,.discount,.activity{
+    background-color: white;    
+    padding: 35rpx 25rpx;
+    display: flex;
+    justify-content:space-between; 
+    align-items:Center;
+    font-size: 32rpx;
+}
+.pay{
+    margin: 30rpx 0;
+}
+.discount{
+    margin-bottom: 1rpx;
+}
+.type{
+    color: gray;
+    font-size: 30rpx;
+}
+.pay_nav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    background-color: white;
+    padding-left: 25rpx;
+}
+.sure{
+    background: -moz-linear-gradient(top, #f8a120, #ffc613);
+	background: -o-linear-gradient(top,#f8a120, #ffc613);
+	background: -webkit-gradient(linear, 100% 100%, 0% 100%, from(#f8a120), to(#ffc613));
+    padding: 35rpx;
+    width: 200rpx;
+    color: white;
+    font-size: 35rpx;
+    float: right;
+    text-align: center;
+}
+.pay_num{
+    float: left;
+    vertical-align: middle;
+    margin: 10rpx 0;
+}
+.pay_r{
+    color: red;
+    font-size: 40rpx;
+}
+.pay_g{
+    color: gray;
+    font-size: 30rpx;
+}
+.arrowUp:after {
+    content: '';
+    display: inline-block;
+    width: 18rpx;
+    height: 18rpx;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}

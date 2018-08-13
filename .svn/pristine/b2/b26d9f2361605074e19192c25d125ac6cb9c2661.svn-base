@@ -1,0 +1,286 @@
+<!--pages/shop.wxml-->
+<!-- <view>
+  {{shop.id}}--{{shop.shopName}}--{{shop.adderss}}--{{shop.resume}}    {{shop.img}}
+</view>  -->
+
+<!-- 判断店家是否存在 -->
+<view class='shoptopcon'>
+    <!--头部  -->
+    <view class='shophead'>
+        <view class='shopname'>
+            <view class='shopnamefirst'>{{shop.shopName}}</view>
+            <view class='shopnamesecond'>{{shop.shop_type_name}}</view>
+        </view>
+        <view class='shoplogo'>
+            <image wx:if="{{shop.img}}" class='logoimg' lazy-load='true' src='{{imgUrl}}{{shop.img}}'></image>
+        </view>
+        <!-- {{shop.shopName}}--{{shop.shop_type_name}}--{{shop.img}}  -->
+    </view>
+    <!--店铺服务  -->
+    <view>
+        <view class='shopservice'>店铺服务</view>
+        <view class=''>
+            <scroll-view scroll-x class='scrollscroll'>
+                <view class='scroll-view-item' bindtap='_toggleWifi'>
+                    <view class='scrollimgview'>
+                        <image class='scrollimg' src='/statics/imgs/wifi.png'></image>
+                    </view>
+                    <view class="scrollfont {{shop.service_wifi==1?'active':''}}">WIFI</view>
+                </view>
+                <!-- <view class='scroll-view-item' wx:if="{{shop.service_reserve==1}}">
+                    <view class='scrollimgview'>
+                        <image class='scrollimg' src='/statics/imgs/fuwu.png'></image>
+                    </view>
+                    <view class="scrollfont {{shop.service_reserve==1?'active':''}}">服务</view>
+                </view>
+                <view class='scroll-view-item' wx:if="{{shop.service_park==1}}">
+                    <view class='scrollimgview'>
+                        <image class='scrollimg' src='/statics/imgs/tingche.png'></image>
+                    </view>
+                    <view class="scrollfont {{shop.service_park==1?'active':''}}">停车</view>
+                </view> -->
+                <view class='scroll-view-item' bindtap='_diandan'>
+                    <view class='scrollimgview'>
+                        <image class='scrollimg' src='/statics/imgs/diancan.png'></image>
+                    </view>
+                    <view class="scrollfont {{shop.service_menu==1?'active':''}}">
+                        点餐
+                    </view>
+                </view>
+                <view class='scroll-view-item' wx:if="{{shop.service_pay==1}}">
+                    <view class='scrollimgview'>
+                        <image class='scrollimg' src='/statics/imgs/maidan.png'></image>
+                    </view>
+                    <view class="scrollfont {{shop.service_pay==1?'active':''}}">买单</view>
+                </view>
+                <!-- <view class='scroll-view-item' wx:if="{{shop.service_takeout==1}}">
+                    <view class='scrollimgview'>
+                        <image class='scrollimg' src='/statics/imgs/waimjai.png'></image>
+                    </view>
+                    <view class="scrollfont {{shop.service_takeout==1?'active':''}}">外卖</view>
+                </view> -->
+            </scroll-view>
+        </view>
+    </view>
+
+    <!--店铺信息  -->
+    <view class='shop_bottom'>
+        <!--图片  -->
+        <block>
+            <view wx:if="{{shop.url}}">
+                <view class='mendian'>
+                    <span>
+                        <image class='mendianicon' src='/statics/imgs/mendian.png'></image>
+                    </span>
+                    <span class='mendianfont'>门店照片</span>
+                    <!-- <span class='mendianright'>查看全部</span> -->
+                </view>
+                <view class='pictures'>
+                    <view class='mdimgs' wx:for="{{shop.url}}" wx:if="{{index<3}}" wx:key="url">
+                        <view class='imgcon'>
+                            <image src="{{imgUrl}}{{item}}" style="width:94%;height:102px;" lazy-load='true'></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view wx:else>
+
+            </view>
+        </block>
+        <!--地址  -->
+        <view class='item' bindtap='mapnav'>
+            <view class='itemicon'>
+                <image class='itemiconimg' src='/statics/imgs/address.png'></image>
+            </view>
+            <view class='address'>{{shop.address}}</view>
+            <view class='imgright'>
+                <image class='imgrightimg' src='/statics/imgs/iconright.png'></image>
+            </view>
+        </view>
+        <view class='item item2' wx:if="{{shop.open_time}}">
+            <view class='itemicon2'>
+                <image class='itemiconimg' src='/statics/imgs/time.png'></image>
+            </view>
+            <view class='address'>{{shop.open_time}}</view>
+
+        </view>
+        <view class='item item2' wx:else>
+            <view class='itemicon  itemicon2'>
+                <image class='itemiconimg' src='/statics/imgs/time.png'></image>
+            </view>
+            <view class='address'>全天</view>
+        </view>
+        <view class='item item3' bindtap='phonecall'>
+            <view class='itemicon itemicon3'>
+                <image class='itemiconimg' src='/statics/imgs/telicon.png'></image>
+            </view>
+            <view class='address'>{{shop.mobile}}</view>
+            <view class='imgright'>
+                <image class='imgrightimg' src='/statics/imgs/iconright.png'></image>
+            </view>
+        </view>
+    </view>
+
+
+    <!--评价  -->
+    <view class='shopmian_bottom'>
+
+        <view class='scoreitem'>
+            <view class='score_title'>评分及评论</view>
+            <view class='mendianright' bindtap='allcomments'>查看全部</view>
+        </view>
+        <view class='scoreitem'>
+
+            <view class='shopscorecon'>
+                <view class='shopscore'>
+                    {{shop.scores}}
+                </view>
+                <block>
+                    <view class='firstscore bfirstscore' wx:if="{{comments.length>0}}">
+                        满分5分
+                    </view>
+                    <view class='firstscore' wx:else>
+                        初评分
+                    </view>
+                </block>
+            </view>
+
+            <view class='staritemcon'>
+                <view class='staritem'>
+                    <view class='staritemleft'>
+                        <view class='yellowstar' wx:for="{{[0,1,2,3,4]}}" wx:key="this">
+                            <image class='yellowstar' src='/statics/imgs/yellowstar.png'></image>
+                        </view>
+                    </view>
+                    <view class='staritemright'>
+                        <progress class='progressinfo' percent="{{commentForScores[5]?commentForScores[5]:'0'}}" stroke-width="3" activeColor="#bebebe" active='true' />
+                    </view>
+                </view>
+
+                <view class='staritem'>
+                    <view class='staritemleft'>
+                        <view class='yellowstar' wx:for="{{[0,1,2,3]}}" wx:key="this">
+                            <image class='yellowstar' src='/statics/imgs/yellowstar.png'></image>
+                        </view>
+                    </view>
+                    <view class='staritemright'>
+                        <progress class='progressinfo' percent="{{commentForScores[4]?commentForScores[4]:'0'}}" stroke-width="3" activeColor="#bebebe" active='true' />
+                    </view>
+                </view>
+
+                <view class='staritem'>
+                    <view class='staritemleft'>
+                        <view class='yellowstar' wx:for="{{[0,1,2]}}" wx:key="this">
+                            <image class='yellowstar' src='/statics/imgs/yellowstar.png'></image>
+                        </view>
+                    </view>
+                    <view class='staritemright'>
+                        <progress class='progressinfo' percent="{{commentForScores[3]?commentForScores[3]:'0'}}" stroke-width="3" activeColor="#bebebe" active='true' />
+                    </view>
+                </view>
+
+                <view class='staritem'>
+                    <view class='staritemleft'>
+                        <view class='yellowstar' wx:for="{{[0,1]}}" wx:key="this">
+                            <image class='yellowstar' src='/statics/imgs/yellowstar.png'></image>
+                        </view>
+                    </view>
+                    <view class='staritemright'>
+                        <progress class='progressinfo' percent="{{commentForScores[2]?commentForScores[2]:'0'}}" stroke-width="3" activeColor="#bebebe" active='true' />
+                    </view>
+                </view>
+
+                <view class='staritem'>
+                    <view class='staritemleft'>
+                        <view class='yellowstar'>
+                            <image class='yellowstar' src='/statics/imgs/yellowstar.png'></image>
+                        </view>
+                    </view>
+                    <view class='staritemright'>
+                        <progress class='progressinfo' percent="{{commentForScores[1]?commentForScores[1]:'0'}}" stroke-width="3" activeColor="#bebebe" active='true' />
+                    </view>
+                </view>
+
+                <view class='greyfont' wx:if="{{commentcount}}">
+                    {{commentcount}}个评分
+                </view>
+                <view wx:else class='greyfont'>
+                    0个评分
+                </view>
+
+            </view>
+
+        </view>
+
+        <!--评分  -->
+
+        <view class='commentbg'>
+
+            <view class='nocomment' wx:if="{{comments==''}}">暂未有用户进行评价</view>
+
+            <view wx:else>
+                <view class='comment_item' wx:for="{{comments}}" wx:key="{{comment}}">
+                    <view class='item'>
+                        <view class='pick_name'>{{item.pick_name||'匿名'}}</view>
+                        <view class='comment_time'>{{item.createTime}}</view>
+                    </view>
+
+                    <view class='yellowstarconcon'>
+                        <shop-star scores="{{item.score}}" size="20" margin_lr='2'></shop-star>
+                    </view>
+
+                    <view class='contentline'>
+                        <view>{{item.content}}</view>
+                    </view>
+
+
+                    <view class='comment_imgs' wx:if="{{item.img0}}">
+
+
+                        <view class='comment_imgcon'>
+                            <image class='comment_img' mode='aspectFill' data-src='{{imgUrl}}{{item.img0}}' bindtap='previewImg' wx:if="{{item.img0}}" src="{{imgUrl}}{{item.img0}}" lazy-load='true'></image>
+                        </view>
+
+                        <view class='comment_imgcon'>
+                            <image class='comment_img' mode='aspectFill' data-src='{{imgUrl}}{{item.img1}}' bindtap='previewImg' wx:if="{{item.img1}}" src="{{imgUrl}}{{item.img1}}" lazy-load='true'></image>
+                        </view>
+
+                        <view class='comment_imgcon'>
+                            <image class='comment_img' mode='aspectFill' data-src='{{imgUrl}}{{item.img2}}' bindtap='previewImg' wx:if="{{item.img2}}" src="{{imgUrl}}{{item.img2}}" lazy-load='true'></image>
+                        </view>
+
+                        <view class='comment_imgcon'>
+                            <image class='comment_img' mode='aspectFill' data-src='{{imgUrl}}{{item.img3}}' bindtap='previewImg' wx:if="{{item.img3}}" src="{{imgUrl}}{{item.img3}}" lazy-load='true'></image>
+                        </view>
+
+                    </view>
+
+                </view>
+
+            </view>
+
+        </view>
+
+    </view>
+
+
+
+    <!--wifi  -->
+    <view wx:if="{{showWifi}}" class='shop-wifi'>
+        <shop-wifi bind:toggleWifi="_toggleWifi"></shop-wifi>
+    </view>
+    <view wx:if="{{diandanFlg}}" class='shop-wifi'>
+        <diandan bind:diandan="_diandan" bind:inviate="_inviate" shopid="{{shop.id}}" foodid="{{foodid}}"></diandan>
+    </view>
+</view>
+
+    <view class='bottomnav' bindtap='go_shopCheck'>优惠买单</view>
+
+<!--wifi  -->
+<view wx:if="{{showWifi}}" class='shop-wifi'>
+    <shop-wifi bind:toggleWifi="_toggleWifi"></shop-wifi>
+</view>
+<view wx:if="{{diandanFlg}}" class='shop-wifi'>
+    <diandan bind:diandan="_diandan" bind:inviate="_inviate" shopid="{{shop.id}}" foodid="{{foodid}}"></diandan>
+</view>
