@@ -1,0 +1,170 @@
+<!--pages/order/subOrder/subOrder.wxml-->
+<view>
+  <view class="subOder">
+    <!-- 提交订单 -->
+    <view class="subOrder-head">
+      <view class="subOrder-head-title">提交订单</view>
+      <!-- <view class="subOrder-head-content">
+        <view class="subOrder-head-id">一楼大厅-B01桌</view>
+        <view class="subOrder-head-input">
+          <input type="text" name="search" placeholder-style="color:#e5e5e5;" placeholder="输入用餐人数"></input>
+          <view style='padding-left:10rpx;'>人</view>
+        </view>
+      </view> -->
+    </view>
+    <!-- 参与好友 -->
+    <view class="subOrder-attend" wx:if="{{ users.length > 1 }}">
+      <view class="subOrder-attend-title">参与好友</view>
+      <view class="subOrder-attend-img">
+        <view class="subOrder-attend-img1" wx:for="{{users}}" wx:key="key">
+          <image style='border-radius:999px' src="{{item.pic}}"></image>
+        </view>
+        <view class="subOrder-attend-img2">
+          <image wx:if="{{ users.length > 6 }}" src='/statics/imgs/subOrder_arrow.png'></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 选择订单的生成方式 -->
+    <view class='order_method'>
+      <view class='method'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{orderMehod}}" wx:key ="index" >
+            <radio value="{{item.label}}" checked="{{item.checked}}"/>
+            <text>{{item.mehod}}</text>
+          </label>
+        </radio-group>
+      </view>
+      <!-- 第一种方法--堂食 -->
+      <view class='method_area' wx:if = "{{methodNum == 0}}">
+        <input bindblur= "methodLocation" type='text' placeholder="绑定位置" class='loaction_input'></input>
+        <span class="qd iconfont icon-erweima1688" bindtap='scanCode'></span>
+      </view>
+    </view>
+
+    <!-- 店铺推荐 -->
+    <view class="subOrder-recom">
+      <!-- 商家信息 -->
+      <view class='shop_info'>
+        <image wx:if="{{shop.img}}" src='{{imgUrl}}{{shop.img}}'></image>
+        <view class='name'>{{shop.shopName}}</view>
+      </view>
+
+      <!-- 订单未生成过 -->
+      <view style='padding:20rpx 0;background: #f9f9f9;'>
+        <view wx:for="{{goodlist}}" wx:for-item="item" wx:key="item2" class="subOrder-recom-list">
+          <view class="subOrder-recom-list-title">
+            <view>{{item.name}}</view>
+            <view>{{item.attr}}</view>
+          </view>
+          <view class="subOrder-recom-list-unit">×{{item.num}} {{item.unit?item.unit:"份"}}</view>
+          <view class="subOrder-recom-list-price">￥{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 优惠活动 -->
+
+    <view class="subOrder-discount">
+      <view style='padding:20rpx 0;background:white; '>
+        <view class="subOrder-discount-list" style='background:white ;vertical-align: middle;'>
+          <view class="subOrder-discount-list-title">
+            <view style='color:black;font-size:28rpx'>优惠券</view>
+          </view>
+          <view class="subOrder-discount-list-price" style='color:#999;'>
+            <span class="priceSpan">暂无
+              <image class='imgrightimg' src='/statics/imgs/iconright.png'></image>
+            </span>
+          </view>
+        </view>
+        <view class="subOrder-discount-list" style='background:white; vertical-align: middle;'>
+          <view class="subOrder-discount-list-title">
+            <view style='color:black;font-size:28rpx'>活动优惠</view>
+          </view>
+          <view class="subOrder-discount-list-price" style='color:#999;'>
+            <span class="priceSpan">暂无
+              <image class='imgrightimg' src='/statics/imgs/iconright.png'></image>
+            </span>
+          </view>
+        </view>
+      </view>
+
+      <canvas style="width: 90%; height:2px;" canvas-id="canvasLine"></canvas>
+
+      <view class="subOrder-money">
+        <view style='padding:20rpx 0;background: white;'>
+          <view class="subOrder-money-list" style='background: white;'>
+            <view class="subOrder-money-list-title" style='width:250rpx'>
+            </view>
+            <span class="subOrder-money-list-price">
+              <span style='color:#999'>已优惠</span>
+              <span style='color:#ce3a26;font-size:28rpx;margin-left:10rpx;font-weight:500'>￥0</span>
+              <span style='color:black;font-size:40rpx;margin-left:60rpx;'>实付</span>
+              <span wx:if="{{isCreate}}" style='color:#ce3a26;font-size:40rpx;margin-left:10rpx;font-weight:500'>￥{{total}}</span>
+              <span wx:else style='color:#ce3a26;font-size:40rpx;margin-left:10rpx;font-weight:500'>￥{{total}}</span>
+            </span>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <!-- 备注 -->
+    <view class='fill_area'>
+      <view class='title'>备注</view>
+      <view class='content'>
+        <input placeholder="请输入备注" maxlength="50" class="remark_text" name="remarkContent" bindinput="remarkInput">
+        </input>
+      </view>
+    </view>
+
+    <!-- 发票 -->
+    <view class='fill_area' bindtap='go_invoice' style='margin-bottom: 50rpx;'>
+      <view style='overflow: hidden'>
+        <view class='fl'>
+        发票信息
+        <text class='prompt'>商户将根据客户提供的发票信息进行开具发票</text>
+        </view>
+        <view class="go_set">去设置
+          <image class='imgrightimg' src='/statics/imgs/iconright.png'></image>
+        </view>
+      </view>
+
+      <!-- 填写完成后 -->
+      <view class='fill_content' wx:if="{{invoiceData != ''}}">
+        <view class='invoice_data'>
+          <text class='fl'>发票类型</text>
+          <text class='fr' wx:if="{{invoiceData.invoice_type == '0'}}">普通发票</text>
+          <text class='fr' wx:if="{{invoiceData.invoice_type == '1'}}">增值税发票</text>
+        </view>
+        <!-- 普通发票 -->
+        <view wx:if='{{invoiceData.invoice_type == "0"}}'>
+          <!-- 个人 -->
+          <view wx:if='{{invoiceData.invoice_content.geren =="0"}}'>
+            <view class='invoice_data'>
+              <text class='fl'>姓名</text>
+              <text class='fr'>{{invoiceData.invoice_content.name}}</text>
+            </view>
+            <view class='invoice_data'>
+              <text class='fl'>手机</text>
+              <text class='fr'>{{invoiceData.invoice_content.phone}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <!-- 合计付款 -->
+  <view class="subOrder-end">
+    <view class="subOrder-end-flex">
+      <view class="subOrder-end-txt">
+        <text style='font-size:32rpx;'>合计：</text>
+        <text style='font-size:40rpx;'>￥{{total}}</text>
+        <text style='font-size:24rpx;'>（共{{goodsCount}}件商品）</text>
+      </view>
+      <view class="subOrder-end-btn" bindtap='_orderSubmit'>付款</view>
+    </view>
+  </view>
+</view>

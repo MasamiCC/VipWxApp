@@ -1,0 +1,65 @@
+/* pages/userCenter/newaddress.wxss */
+page{
+  background: #f4f4f4;
+}
+.edit_all{
+font-size: 0.875rem; 
+}
+.edit_address{
+  background: #fff;
+}
+.edit_line>view{
+  display: inline-block;
+  font-size: 0.875rem; 
+}
+.edit_line{
+ font-size: 0; 
+ line-height: 0;
+ margin: 0 10px;
+ border-bottom: 1px solid #ededed;
+ padding: 15px 0;
+ 
+}
+.edit_line_left{
+  width: 30%;
+  line-height: 1.5;
+}
+.edit_line_right{
+  width: 70%;
+  line-height:1.5;
+  vertical-align: top;
+  color: #666;
+}
+.body-view{
+  text-align: right;
+}
+.marginline{
+ margin: 10px 0;
+ padding: 15px;
+ background: #fff; 
+}
+.noborder{
+  border-bottom: 0px;
+}
+.lastline{
+  background: #fff;
+  padding: 15px;
+  color: #d4ac57;
+}
+.addnew{
+  background-color: #d1ac54;
+  color: #fff;
+  border-radius: 20px;
+  margin: 27px 40px ;
+  font-size: 0.875rem;
+}
+.marginline .edit_line_left{
+  line-height: 2;
+}
+
+.map-poi{position: absolute;top: 0;left: 0;right: 0;bottom: 0}
+
+.inputClass{
+  color: #bbb;
+  font-size: 0.875rem;
+}

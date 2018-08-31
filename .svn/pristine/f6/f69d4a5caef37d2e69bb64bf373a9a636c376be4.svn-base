@@ -1,0 +1,50 @@
+<!--pages/userCenter/comment/comment.wxml-->
+<view class='comment_nav'>
+    <view class='title'>
+        <image class='title_img' src="{{imageUrl}}{{item.shop_img}}" wx:if="{{item.shop_img}}"></image>
+        <text class='title_txt'>{{item.shop_name}}</text>
+    </view>
+
+    <view class='comment_box'>
+        <view class='comment_title'>请对本次服务做出评价</view>
+        <view class='comment_star'>
+            <shop-star class='star' alignFlg="center" scores="{{shop_service_score}}" size="50" total="5" edit="true"  data-star="{{shop_service_score}}" bind:startChange="startChange"></shop-star>
+        </view>
+        <textarea bindinput="inputs" class='comment_textarea' placeholder-style="" maxlength="80"></textarea>
+        <view class='textNum'>
+            <text style=''>{{textNum}}/80</text>
+        </view>
+        <view class="show_imgs">
+            <view class='upload_img' wx:for="{{showImg}}" wx:key="key" wx:if="{{showImg}}" wx:for-item="img">
+                <image src='{{img}}' bindtap='previewImg' data-src='{{img}}'></image>
+            </view>
+            <view wx:if="{{img_length}}">
+                <image class='upload_img_max' bindtap="camera" src='/statics/imgs/upload_img@3x.png'></image>
+                <view class='max_img_txt'>最多可以秀4张</view>
+            </view>
+        </view>
+    </view>
+
+    <view class='consume_list'>
+        <view class='bottom_title'>消费内容 </view>
+        <view wx:for="{{goodlist_1_3}}" wx:for="{{goodlist}}" wx:key="key">
+            <view class='comments'>
+                <span>{{item.goods_name}}</span>
+                <view class='icons'>
+                    <image class='icon' bindtap='_iconClick' data-id="{{item.goods_id}}" data-good="0" src="/statics/imgs/up_o@3x.png" wx:if="{{item.goods_good =='0'}}"></image>
+                    <image class='icon' bindtap='_iconClick' data-id="{{item.goods_id}}" data-good="0" wx:else src="/statics/imgs/up_g@3x.png"></image>
+
+                    <image class='icon' bindtap='_iconClick' data-id="{{item.goods_id}}" data-good="1" src='/statics/imgs/down_o@3x.png' wx:if="{{item.goods_good =='1'}}"></image>
+                    <image class='icon' bindtap='_iconClick' wx:else src="/statics/imgs/down_g@3x.png" data-id="{{item.goods_id}}" data-good="1"></image>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{item.goodlist.length > 3}}">
+            <view class='more' bindtap='more'>
+                查看更多( {{item.goodlist.length - 3}} )
+                <span class="arrowDown" style='margin-left:20rpx;'></span>
+            </view>
+        </view>
+    </view>
+    <button class='sub_comment' bindtap='sub_comment'>提交评价</button>
+</view>

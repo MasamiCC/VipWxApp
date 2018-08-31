@@ -1,0 +1,19 @@
+<!--pages/Components/not-login/not-login.wxml-->
+<!-- 登录页面 -->
+
+<view class='login_nav'>
+  <!-- 背景图片 -->
+  <image class='bg bg_1' src='/statics/imgs/login_bg1.png'></image>
+  <image class='bg bg_2' src='/statics/imgs/login_bg2.png'></image>
+  <!-- 登录区域 -->
+  <view class='login_area'>
+    <!-- 图片 -->
+    <image class='login_logo' src="/statics/imgs/login_logo.png"></image>
+    <!-- 按钮 -->
+    <view class='btn_area'>
+      <button open-type="getUserInfo" class='login_btn' bindgetuserinfo='login'>
+        登录
+      </button>
+    </view> 
+  </view>
+</view>

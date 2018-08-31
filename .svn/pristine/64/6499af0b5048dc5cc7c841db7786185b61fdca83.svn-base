@@ -1,0 +1,25 @@
+/* pages/index/alltype/alltype.wxss */
+.alltype_list{
+  display: flex;
+  text-align: center;
+  margin: 5px 15px 25px 15px;
+}
+.orangebackground{
+  background: #f2cf99;
+  width: 100%;
+  position: relative;
+}
+.typefont{
+  font-size: 36rpx;
+  padding: 20px 0;
+  color: #fff;
+}
+.go_button{
+  position: absolute;
+  top: 21px;
+  right: 23px;
+}
+.go_button_img{
+  width: 36rpx;
+  height: 36rpx;
+}

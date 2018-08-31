@@ -1,0 +1,61 @@
+
+
+<view>
+  <!--头部  -->
+  <view class='index-header'>
+    <!--标题+定位  -->
+    <view class='index-header-item1'>
+      <view class='index-header-title'>
+        <image src="/statics/imgs/ic_menu.png" class='ic' bindtap='_goType'  data-typeid="{{item.typeid}}"></image>
+        <text>美食</text>
+      </view>
+      <view class="index-header-position">
+         <view><image style='width:26rpx;height:28rpx;padding-top:10rpx;' src='/statics/imgs/index-arrow.png'></image></view>
+         <view><text>{{motto}}</text></view>
+      </view>
+    </view>
+    <!--搜索  -->
+    <view class='index-header-item' bindtap='_search'>
+      <image src="/statics/imgs/ic_search.png" class='ic'></image>
+      <text>搜索</text>
+    </view>
+    <!--点单  -->
+    <view class='index-header-item' bindtap='scanDian'>
+      <image src="/statics/imgs/ic_diandan.png" class='ic'></image>
+      <text>点单</text>
+    </view>
+
+  </view>
+  <!--今日推荐  -->
+  <view class='index-tui'>
+    <view class='model_title'>
+      <view class='model_title_cont'>今日推荐</view>
+    </view>
+    <index-tuijian items="{{tuijianList}}"></index-tuijian>
+  </view>
+  <!--热门分类  -->
+  <view class='index_hot_cat'>
+    <view class='model_title'>
+      <view class='model_title_cont'>精致优选</view>
+      <!-- <view class='model_title_more'>全部分类</view> -->
+    </view>
+    <index-hot-cat items="{{hotType}}"></index-hot-cat>
+  </view>
+  <!--好评榜  -->
+  <view class='index_great'>
+    <view class='model_title'>
+      <view class='model_title_cont'>好评榜</view>
+      <view class='model_title_more' bindtap="checkRank">查看排名</view>
+    </view>
+    <view class='index_great_list'>
+      <view wx:for="{{greateShop}}" wx:key="greateShop" wx:if="{{index<3}}" class="index_great_item">
+          <shop-item item="{{item}}" mode="great"></shop-item>  
+      </view>
+    </view>
+  </view>
+</view>
+ <!-- <navigator url="/pages/shop/shop?shopid=10007">点击跳转不关闭当前页面</navigator>  -->
+<!--评价星星  -->
+<!-- <shop-star scores="8"></shop-star> -->
+
+

@@ -8,7 +8,7 @@ Page({
    */
   data: {
     datalist: [],
-    title: '地址管理',
+    title: '管理收货地址',
   },
   onLoad: function (options) {
     this.getData();
@@ -18,7 +18,7 @@ Page({
   },
   getData: function () {  
     var that=this;
-    network.requestInLogin("address/getAddressByUser", null, res => {
+    network.requestInLogin("address/getAddressByUser",{type:0}, res => {
       console.log(res)
       if (res.success) {
         that.setData({

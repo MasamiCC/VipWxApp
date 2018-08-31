@@ -74,8 +74,10 @@ const startWebSocket = function(user){
     },
     method: "GET",
     success: function (res) {
-      console.log('webSocke开启成功')
-      wx.setStorageSync('isSocket', true)
+      wx.onSocketOpen(function (res) {
+        console.log('webSocke开启成功')
+        wx.setStorageSync('isSocket', true)
+      })
     },
     fail: function (res) {
       console.log('webSocke开启失败')
@@ -83,11 +85,13 @@ const startWebSocket = function(user){
   })
 }
 
+
 //关闭webspocket
 const closeWebSocket = function(){
   //如果本地存储的isSocket不为空或为true
   if (wx.getStorageSync('isSocket') != '' || wx.getStorageSync('isSocket') == true){
     wx.closeSocket();
+    console.log('webSocket关闭成功')
     wx.setStorageSync('isSocket', false)
   }
 }

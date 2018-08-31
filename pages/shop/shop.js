@@ -10,36 +10,51 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shop:[],//商家信息
-    imgUrl: app.globalData.imageUrl,//图片地址
-    comments:[],//评价
-    showWifi:false,//显示WiFi
-    diandanFlg:false,
-    commentForScores:[], 
-    commentcount: '', 
-    foodid:'',
-    shopid: '',//店家id
-    size:'',
+    shop: [], //商家信息
+    imgUrl: app.globalData.imageUrl, //图片地址
+    comments: [], //评价
+    showWifi: false, //显示WiFi
+    diandanFlg: false,
+    commentForScores: [],
+    commentcount: '',
+    foodid: '',
+    shopid: '', //店家id
+    size: '',
     marWidth: '',
-    showImg:[],
-    
+    showImg: [],
     show_404: false, //显示404
+    shopImage: "", //图片列表，动态获取
+    defaultImg: "/statics/imgs/defaultHead.png", //默认图片
+    shopBuyType: false
   },
 
   /** 
    * 加载商家
    * **/
-  loadShop:function (id){
-    var that=this;
+  loadShop: function(id) {
+    var that = this;
     var location = wx.getStorageSync('location');
     var map_point = wx.getStorageSync('location').locationOther;
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
       backgroundColor: '#333',
     });
-    network.request("shop/newGetShopDetail", { shopid: id, map: map_point }, res => {
+    network.request("shop/newGetShopDetail", {
+      shopid: id,
+      map: map_point
+    }, res => {
       //判断商家有无内容
-      if (res.result){
+      if (res.result) {
+        console.log(res)
+        var buytype = res.map.shopBuyType;
+        for (var i in buytype) {
+          if (0 == buytype[i]) {
+            this.setData({
+              shopBuyType: true,
+            })
+          }
+        }
+        console.log(this.data.shopBuyType)
         var shopRoots = wx.getStorageSync('shopRoots') ? wx.getStorageSync('shopRoots') : [];
         for (var i in shopRoots) {
           if (shopRoots[i]['id'] == id) {
@@ -48,15 +63,28 @@ Page({
         }
         shopRoots.unshift(res.result);
         wx.setStorageSync('shopRoots', shopRoots)
-
+        var imgUrl = this.data.imgUrl
         var shopscore = res.result;
         var shopscorenum = parseFloat(shopscore.scores).toFixed(1);
         shopscore.scores = shopscorenum;
+        var shopImage = imgUrl + shopscore.img
+        console.log(shopImage)
         that.setData({
           shop: shopscore,
-          shopresult: res.result
-        })  
-        console.log(this.data.shop);
+          shopImage: shopImage,
+        })
+        console.log(this.data.shop.url);
+        var shopImg = []
+
+
+        var shop_img = this.data.shop.url
+        for (var i in shop_img) {
+          shopImg = shopImg.concat(imgUrl + shop_img[i])
+        }
+        that.setData({
+          shopImg: shopImg
+        })
+        console.log(shopImg)
         if (res.map.comments) {
           var comments = res.map.comments;
           for (var i in comments) {
@@ -73,17 +101,17 @@ Page({
                 }
               }
             }
-
           }
+
           that.setData({
             comments: comments,
             commentcount: res.map.commentcount,
             commentForScores: res.map.commentForScores,
-            showImg: showimg
+            showImg: showimg,
           })
           that.reloadComments();
         }
-      }else{
+      } else {
         //显示404页面
         that.setData({
           show_404: true,
@@ -91,72 +119,100 @@ Page({
       }
     })
 
-    
-  },
-    previewImg: function (e) {
-        console.log(e)
-        console.log(this.data.showImg)
 
-        wx.previewImage({
-            current: e.target.dataset.src, // 当前显示图片的http链接
-            urls: this.data.showImg // 需要预览的图片http链接列表
-        })
-    },
-    shop_discount: function () {
-        var id = this.data.shopid;
-        wx.navigateTo({
-            url: '../../pages/shop/shop-discount/shop-discount?id=' + id
-        })
-        console.log(id)
-    },
+  },
+  previewImg: function(e) {
+    console.log(e)
+    console.log(this.data.showImg)
+
+    wx.previewImage({
+      current: e.target.dataset.src, // 当前显示图片的http链接
+      urls: this.data.showImg // 需要预览的图片http链接列表
+    })
+  },
+  show_simg: function(e) {
+    console.log(e)
+    console.log(this.data.shopImg)
+    wx.previewImage({
+      current: e.target.dataset.src, // 当前显示图片的http链接
+      urls: this.data.shopImg // 需要预览的图片http链接列表
+    })
+  },
+  shop_discount: function() {
+    var id = this.data.shopid;
+    wx.navigateTo({
+      url: '../../pages/shop/shop-discount/shop-discount?id=' + id
+    })
+    console.log(id)
+  },
 
 
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     //设置未选完的用户为0
     wx.setStorageSync('UnFinishedNum', 0);
 
-    var shopid = options.shopid
-    var foodid = options.foodid ? options.foodid:''
+    var shopid;
+    var foodid = options.foodid ? options.foodid : '';
+
+    //通过二维码扫描
+    let q = decodeURIComponent(options.q);
+    if (q != 'undefined') {
+      shopid = util.getQueryString(q, 'shopid');
+    } else {
+      shopid = options.shopid;
+    }
+
     //获取商家详情
     let that = this;
     that.loadShop(shopid);
     that.setData({
       'foodid': foodid,
       'shopid': shopid,
-      'diandanFlg':foodid==''?false:true
+      'diandanFlg': foodid == '' ? false : true
     });
-
+    console.log(this.data)
     wx.showShareMenu({
       withShareTicket: true
+    })
+  },
+  check_all: function() {
+    console.log(this.data.shop.id)
+    var shopid = this.data.shop.id
+    console.log(shopid)
+    wx.navigateTo({
+      url: '/pages/shop/shop-image?shopid=' + shopid,
+      success: function(res) {
+        console.log(res)
+      },
+      fail: function(res) {
+        console.log(res)
+      }
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  },
+  onHide: function() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
     //关闭websocket
     wxSocket.closeWebSocket();
   },
@@ -164,19 +220,24 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  },
+  onPullDownRefresh: function() {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {},
+
+  //    显示wifi
+  _toggleWifi: function() {
+    this.setData({
+      showWifi: !this.data.showWifi
+    })
   },
 
   /**
    * 用户点击邀请好友
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     //得到邀请人的foodid
     const foodid = this.data.shopid + ':' + wx.getStorageSync('user').id + ':1';
     if (res.from === 'button') {
@@ -185,23 +246,23 @@ Page({
     return {
       title: '希望你们和我一起点餐哟',
       path: '/pages/shop/shop?foodid=' + foodid + '&shopid=' + this.data.shopid,
-      success: function (res) {
-      },
-      fail: function (res) {
-      }
+      success: function(res) {},
+      fail: function(res) {}
     }
   },
+
+
   //显示wifi
-  // _toggleWifi:function(){
-  //   this.setData({
-  //     showWifi: !this.data.showWifi
-  //   })
-  // },
+  _toggleWifi: function() {
+    this.setData({
+      showWifi: !this.data.showWifi
+    })
+  },
   //点餐按钮
-  _diandan:function(){
-    var that=this;
+  _diandan: function() {
+    var that = this;
     //判断用户是否登录
-    if (wx.getStorageSync('user') == ''){
+    if (wx.getStorageSync('user') == '') {
       util.showError('请您先登陆！')
       return false;
     }
@@ -223,23 +284,23 @@ Page({
   //     WxNotificationCenter.postNotificationName("shopCart", { response: result.response });
   //   }
   // },
-  _inviate:function(){
+  _inviate: function() {
     wx.showShareMenu({
       withShareTicket: true,
-      success:function(res){
-        console.log("success:",res)
+      success: function(res) {
+        console.log("success:", res)
       },
-      fail: function (res){
-        console.log("fail:" +res)
+      fail: function(res) {
+        console.log("fail:" + res)
       }
     })
   },
-  phonecall:function(){
+  phonecall: function() {
     wx.makePhoneCall({
-        phoneNumber: this.data.shop.mobile //仅为示例，并非真实的电话号码
-      })
-    },
-  mapnav: function (e) {
+      phoneNumber: this.data.shop.mobile //仅为示例，并非真实的电话号码
+    })
+  },
+  mapnav: function(e) {
     var mapPoint = this.data.shop.mapPoint;
     var str = mapPoint;
     var arr = str.split(",");
@@ -250,42 +311,42 @@ Page({
     var name = this.data.shop.shopName;
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-      success: function (res) {
+      success: function(res) {
         latitude = latitude
         longitude = longitude
         var speed = res.speed
-        var accuracy = res.accuracy 
+        var accuracy = res.accuracy
         wx.openLocation({
           latitude: latitude,
           longitude: longitude,
           name: name,
           address: address,
           scale: 28,
-        })  
+        })
       }
     })
   },
   // 重构评价统计数据
-  reloadComments:function (){
+  reloadComments: function() {
     var commentForScores = this.data.commentForScores;
     var commentcount = this.data.commentcount;
-    var newArr={};
-    for (var i in commentForScores){
-      newArr[commentForScores[i]['scores']] = parseInt((commentForScores[i]['count'] / commentcount) * 100) ;
+    var newArr = {};
+    for (var i in commentForScores) {
+      newArr[commentForScores[i]['scores']] = parseInt((commentForScores[i]['count'] / commentcount) * 100);
     }
     this.setData({
       commentForScores: newArr,
     })
     console.log(newArr)
   },
-  allcomments:function(){
+  allcomments: function() {
     var id = this.data.shop.id;
     wx.navigateTo({
-      url: '../../pages/userCenter/allcomments/allcomments?shopid='+id,
+      url: '../../pages/userCenter/allcomments/allcomments?shopid=' + id,
     })
   },
   //去优惠买单
-  go_shopCheck: function(){
+  go_shopCheck: function() {
     //判断用户是否登录
     if (wx.getStorageSync('user') == '') {
       util.showError('请您先登陆！')
@@ -294,5 +355,16 @@ Page({
     wx.navigateTo({
       url: '/pages/shop/shop-check/shop-check?shopid=' + this.data.shopid
     })
-  }
+  },
+  imageError: function(e) {
+    console.log(e)
+    if ("error" == e.type) {
+      var defaultImg = this.data.defaultImg;
+      console.log(defaultImg)
+      this.setData({
+        shopImage: defaultImg,
+      });
+    }
+  },
+
 })

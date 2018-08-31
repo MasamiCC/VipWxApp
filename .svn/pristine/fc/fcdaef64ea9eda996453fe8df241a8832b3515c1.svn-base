@@ -1,0 +1,119 @@
+
+<!--首页热评榜  -->
+<view wx:if="{{mode=='great'}}">
+  <view class="item-info" data-index="{{item.shopid}}">
+
+      <view class='info-img' >
+          <image wx:if="{{item.shop_img0}}" lazy-load='true' src="{{imageUrl}}{{item.shop_img0}}" mode='aspectFit' bindtap='_goShop' data-shopId="{{item.shopid}}"></image>
+      </view>
+      <view class="info-wrapper">
+          <!-- <view class="info-content">{{item.resume}}</view> -->
+            <view class="info-scores"><text class="num">评分</text><text class="fig">{{item.scores}}</text></view>
+      </view>
+      <view class="info-desc">
+            <view class="name" bindtap='_goShop' data-shopId="{{item.shopid}}">{{item.shop_name}}</view>
+      </view>
+  </view>
+</view>
+<!--商家搜索  -->
+<view class='itemssearch' wx:elif="{{mode=='search'}}">
+  <view class="itemsearch" data-index="{{item.shopid}}">
+    <view class='searchmain'>
+        <view class='searchshoppic'>
+            <image lazy-load='true' class='searchshoppicconpic' src="{{imageUrl}}{{item.shop_img0}}" mode='aspectFit' bindtap='_goShop' data-shopId="{{item.shopid}}"></image> 
+        </view>
+
+      <view class="info-mian-con">
+          <view class="info-mian">
+            <view class='content_title'>{{item.shop_name}}</view>
+              <view class='content_line'>
+                <view class='disinline redsfont'>好评榜第{{item.good_ranking}}<image class='smallicon' src="/statics/imgs/rzan.png"></image></view>
+                <view class='disinline'>客单{{item.max_price}}元</view>
+              </view>
+            <view  class='content_line'>{{item.city_name}} {{item.area_name}} |  {{km}}km  |  {{item.type0_name}}</view>
+            <block class=''  wx:for="{{item.activitys}}" wx:key="this*"  wx:for-index="idx" wx:for-item="itemcon">
+              <view  class='content_line' wx:if="{{item.activity_2_cnt=='1'}}">
+                <view class='disinline fontsicon'>赠</view>{{itemcon.activity_name}}
+              </view>
+              <view  class='content_line' wx:if="{{item.activity_3_cnt=='1'}}">
+                <view class='disinline fontsicon quanicon'>券</view>{{itemcon.activity_name}}
+              </view>
+              <view  class='content_line' wx:if="{{item.activity_0_cnt=='1'}}">
+                <view class='disinline fontsicon jianicon'>减</view>{{itemcon.activity_name}}
+              </view>
+              <view  class='content_line' wx:if="{{item.activity_1_cnt=='1'}}">
+                <view class='disinline fontsicon zhe'>折</view>{{itemcon.activity_name}}
+              </view>
+            </block>
+          </view>
+      </view>
+  </view>
+  </view>   
+</view>
+<!-- 我的足迹 -->
+<view wx:elif="{{mode=='root'}}">
+  <view class="item-info1" data-index="{{index}}"    style="left:{{item.left + 'rpx'}}">
+  <view class='info-img1' >
+          <image wx:if="{{item.img_1}}"   src="{{imageUrl}}{{item.img_1}}" mode='aspectFit' bindtap='_goShop' data-shopId="{{item.id}}"></image>
+  </view>
+    <view class="info-wrapper1">
+      <view class="info-desc1">
+        <view class="name" bindtap='_goshop' data-shopId="{{item.shopid}}">{{item.shopName}}</view>
+      </view>
+      <view class="info-content1">{{item.resume}}</view>
+      <view class="info-scores1">评分：{{item.scores}}</view>
+    </view>
+  </view>
+  <view class="item-oper">
+    <view class="oper-delete" bindtap="itemDelete" data-index="{{index}}" data-shopId="{{item.shopid}}">取消收藏</view>
+  </view>
+</view>
+<!--商家列表专用  -->
+<view class='itemssearch' wx:elif="{{mode=='shoplist'}}">
+  <view class="itemsearch" data-index="{{item.shopid}}">
+    <view class='searchmain'>
+        <view class='searchshoppic'>
+            <image lazy-load='true' class='searchshoppicconpic' src="{{imageUrl}}{{item.shop_img}}" mode='aspectFit' bindtap='_goShop' data-shopId="{{item.shopid}}"></image> 
+        </view>
+      <view class="info-mian-con">
+          <view class="info-mian">
+            <view class='content_title'>{{item.shop_name}}</view>
+              <view class='content_line'>
+                <view class='disinline redsfont'>好评榜第{{item.good_ranking}}<image class='smallicon' src="/statics/imgs/rzan.png"></image></view>
+                <view class='disinline'>客单{{item.max_price}}元</view>
+              </view>
+            <view  class='content_line'>{{item.city_name}} {{item.area_name}} |{{km}}km  |  {{item.type0_name}}</view>
+            <block class=''  wx:for="{{item.activitys}}" wx:key="this*"  wx:for-index="idx" wx:for-item="itemcon">
+              <view  class='content_line' wx:if="{{item.activity_2_cnt=='1'}}">
+                <view class='disinline fontsicon'>赠</view>{{itemcon.activity_name}}
+              </view>
+              <view  class='content_line' wx:if="{{item.activity_3_cnt=='1'}}">
+                <view class='disinline fontsicon quanicon'>券</view>{{itemcon.activity_name}}
+              </view>
+              <view  class='content_line' wx:if="{{item.activity_0_cnt=='1'}}">
+                <view class='disinline fontsicon jianicon'>减</view>{{itemcon.activity_name}}
+              </view>
+              <view  class='content_line' wx:if="{{item.activity_1_cnt=='1'}}">
+                <view class='disinline fontsicon zhe'>折</view>{{itemcon.activity_name}}
+              </view>
+            </block>
+          </view>
+      </view>
+  </view>
+  </view>   
+</view>
+<!--默认列表  -->
+<view wx:else class='shop-item'>
+  <view class="item-info" data-index="{{item.id}}">
+      <view class='info-img' >
+          <image wx:if="{{item.img_1}}"   src="{{imageUrl}}{{item.img_1}}" mode='aspectFit' bindtap='_goShop' data-shopId="{{item.id}}"></image>
+      </view>
+      <view class="info-wrapper">
+          <view class="info-desc">
+              <view class="name" bindtap='_goShop' data-shopId="{{item.id}}">{{item.shopName}}</view> 
+          </view>
+          <view class="info-content">{{item.resume}}</view>
+            <view class="info-scores">评分：{{item.scores}}</view>
+          </view>
+  </view>
+</view>

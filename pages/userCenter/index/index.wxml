@@ -1,11 +1,16 @@
-<view class='indexmiancon'>
+<!--未登录的页面-->
+<not-login wx:if='{{!isLogin}}'></not-login>
+
+
+<view wx:else class='indexmiancon'>
     <view class='index-header'>
         <view class='index-pic-bg'>
             <image mode="aspectFill" src="/statics/imgs/my_bg@3x.png"></image>
         </view>
         <view class='index-pic-box'>
-            <image mode="aspectFill" src="{{user.headpic_wx}}" class='index-pic' wx:if="{{user.headpic_wx}}"></image>
-            <image mode="aspectFill" src="{{imageUrl}}{{user.headpic}}" class='index-pic' wx:elif="{{user.headpic}}"></image>
+        
+            <!-- <image mode="aspectFill" src="{{user.headpic_wx}}" class='index-pic' wx:if="{{user.headpic_wx}}"></image>  -->
+            <image mode="aspectFill" src="{{imageUrl}}{{user.headpic}}" class='index-pic' wx:if="{{user.headpic}}"></image>
             <view wx:elif="{{user!=''}}" class='img_header'>
               <open-data type="userAvatarUrl"></open-data>
             </view>
@@ -16,7 +21,6 @@
     </view>
     <view class='indexcon'>
         <view class='indexitems'>
-
             <view class='indexitem'>
                 <navigator url="/pages/userCenter/notice/notice" open-type="navigate" hover-class="other-navigator-hover">
                     <view>
@@ -40,7 +44,7 @@
                     <view>
                         <image src='/statics/imgs/my_address@3x.png' mode="aspectFill" class='menu-image'></image>
                     </view>
-                    <view class='indexfont'>设置地址</view>
+                    <view class='indexfont'>我的地址</view>
                 </navigator>
             </view>
 
@@ -68,7 +72,7 @@
                     <view class='indexfont'>我的评价</view>
                 </navigator>
             </view>
-
+            
 
         </view>
 

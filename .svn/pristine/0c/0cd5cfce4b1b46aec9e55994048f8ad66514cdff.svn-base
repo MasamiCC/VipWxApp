@@ -1,0 +1,30 @@
+.attr-view{
+  position: fixed;background: rgba(0, 0, 0, .2);top: 0;bottom: 0;left: 0;right: 0;display: flex;align-items: center;width: 100%;height: 100%;z-index: 5
+}
+.attr-view-c{background: #fff;border-radius: 30rpx;margin: 0 30rpx;flex: 1;padding: 20rpx;font-size: 26rpx;position: relative}
+.attr_font{font-size:35rpx;font-weight: 500;letter-spacing: 3rpx;margin: 5rpx 0;display:inline-block;}
+.attr-item{border: 1px solid #ccc;padding: 10rpx 20rpx;border-radius: 30rpx;margin-right: 10rpx;color: #666;font-size: 26rpx}
+.attr_title{color: #999;font-size: 32rpx;line-height:2;}
+.attr_goodsname{text-align: center;line-height: 1.5}
+.attr-item.active{border-color:#e9d5ab;background: #fff9eb;color: #d4ac57}
+.closs{width: 35rpx;height: 35rpx; position: absolute;top: 20rpx;right: 20rpx;}
+/* 右侧加减 */
+.shop-num{
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+.shop-num>image{
+  padding-top: 32rpx;
+  width: 45rpx;
+  height: 45rpx;
+}
+.shop-num>text{
+  height:110rpx;
+  line-height:110rpx;
+  padding: 0 20rpx;
+  color: #333;
+  font-size: 32rpx;
+}
+.addcart_btn{border-radius: 50rpx;background:rgb(255,156,0);color: #fff }

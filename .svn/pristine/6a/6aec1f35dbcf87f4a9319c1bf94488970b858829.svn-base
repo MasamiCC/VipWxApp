@@ -1,0 +1,128 @@
+    
+
+
+    <view class='couponall comment-item' wx:if="{{mode=='notUsed'}}">
+
+          <view class="item-ans" >
+            <view class="avatar">
+              <view class='firstline fredfont' wx:if="{{'1'==item.coupon_type}}">{{item.value}}<view class='zhefont'>折</view></view>
+              <view class='firstline fredfont' wx:elif="{{'5'==item.coupon_type}}"><view class='zhefont'>体验券</view></view>
+              <view class='firstline fredfont' wx:else><view class='zhefont'>￥</view>{{item.value}}</view>
+            </view>
+            <view class="expertInfo">
+              <view class="name">
+                <view class='shop_name blackshopname'>{{item.name}}</view>
+              </view> 
+              <block>
+                <view class='font' wx:if="{{'1'==item.coupon_type}}">满{{item.coupon_condition}}元可用</view>
+                <view class='font' wx:elif="{{'5'==item.coupon_type}}">{{item.code_no}}</view>
+                <view class='font' wx:else>满{{item.coupon_condition}}元可用</view>
+              </block>
+              <view class="tag">
+               {{item.content}}
+              </view>
+            </view>
+            <view class='button_con'>
+              <view class='button'>
+                  未使用
+              </view>
+            </view>
+       </view>
+       <view class='coupon_bottom'>
+            有效期至： <span>{{endtime}}</span>    
+          </view>
+    </view>
+  
+
+    <view class='couponall comment-item' wx:if="{{mode=='notActivate'}}">
+              <view class="item-ans" >
+                <view class="avatar">
+                  <view class='firstline fredfont' wx:if="{{'1'==item.coupon_type}}">{{item.value}}<view class='zhefont'>折</view></view>
+                  <view class='firstline fredfont' wx:elif="{{'5'==item.coupon_type}}"><view class='zhefont'>体验券</view></view>
+                  <view class='firstline fredfont' wx:else><view class='zhefont'>￥</view>{{item.value}}</view>
+                </view>
+                <view class="expertInfo">
+                  <view class="name">
+                    <view class='shop_name blackshopname'>{{item.name}}</view>
+                  </view> 
+                  <block>
+                    <view class='font' wx:if="{{'1'==item.coupon_type}}">满{{item.coupon_condition}}元可用</view>
+                    <view class='font' wx:elif="{{'5'==item.coupon_type}}">{{item.code_no}}</view>
+                    <view class='font' wx:else>满{{item.coupon_condition}}元可用</view>
+                  </block>
+              <view class="tag">
+               {{item.content}}
+              </view>
+            </view>
+            <view class='button_con'>
+              <view class='button'>
+                  未激活
+              </view>
+            </view>
+          </view>
+          <view class='coupon_bottom'>
+            有效期至： <span>{{endtime}}</span>    
+          </view>
+    </view>
+
+    <view class='couponall comment-item' wx:if="{{mode=='used'}}">
+          <view class="item-ans" >
+            <view class="avatar">
+                  <view class='firstline ' wx:if="{{'1'==item.coupon_type}}">{{item.value}}<view class='zhefont'>折</view></view>
+                  <view class='firstline ' wx:elif="{{'5'==item.coupon_type}}"><view class='zhefont'>体验券</view></view>
+                  <view class='firstline ' wx:else><view class='zhefont'>￥</view>{{item.value}}</view>
+            </view>
+            <view class="expertInfo">
+              <view class="name">
+                <view class='shop_name'>{{item.name}}</view>
+              </view> 
+              <block>
+                    <view class='font' wx:if="{{'1'==item.coupon_type}}">满{{item.coupon_condition}}元可用</view>
+                    <view class='font' wx:elif="{{'5'==item.coupon_type}}">{{item.code_no}}</view>
+                    <view class='font' wx:else>满{{item.coupon_condition}}元可用</view>
+                  </block>
+              <view class="tag">
+               {{item.content}}
+              </view>
+            </view>
+            <view class='button_con'>
+              <view class='button'>
+                  已使用
+              </view>
+            </view>
+          </view>
+          <view class='coupon_bottom'>
+            有效期至： <span>{{endtime}}</span>    
+          </view>
+  </view>
+
+  <view class='couponall comment-item' wx:if="{{mode=='expired'}}">
+        <view class="item-ans" >
+            <view class="avatar">
+                  <view class='firstline ' wx:if="{{'1'==item.coupon_type}}">{{item.value}}<view class='zhefont'>折</view></view>
+                  <view class='firstline ' wx:elif="{{'5'==item.coupon_type}}"><view class='zhefont'>体验券</view></view>
+                  <view class='firstline ' wx:else><view class='zhefont'>￥</view>{{item.value}}</view>
+            </view>
+            <view class="expertInfo">
+              <view class="name">
+                <view class='shop_name'>{{item.name}}</view>
+              </view> 
+              <block>
+                    <view class='font' wx:if="{{'1'==item.coupon_type}}">满{{item.coupon_condition}}元可用</view>
+                    <view class='font' wx:elif="{{'5'==item.coupon_type}}">{{item.code_no}}</view>
+                    <view class='font' wx:else>满{{item.coupon_condition}}元可用</view>
+                  </block>
+              <view class="tag">
+               {{item.content}}
+              </view>
+            </view>
+            <view class='button_con'>
+              <view class='button'>
+                  已过期
+              </view>
+            </view>
+          </view>
+          <view class='coupon_bottom'>
+            有效期至： <span>{{endtime}}</span>    
+          </view>
+  </view>

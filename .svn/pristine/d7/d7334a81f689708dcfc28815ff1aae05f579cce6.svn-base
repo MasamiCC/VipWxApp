@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "order-item": "/pages/Components/order-item/order-item",
+    "not-login": "/pages/Components/not-login/not-login"
+  }
+}

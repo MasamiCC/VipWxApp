@@ -10,13 +10,23 @@ Page({
     user: [],
     imageUrl: App.globalData.imageUrl,
     userWx: wx.getStorageSync('userWx'),
+    isLogin: wx.getStorageSync('isLogin'),
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(wx.getStorageSync('user'))
+  onShow: function (options) {
+
+    this.setData({
+      isLogin: wx.getStorageSync('isLogin')
+    })
+
+    //未登录返回false
+    if (!this.data.isLogin) {
+      return false;
+    }
+    
     this.setData({
       user: wx.getStorageSync('user')
     })

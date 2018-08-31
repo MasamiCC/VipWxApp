@@ -180,6 +180,8 @@ function wxAppLogin(that, callback) {
     if (result.result) {
       wx.setStorageSync("token", result.result)
       wx.setStorageSync("user", result.map.user)
+      //并把登录状态改为true
+      wx.setStorageSync('isLogin', true);
       if(callback){
         callback(0)
       }

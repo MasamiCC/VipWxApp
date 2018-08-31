@@ -1,0 +1,6 @@
+<!--pages/shop/shop-image.wxml-->
+<view class='img_box'>
+    <view class='imgs'  >
+        <image  wx:for="{{item.url}}" wx:key="url" bindtap='show_simg' data-src="{{imgUrl}}{{item}}" src='{{imgUrl}}{{item}}' mode='aspectFill'></image>
+    </view>
+</view>

@@ -1,0 +1,39 @@
+<!--pages/userCenter/bindMobile/bingUnbind.wxml-->
+<!--pages/userCenter/bindMobile/binding.wxml-->
+<view class='bing_all'>
+  <view class='bing_ts'>
+     <view ><image class='bing_ts_img' src='/statics/imgs/binding/Untie@3x.png'></image></view>
+    <view class='bing_ts_txt'><span>更换绑定后,将无法使用原手机号登录</span></view>
+  </view>
+  <view class='bing_form'>
+    <view class='bing_form_region'>
+      <span>
+        <view class='region'>国家和地区</view>
+        <view class='region_msg'>中国</view>
+      </span>
+    </view>
+    <view class='bing_form_phone'>
+      <span>
+        <view class='phoneNum'>+86</view>
+        <input class='inputMsg'  value="{{newPhone}}" placeholder-style="font-size:30rpx;text-align:right;" type='num' placeholder="新的手机号" bindinput="bindKeyInput" id="mobile"></input>
+      </span>
+    </view>
+    <!-- 输入原密码 -->
+    <view class='bing_form_password'>
+      <span>
+        <view class='region'>原密码</view>
+        <input class='inputMsg' value="{{password}}" placeholder-style="font-size:20rpx;text-align:right;" type='password' placeholder="如无设置密码，请输默认密码：123456" bindinput="bindKeyInput" id="password"/>
+      </span>
+    </view>
+    <view class='bing_form_code' style=' border-bottom: 1rpx solid #f7f7f7;'>
+      <span>
+        <input class='codeMsg' maxlength="6" id='yzm' bindinput="codemsg" placeholder="请输入短信验证码" placeholder-style="font-size:30rpx" type='number'></input>
+        <button disabled='{{disabled}}' plain='true' size='mini' class='codeBtn' style='font-size:25rpx; border:0.5rpx solid #f1f1f1;' bindtap="countDown">{{time}}</button>
+      </span>
+    </view>    
+  </view>
+  <view class='bing_btn' style='margin-top:50rpx'>
+    <button style='boder-radius:999rpx' bindtap="bindBtn" class='submitBtn'>更换绑定</button>
+  </view>
+</view>
+

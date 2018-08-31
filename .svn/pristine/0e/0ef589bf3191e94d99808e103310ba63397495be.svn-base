@@ -1,0 +1,18 @@
+<!-- <view wx:for="{{lists}}" wx:key="list">
+  {{item.shopid}}--{{item.shop_name}}
+</view> -->
+
+  <view class='continer'>
+  <!-- 遍历排名数据 -->
+  <view class='title'>美食</view>
+  <view wx:for="{{lists}}" wx:key="index" wx:for-item="item">
+    <shop-item item="{{item}}" mode="shoplist"></shop-item>
+  </view>
+
+  <!-- 没有数据样式 -->
+  <view wx:if="{{!hasData}}" class='prompt'>
+    <view class='line'></view>
+    <text>没有数据了</text>
+    <view class='line'></view>
+  </view>
+</view>

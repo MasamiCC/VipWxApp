@@ -1,0 +1,30 @@
+<!--pages/userCenter/commentDetails/commentDetails.wxml-->
+<view class='allComments'>
+  <view class='comment' wx:for="{{item}}" wx:key="key">
+    <view class='comment_top'>
+      <image class='img' src="{{imageUrl}}{{user.pickName||user.headpic}}" ></image>
+      <view class='txt_box'>
+        <text class='name'>{{user.mobile}}</text>
+        <text class='time'>{{item.createtime}}</text>
+      </view>
+      <view class='star'>
+        <shop-star class='star' style="pointer-events: none;" alignFlg="center" scores="{{item.level}}" size="35" total="5" edit="true"></shop-star>
+      </view>
+    </view>
+    <view class='comment_txt'>
+      <text  wx:if="{{item.comment}}">{{item.comment}}</text>
+      <text wx:else class='g_comment'>系统默认好评</text>
+    </view>
+    <view class='comment_img'>
+      <image wx:if="{{item.image}}" bindtap='previewImg' data-src="{{imageUrl}}{{item.image}}" src='{{imageUrl}}{{item.image}}'></image>
+      <image wx:if="{{item.image1}}" bindtap='previewImg' data-src="{{imageUrl}}{{item.image1}}" src='{{imageUrl}}{{item.image1}}'></image>
+      <image wx:if="{{item.image2}}" bindtap='previewImg' data-src="{{imageUrl}}{{item.image2}}" src='{{imageUrl}}{{item.image2}}'></image>
+      <image wx:if="{{item.image3}}" bindtap='previewImg' data-src="{{imageUrl}}{{item.image3}}" src='{{imageUrl}}{{item.image3}}'></image>
+    </view>
+    <view class='shop_Bottom'>
+      <image class='shop_Img' src='{{imageUrl}}{{item.shopimage}}'></image>
+      <text class='shop_Name'>{{item.shop_name}}</text>
+      <text class='shop_Goods'>{{item.goods_name[0]}} <text wx:if="{{item.goods_name.length>1}}">等{{item.goods_name.length}}件商品</text></text>
+    </view>
+  </view>
+</view>

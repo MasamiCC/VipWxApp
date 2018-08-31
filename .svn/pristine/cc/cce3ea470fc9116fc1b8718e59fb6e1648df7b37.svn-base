@@ -1,0 +1,110 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.3",
+	"appid": "wxc0ad9437802c582a",
+	"projectname": "VipWxApp",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 6,
+			"list": [
+				{
+					"id": 0,
+					"name": "点餐功能",
+					"pathName": "pages/shop/shop-diandan/shop-diandan",
+					"query": "shopid=10664",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "vykt5iipC-SXX9w3P28DAEQsDEBsiyh7fRm6277qBSg@cr4dev",
+						"shareKey": "P3cH2tBphCUJhFp74IvPo5M3x-wCWfNJMAIw7f1Hy7Tg4mpQ9pkc46tgK6slpde0eXOKrPqmtabWzwkt_NhE2A~~"
+					}
+				},
+				{
+					"id": 1,
+					"name": "新点餐者加入",
+					"pathName": "pages/shop/shop-diandan/shop-diandan",
+					"query": "shopid=10691&foodid=10691:7851:1",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "wRN1Z3FVspoYTDvDK37yQtaBSbNdfdgoqhmw4Pls3nQ@cr4dev",
+						"shareKey": "ih8pgT-aM7CEsl35UiVbbNiMI0QaSF7ts3L-C0v_MdPKm8jR40TfmsYL0lCSNvFk8PPkuqVlgRE8asAMUaGwYg~~"
+					}
+				},
+				{
+					"id": 2,
+					"name": "订单列表页",
+					"pathName": "pages/orderList/orderList",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "vykt5iipC-SXX9w3P28DAEQsDEBsiyh7fRm6277qBSg@cr4dev",
+						"shareKey": "gz0EY5UsvcOgwEXKeE8PZKcUMu48OWutFgK0zNV8_FUQouB4aLPJLWKdl1grsAghy3uZA-rJm4Lw4wTPAaLC7w~~"
+					}
+				},
+				{
+					"id": 3,
+					"name": "新用户绑定",
+					"pathName": "pages/userCenter/bindMobile/bindPhone/bindPhone",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "vykt5iipC-SXX9w3P28DAEQsDEBsiyh7fRm6277qBSg@cr4dev",
+						"shareKey": "P3cH2tBphCUJhFp74IvPo5M3x-wCWfNJMAIw7f1Hy7Tg4mpQ9pkc46tgK6slpde0eXOKrPqmtabWzwkt_NhE2A~~"
+					}
+				},
+				{
+					"id": 4,
+					"name": "支付成功",
+					"pathName": "pages/order/payPrompt/paySuccess",
+					"query": "order_no=1123221&pay=2222",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "vykt5iipC-SXX9w3P28DAEQsDEBsiyh7fRm6277qBSg@cr4dev",
+						"shareKey": "P3cH2tBphCUJhFp74IvPo5M3x-wCWfNJMAIw7f1Hy7Tg4mpQ9pkc46tgK6slpde0eXOKrPqmtabWzwkt_NhE2A~~"
+					}
+				},
+				{
+					"id": -1,
+					"name": "提交订单",
+					"pathName": "pages/order/subOrder/subOrder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "绑定页面",
+					"pathName": "pages/userCenter/bindMobile/bindPhone/bindPhone",
+					"query": ""
+				}
+			]
+		}
+	}
+}

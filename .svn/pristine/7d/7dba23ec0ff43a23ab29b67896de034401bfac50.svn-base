@@ -1,0 +1,11 @@
+<!--pages/index/alltype/alltype.wxml-->
+<block>
+  <view>
+    <view class="alltype_list"  wx:for="{{hotType}}" wx:key="item" bindtap='_goType' data-typeid='{{item.typeid}}' data-type_name='{{item.type_name}}'>
+      <view class='orangebackground'>
+          <view class='typefont'>{{item.type_name}}</view>
+          <view class='go_button'><image class='go_button_img' src='/statics/imgs/rightgo.png'></image></view>
+      </view>
+    </view>
+  </view>
+</block>

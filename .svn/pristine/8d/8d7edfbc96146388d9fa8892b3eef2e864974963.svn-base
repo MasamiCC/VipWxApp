@@ -1,0 +1,23 @@
+<!-- <view wx:for="{{lists}}" wx:key="list">
+  {{item.shopid}}--{{item.shop_name}}
+</view> -->
+
+  <view class='continer'>
+  <!-- 遍历排名数据 -->
+  <!-- <block>
+    <view wx:if='{{typeid=="1000112"}}' class='title'>西餐</view>
+    <view wx:elif='{{typeid=="1000111"}}' class='title'>中餐</view>
+    <view wx:elif='{{typeid=="1000121"}}' class='title'>咖啡</view>
+    <view wx:else class='title'>其他美食</view>
+  </block> -->
+  <view wx:for="{{lists}}" wx:key="index" wx:for-item="item">
+    <shop-item item="{{item}}" mode="shoplist"></shop-item>
+  </view>
+
+  <!-- 没有数据样式 -->
+  <view wx:if="{{!hasData}}" class='prompt'>
+    <view class='line'></view>
+    <text>没有数据了</text>
+    <view class='line'></view>
+  </view>
+</view>

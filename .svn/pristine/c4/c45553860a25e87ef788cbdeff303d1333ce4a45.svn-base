@@ -1,0 +1,155 @@
+// pages/Components/search/search.js
+const App = getApp();
+const network = require("../../../utils/network.js")
+
+var WxParse = require('../../../wxParse/wxParse.js');
+
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    showTitle: {
+      type: Object,
+      value: {}
+    },
+    showHot: {
+      type: Object,
+      value: {},
+    },
+    showStroage: {
+      type: Object,
+      value: {},
+    }
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+    keySearchUrl: 'search/searchKeywordsHint',
+    searching: false,
+    keywordList: [],
+    searchList: [],
+    hotSearchList: [],
+    historyList: [],
+    keywords: ''
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    _bindinput(event) {
+      var that = this;
+      var keywords = event.detail.value;
+      var city_id = wx.getStorageSync('location').cityObj.city_id;
+      network.request(this.data.keySearchUrl + "?keywords=" + keywords + "&city_id=" + city_id, null, res => {
+        if (res.success) {
+          var list = res.result;
+          var keyWordsArr = [];
+          for (var i in list) {
+            var parseName = list[i]['name'].replace(keywords, '<text style="color:#f8a120;display：inline-block">' + keywords + "</text>")
+            parseName = '<div class="search-item" style="font-size:26rpx">' + parseName + '</div>'
+            keyWordsArr.push(parseName);
+          }
+          if (keyWordsArr.length > 0) {
+            for (let j = 0; j < keyWordsArr.length; j++) {
+              WxParse.wxParse('keyWords' + j, 'html', keyWordsArr[j], that);
+              if (j === keyWordsArr.length - 1) {
+                WxParse.wxParseTemArray("keyWordsArray", 'keyWords', keyWordsArr.length, that)
+              }
+            }
+          } else {
+            that.setData({
+              keyWordsArray: [],
+            })
+          }
+          console.log(this.data)
+          that.setData({
+            keywordList: list,
+            searching: true
+          })
+        } else {
+          that.setData({
+            searching: false
+          })
+        }
+      }, res => {
+
+      }, "处理中")
+    },
+    // 获取热门搜索
+    getHotSearch() {
+      var that = this;
+      var city_id = wx.getStorageSync('location').cityObj.city_id;
+      // 请求数据
+      network.requestLoading("search/hotKeywords?num=10&city_id=" + city_id, null, res => {
+        if (res.success) {
+          that.setData({
+            hotSearchList: res.result
+          })
+        }
+      }, res => {
+
+      }, "处理中")
+    },
+    searchShop(event) {
+      var that = this;
+      console.log(event.currentTarget.dataset.ids)
+      var keywords = event.target.dataset.keywords || this.data.keywordList[event.currentTarget.dataset.ids].name;
+
+      var city_id = wx.getStorageSync('location').cityObj.city_id;
+      var map_point = wx.getStorageSync('location').locationOther;
+      network.requestLoading("search/shop?keywords=" + keywords + "&city_id=" + city_id + "&map_point=" + map_point, null, res => {
+        if (res.success) {
+          console.log(res)
+          var historyList = wx.getStorageSync('historyList') || [];
+          if (historyList != []) {
+            for (var i in historyList) {
+              if (historyList[i] == keywords) {
+                historyList.splice(i, 1)
+              }
+            }
+          }
+          historyList.unshift(keywords)
+          wx.setStorageSync('historyList', historyList)
+          //判断是否存在res.result.items
+          if (res.result.items.length == 0){
+            wx.showToast({
+              title: '该商户暂未登陆微信端',
+              icon: 'none',
+              duration: 2000
+            })
+          }else{
+            that.setData({
+              searchList: res.result.items,
+              historyList: historyList,
+            })
+          }
+        }
+      }, res => {
+
+      }, "处理中")
+    },
+    loadhistoryList() {
+      this.setData({
+        historyList: wx.getStorageSync('historyList'),
+      })
+    },
+    _clearSearch() {
+      this.setData({
+        searchList: [],
+        keywordList: [],
+        searching: false,
+        keywords: ''
+      })
+    }
+  },
+  // 组件加载完成执行函数
+  ready: function() {
+    this.getHotSearch();
+    this.loadhistoryList()
+  }
+
+})

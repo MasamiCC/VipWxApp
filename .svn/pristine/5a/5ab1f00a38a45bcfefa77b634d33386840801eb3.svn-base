@@ -1,0 +1,60 @@
+<view class='attr-view' wx:if="{{attrShow}}" >
+  <view class='attr-view-c'>
+     <view class='attr_goodsname' class='attr_font'>{{goodsName}}</view> 
+    <!--一级规格循环  -->
+    <view class='attr-view-i'>
+      <view class='attr_title'>规格一</view>
+      <view class=''>
+        <block wx:for="{{attrDatas}}" wx:key="attr1" wx:for-item="itemName">
+          <text  
+            bindtap='{{itemName.id==attrsid?"":"attrTap"}}' 
+            data-attr="{{itemName.specs}}" 
+            data-id="{{itemName.id}}" 
+            data-name="{{itemName.name}}{{itemName.specs?',':''}}{{itemName.specs?itemName.specs[0].name:''}}" 
+            class='attr-item {{itemName.id==attrsid?"active":""}}' 
+            data-price="{{itemName.specs.length>0?itemName.specs[0].price:itemName.price}}"
+            data-flg='0'
+            style='border: 1px solid #ccc;padding: 10rpx 20rpx;border-radius: 30rpx;margin-right: 10rpx;color: #666;font-size: 26rpx}'
+          > {{itemName.name}} </text>
+          
+        </block>
+      </view>
+    </view>
+    <!--二级规格循环  -->
+    <view  class='attr-view-i' wx:if="{{attrs2.length>0}}">
+      <view class='attr_title'>规格二</view>
+      <view wx:for="{{attrDatas}}" wx:key="*this" wx:if="{{item.id==attrsid}}"> 
+        <text 
+        wx:for="{{item.specs}}" 
+        wx:key="attr2"  
+        wx:for-item="itemName" 
+        class='attr-item {{itemName.id==attrs2id?"active":""}}' 
+        bindtap='{{itemName.id==attrs2id?"":"attrTap"}}' 
+        data-id="{{itemName.id}}" 
+        data-name="{{item.name}},{{itemName.name}}" 
+        data-price="{{itemName.price}}"
+        data-flg='1'
+        > {{itemName.name}}</text>
+      </view>
+    </view>
+    <text class='attr_font'>{{attr}}{{price}}</text>
+    <!--加入购物车  -->
+    <view class='attr-view-i '>
+      <view class='attr_title'>数量</view>
+      <view class="shop-num" >
+        <!-- 减号 -->
+        <image bindtap='{{num>0?"_cartChange":""}}' src='/statics/imgs/shopCart-jian.png' data-type="mins" ></image>
+        <!-- 数值 -->
+        <text>{{num}}</text>
+        <!-- 加号 -->
+        <image bindtap='_cartChange' src='/statics/imgs/shopCart-jia.png' data-type="plus" ></image>
+      </view>
+    </view>
+
+    <view>
+      <button bindtap='addCart' class='addcart_btn'>加入购物车</button>
+    </view>
+    <image src='/statics/imgs/closs.png' class='closs' bindtap='closs'></image>
+  </view>
+  
+</view>

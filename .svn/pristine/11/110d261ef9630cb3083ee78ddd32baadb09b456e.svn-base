@@ -1,0 +1,47 @@
+<!--已评价  -->
+<template name="mycomments">
+  <view class='allComments'>
+    <view class='comment'>
+      <view class='comment_top'>
+         <image class='img' src="{{imageUrl}}{{shopImage}}"></image> 
+          <view class='txt_box'>
+            <text class='title'>{{shopName}} <text class="arrowUp" style='margin-left:20rpx;'></text></text>
+            <text class='time'>{{createTime}}</text>
+          </view>
+          <view class='btn_box'>
+            <button bindtap='look_comment' size='mini' class='btn' style='line-height: 55rpx;padding:0px;'>查看评价</button>
+          </view>
+      </view>
+      <view class='comment_bottom'>
+        <text class='name' wx-for="{{goodsnameArray}}" >{{goodsnameArray[0]}}<text wx:if="{{goodsnameArray.length >1}}"> 等{{goodsnameArray.length}}件商品</text></text>
+        <text class='money'>实付款:  ￥{{pay}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+<!--待评价-->
+<template name="unComments">
+  <view class='allComments'>
+    <view class='comment'>
+      <view class='comment_top'>
+         <image class='img' src="{{imageUrl}}{{shop_logo}}"></image> 
+          <view class='txt_box'>
+            <text class='title'>{{shop_name}} <text class="arrowUp" style='margin-left:20rpx;'></text></text>
+            <text class='time'>{{time}}</text>
+          </view>
+          <view class='btn_box'>        
+            <button bindtap='go_comment' size='mini' class='btn' style='line-height: 55rpx;padding:0px;'>去评价</button>
+          </view>
+      </view>
+      <view class='comment_bottom'>
+        <text class='name' wx-for="{{goods_name_list}}" >{{goods_name_list[0]}}<text wx:if="{{goods_name_list.length>1}}"> 等{{goods_name_list.length}}件商品</text></text>
+        <text class='money'>实付款:  ￥{{pay_money}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+
+
+<template is="unComments" data="{{...item,imageUrl,time}}" wx:if="{{mode=='unComments'}}"></template>
+<template is="mycomments" data="{{...item,imageUrl,time}}" wx:if="{{mode=='mycomments'}}"></template>

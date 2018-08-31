@@ -15,7 +15,7 @@ Page({
     btnMsg:'获取验证码',
     mobileFlg:false,
     code:'',
-    count:30,
+    count:60,
     clickFlg:false,
   },
 
@@ -61,7 +61,7 @@ Page({
     var that=this;
     var count = that.data.count;
     that.setData({
-      btnMsg:'30秒后重试'
+      btnMsg:'60秒后重试'
     })
     timer = setInterval(function () {
       count--;
@@ -72,7 +72,7 @@ Page({
         clearInterval(timer)
         that.setData({
           btnMsg: '获取验证码',
-          count: 10,
+          count: 60,
           clickFlg: false,
         })
       }
@@ -113,7 +113,7 @@ Page({
       return;
     }
     if(!util.isYzm(yzm)){
-      util.showError('验证码格式不正确!')
+      util.showError('请输入正确验证码!')
       return
     }
     console.info(location)

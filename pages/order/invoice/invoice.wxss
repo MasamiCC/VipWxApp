@@ -1,0 +1,119 @@
+/* pages/order/remark/remark.wxss */
+page{
+  height: 100%;
+}
+
+.nav{
+  border-top: 1px solid #c7c7c7;
+  font-size: 28rpx;
+  min-height: 100%;
+  background-color: #fafafa;
+  padding: 30rpx;
+}
+
+/*备注*/
+.remark_content{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  position: relative
+}
+
+.cancel_text{
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.font_num{
+  position: absolute;
+  right: 40rpx;
+  bottom: 40rpx; 
+  color: #4f4e4e;
+}
+
+/*发票*/
+.invoice_area{
+  margin-top: 30rpx;
+  overflow: hidden;
+}
+
+/*头部切换区域*/
+.invoice_change{
+  overflow: hidden;
+  border-bottom: 1px solid #e2e2e2;
+  width: 100%;
+}
+
+.invoice_change > view{
+  width: 50%;
+  height: 90rpx;
+  line-height: 90rpx;
+  float: left;
+  text-align: center;
+  font-size: 30rpx;
+  background-color: #ffffff;
+}
+
+.invoice_change > view.active{
+  background: -moz-linear-gradient(top, #f8a120, #ffc613);
+	background: -o-linear-gradient(top,#f8a120, #ffc613);
+	background: -webkit-gradient(linear, 100% 100%, 0% 100%, from(#f8a120), to(#ffc613));
+  color: #ffffff;  
+}
+
+.invoice_change > view:first-child{
+  border-radius: 20rpx 0 0 0;
+}
+
+.invoice_change > view:last-child{
+  border-radius: 0 20rpx 0 0;
+}
+
+/*内容区域*/
+.invoice_content{
+  padding: 0 20rpx;
+  display:block;
+}
+
+.invoice_content{
+  min-height: 500rpx;
+  padding-bottom: 50rpx;
+  background-color: #ffffff;
+}
+
+.invoice_content .line{
+  border-bottom: 1px solid #e2e2e2;
+  overflow: hidden;
+  padding: 20rpx 0;
+}
+
+.radio_line{
+  float: left;
+  margin: 0 20rpx;
+}
+
+.invoice_content .line > input{
+  padding-left: 30rpx;
+}
+
+/*保存按钮*/
+.btn-area{
+  margin-top: 50rpx;
+}
+
+.btn-area > button{
+  width: 50%;
+  height: 100%;
+  line-height: 50px;
+  color: #fff;
+  font-size: 36rpx;
+  text-align: center;
+  background: -moz-linear-gradient(top, #f8a120, #ffc613);
+	background: -o-linear-gradient(top,#f8a120, #ffc613);
+	background: -webkit-gradient(linear, 100% 100%, 0% 100%, from(#f8a120), to(#ffc613));  
+  border-radius: 50rpx;
+  border: 0;
+}

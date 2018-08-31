@@ -1,0 +1,95 @@
+/* pages/orderList/orderList.wxss */
+page{
+  height: 100%;
+  overflow: hidden;
+}
+
+.order_list_nav{
+  height: 100%;
+  overflow: hidden;
+}
+
+/*顶部切换区域*/
+
+.swith_orderList {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background-color: #fff;
+  font-size: 16px;
+  white-space: nowrap;
+  z-index: 99;
+}
+
+.order-item{
+  margin: 0 60rpx;
+  display: inline-block;
+}
+
+.order-item.active {
+  color: #d4ac57;
+  position: relative;
+}
+
+.order-item.active:after {
+  content: "";
+  display: block;
+  height: 8rpx;
+  width: 100%;
+  background: #d4ac57;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 16rpx;
+}
+
+/*切换内容区域*/
+.scroll_wrap{
+  height: 101%;
+}
+
+.tab-content{
+  height: calc(100% - 79rpx);
+}
+
+.order_content{
+  background:#f4f4f4;
+  box-sizing: border-box;
+  padding: 30rpx 0rpx;
+  overflow-y: auto;
+}
+
+/*没有数据*/
+.no_data{
+  text-align: center;
+  padding-top: 200rpx;
+}
+
+.no_data > text{
+  font-size: 32rpx;
+
+}
+
+/*更新提示*/
+.prompt{
+  margin: 15rpx 0;
+  font-size: 24rpx; 
+  color: #c7c7c7;
+  text-align: center;
+  display: flex;
+  height: 30rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.prompt .line{
+  height: 1px;
+  background-color: #c7c7c7;
+  flex-grow: 2;
+}
+
+.prompt text{
+  margin: 0 20rpx;
+}

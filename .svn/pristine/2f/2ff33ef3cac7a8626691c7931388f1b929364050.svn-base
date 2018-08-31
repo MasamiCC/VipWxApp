@@ -1,0 +1,57 @@
+<!-- <import src="../../../wxParse/wxParse.wxml"/>  -->
+<view class='search'>
+  <!--顶部  -->
+  <view class='search_top'>
+    <view class='search_top_left'>
+      <image src="/statics/imgs/ic_search.png"></image>
+      <text>搜索</text>
+    </view>
+    <!-- <view class='search_top_right'>搜索</view> -->
+  </view>
+  <!-- 输入框 -->
+  <view>
+    <form>
+      <view class="section">
+        <input name="keywords" type='text' placeholder="请输入商户名" confirm-type='search' bindinput="_bindinput"  bindfocus="_clearSearch" value='{{keywords}}'/>
+        <icon type="clear" size="20" color="#ccc" class='ic_clear' bindtap='_clearSearch'/>
+      </view>
+    </form>
+  </view>
+  <view wx:if="{{searchList==''}}">
+    <!--热门搜索  -->
+    <view class='search_hot'>
+      <view class='search_title'>热门搜索</view>
+      <view class='search_list'>
+        <view wx:for="{{hotSearchList}}" class='secrch_tab'  wx:key="{{index}}" bindtap='searchShop' data-keywords="{{item}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+    <!--历史搜索  -->
+    <view class='search_history'>
+        <view class='search_title'>历史搜索</view>
+        <view class='search_list'>
+          <text wx:for="{{historyList}}" class='secrch_tab'  wx:key="key" bindtap='searchShop' data-keywords="{{item}}">{{item}}</text>
+        </view>
+    </view>
+    <!--关键词匹配  -->
+    <view class='search_keywords'  wx:if="{{searching}}">
+      <scroll-view >
+        <block wx:for="{{keyWordsArray}}" wx:key="">
+          <view class='keywordline' bindtap='searchShop' data-ids="{{index}}"> 
+            <template is="wxParse" data="{{wxParseData:item}}"  />
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <!--搜索结果  -->
+  <view wx:else class='search_result'>
+    <scroll-view >
+      <block wx:for="{{searchList}}" wx:key="">
+         <shop-item item="{{item}}" mode="search"></shop-item>
+      </block>
+    </scroll-view>
+  </view>
+  
+</view>
