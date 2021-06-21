@@ -32,6 +32,7 @@ Page({
     })
   },
   _mobileClick() {
+    console.log('test');
     if (wx.getStorageSync('user').mobile) {
       wx.navigateTo({
         url: '/pages/userCenter/bindMobile/unbindPhone/unbindPhone',
